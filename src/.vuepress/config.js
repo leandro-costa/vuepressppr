@@ -8,11 +8,11 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Programação Orientada a Objetos',
+  title: 'Padrões de Projetos',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: 'Material para as aulas da disciplina de Programação Orientada a Objetos',
+  description: 'Material para as aulas da disciplina de Padrões de Projetos',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`

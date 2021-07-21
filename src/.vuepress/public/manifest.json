@@ -4,8 +4,8 @@
     "display": "standalone",
     "scope": "/vuepressppr/",
     "start_url": "/vuepressppr/",
-    "name": "POO",
-    "short_name": "POO",
+    "name": "Padrões de Projetos",
+    "short_name": "IFBA SAJ PPR",
     "description": "Material de Aula",
     "icons": [
         {
