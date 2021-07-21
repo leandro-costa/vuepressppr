@@ -27,23 +27,23 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "01_padroes.html",
-    "revision": "f937c6512b432d60f175c836b7d67e49"
+    "revision": "080f3546ad92c97776188e7ed14e8705"
   },
   {
     "url": "02_SOLID.html",
-    "revision": "548c08b61b363c2477748948bc3425ac"
+    "revision": "505e89b4f0b086b26be65fcdf9b23fc0"
   },
   {
     "url": "03_GOF.html",
-    "revision": "acba6243958bbfd7099f2db689e54c69"
+    "revision": "7302fea458d420f41fee6c496d713eaa"
   },
   {
     "url": "04_nao_GOF.html",
-    "revision": "575f7cfe8301b3224f5266f497f75bac"
+    "revision": "9dcb63cdfce7b1838c5a4ca6c9b21efe"
   },
   {
     "url": "404.html",
-    "revision": "b7630cc5d7c1f75d2ab79c1074e9ed03"
+    "revision": "b3e55ea91209d9159de01a54a127323b"
   },
   {
     "url": "assets/css/0.styles.716e4c57.css",
@@ -114,8 +114,8 @@ self.__precacheManifest = [
     "revision": "996bd046cde3a0cfeb0c1692ef54de57"
   },
   {
-    "url": "assets/js/app.ca0b1bdb.js",
-    "revision": "9faead0ab87912bc7037036d0d710b66"
+    "url": "assets/js/app.c4b498ca.js",
+    "revision": "700635eb057ac2cd8fbbd17379c1d44d"
   },
   {
     "url": "icon-192x192.png",
@@ -135,7 +135,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "5188cc99dc9827c2e2f66c46c0ee1d4a"
+    "revision": "1f1025477eabcf88d4299f691af67bbc"
   },
   {
     "url": "logo.png",
