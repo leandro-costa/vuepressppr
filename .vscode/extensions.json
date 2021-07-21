@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+      "ms-ceintl.vscode-language-pack-pt-br",
+      "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+      "hbrok.markdown-preview-bitbucket", 
+      "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+      "bierner.markdown-mermaid",
+      "jebbs.markdown-extended",
+      "tomoki1207.pdf",
+      "goessner.mdmath",
+      "jebbs.plantuml", 
+      "ritwickdey.liveserver"
+    ]
+  }

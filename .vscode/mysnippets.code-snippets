@@ -1,0 +1,177 @@
+{
+    // Place your workspace markdown_presentation_vscode snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+    // Placeholders with the same ids are connected.
+    // Example:
+    "details to collapse": {
+        "prefix": "det",
+        "body": [
+            "<details open>",
+            "<summary>Exemplo Fluxo</summary>",
+            "",
+            "```plantuml",
+            "@startuml",
+            "digraph G {",
+            "     //graph [rankdir=LR nodesep=0.5 ranksep=0.5];",
+            "     graph [nodesep=0.5 ranksep=0.5];",
+            "",
+            "     ini[shape=ellipse label=\"In\\ício\"  style=filled fillcolor=\"navy\" fontcolor=\"white\"];",
+            "     Nota1Nota2Nota3[shape=invtrapezium label=\"Nota1,Nota2,Nota3\" style=filled fillcolor=\"cornflowerblue\" fontcolor=\"white\"];",
+            "     media[shape=box label=\"media<-(Nota1+Nota2+Nota3)/3\" style=filled fillcolor=\"steelblue\" fontcolor=\"white\"];",
+            "     testemediaap[shape=diamond label=\"Media >= 7\" style=filled fillcolor=\"darkorange\" fontcolor=\"white\"];",
+            "     testemediarp[shape=diamond label=\"Media < 5\" style=filled fillcolor=\"darkorange\" fontcolor=\"white\"];",
+            "     apro[shape=parallelogram label=\"Aluno passado por média\" style=filled fillcolor=\"forestgreen\" fontcolor=\"white\"];",
+            "     reco[shape=parallelogram label=\"10-media+2\" style=filled fillcolor=\"forestgreen\" fontcolor=\"white\"];",
+            "     final[shape=parallelogram label=\"10-media\" style=filled fillcolor=\"forestgreen\" fontcolor=\"white\"];",
+            "     joinrepo,joinap[shape=circle label=\"\" style=filled fillcolor=\"navy\" fontcolor=\"white\"  width=.3 fixedsize=true ];",
+            "     fim[shape=ellipse label=\"Fim\"  style=filled fillcolor=\"navy\" fontcolor=\"white\"];",
+            "     ",
+            "     ini->Nota1Nota2Nota3->media->testemediaap",
+            "     testemediaap:e->apro[label=Sim]",
+            "     apro->joinap",
+            "     testemediaap:w->testemediarp[label=Não]",
+            "     testemediarp:w->reco[label=Sim]",
+            "     testemediarp->final[label=Não]",
+            "     {reco,final}->joinrepo",
+            "     joinrepo->joinap->fim",
+            "}",
+            "@enduml",
+            "```",
+            "</details> ",
+        ],
+        "description": "details"
+    },
+    "fluxograma item inicio": {
+        "prefix": "fini",
+        "body": [
+            "$1[shape=ellipse label=\"In\\ício\" style=filled fillcolor=\"navy\" fontcolor=\"white\"];"
+        ],
+        "description": "details"
+    },
+    "fluxograma item fim": {
+        "prefix": "ffim",
+        "body": [
+            "$1[shape=ellipse label=\"Fim\" style=filled fillcolor=\"navy\" fontcolor=\"white\"];"
+        ],
+        "description": "details"
+    },
+    "fluxograma item entrada": {
+        "prefix": "fent",
+        "body": [
+            "$1[shape=invtrapezium label=\"$2\" style=filled fillcolor=\"cornflowerblue\" fontcolor=\"white\"];"
+        ],
+        "description": "details"
+    },
+    "fluxograma item saida": {
+        "prefix": "fsai",
+        "body": [
+            "$1[shape=parallelogram label=\"$2\" style=filled fillcolor=\"forestgreen\" fontcolor=\"white\"];"
+        ],
+        "description": "details"
+    },
+    "fluxograma item condicional": {
+        "prefix": "fse",
+        "body": [
+            "$1[shape=diamond label=\"$2\" style=filled fillcolor=\"darkorange\" fontcolor=\"white\"];",
+            "$1join[shape=circle label=\"\" style=filled fillcolor=\"navy\" fontcolor=\"white\"  width=.3 fixedsize=true ];"
+        ],
+        "description": "details"
+    },
+    "fluxograma item join": {
+        "prefix": "fjoin",
+        "body": [
+            "$1[shape=circle label=\"\" style=filled fillcolor=\"navy\" fontcolor=\"white\"  width=.3 fixedsize=true ];"
+        ],
+        "description": "details"
+    },
+    "fluxograma item processo": {
+        "prefix": "fpro",
+        "body": [
+            "$1[shape=box label=\"$2\" style=filled fillcolor=\"steelblue\" fontcolor=\"white\"];",
+        ],
+        "description": "details"
+    },
+    "ngraphviz": {
+        "prefix": "ng",
+        "body": [
+            "",
+            "```plantuml",
+            "@startuml",
+            "digraph G {",
+            "    $1",
+            "}",
+            "@enduml",
+            "```",
+            ""
+        ],
+        "description": "new graphviz"
+    },
+    "pagebreak": {
+        "prefix": "pb",
+        "body": [
+            "<hr class=\"pagebreak\"/>"
+        ],
+        "description": "page-break-after"
+    },
+    "img": {
+        "prefix": "img",
+        "body": [
+            "<img src=\"http://127.0.0.1:5500/img/$1.png\" style=\"max-width:200px;max-height:200px\">"
+        ],
+        "description": "imagem via live server"
+    },
+    "zoom": {
+        "prefix": "zoom",
+        "body": [
+            "<div style=\"zoom:90%\">",
+            "",
+            "</div>"
+        ],
+        "description": "div para reduzir zoom"
+    },
+    "icon": {
+        "prefix": "icon",
+        "body": [
+            "<img src=\"http://127.0.0.1:5500/img/icon_$1.svg\" style=\"max-width:20px;display:inline\">"
+        ],
+        "description": "imagem via live server"
+    },
+    "figure": {
+        "prefix": "figure",
+        "body": [
+            "<figure>",
+            "",
+            "@startuml",
+            "",
+            "@enduml",
+            "",
+            "<figcaption>$1.</figcaption>",
+            "</figure>"
+        ],
+        "description": "figure vuepress"
+    },
+
+    "plantuml": {
+        "prefix": "plantuml",
+        "body": [
+            "```plantuml",
+            "@startuml",
+            "$1.",
+            "@enduml",
+            "```"
+        ],
+        "description": "plantuml diagram"
+    },
+
+
+    "span": {
+        "prefix": "span",
+        "body": [
+            "<span>$1</span>"
+        ],
+        "description": "span para caracter"
+    }
+}

@@ -1,0 +1,151 @@
+:root {
+    --h1fontsize: 4rem;
+    --h2fontsize: 3.5rem;
+    --h3fontsize: 3rem;
+    --txfontsize: 2rem;    
+    --codefontsize: 1.5rem;    
+}
+
+.titulo {
+    font-size: var(--h1fontsize);
+    margin-top: 3em !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+.subtitulo {
+    font-size: var(--h2fontsize);
+    margin-top: 1em !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.sessao {
+    font-size: var(--h2fontsize);
+    margin-top: 3em !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+.h1,
+h1 {
+    font-size: var(--h1fontsize);
+    color: #00897b;
+}
+
+.h2,
+h2 {
+    font-size: var(--h2fontsize);
+    color: #00897b;
+}
+
+.h3,
+h3 {
+    font-size: var(--h3fontsize);
+    color: #00897b;
+}
+
+pre>code>div {
+    font-size: var(--codefontsize);
+}
+
+p>code {
+    font-size: var(--codefontsize);
+}
+
+pre>code {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+nav a{
+    font-size: var(--h3fontsize) !important;
+}
+
+
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+    height: 80px;
+    line-height: 80px;
+}
+
+table,
+li,
+p,
+.li,
+.p,
+dl,
+dt,
+eqn,
+pre {
+    font-size: var(--txfontsize);
+}
+
+img {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.img70 {
+    width: 70%;
+    margin: auto;
+    display: block;
+}
+
+.z10 {
+    zoom: 10%;
+}
+
+.z20 {
+    zoom: 20%;
+}
+
+.z30 {
+    zoom: 30%;
+}
+
+.z40 {
+    zoom: 40%;
+}
+
+.z50 {
+    zoom: 50%;
+}
+
+.z60 {
+    zoom: 60%;
+}
+
+.z70 {
+    zoom: 70%;
+}
+
+.z80 {
+    zoom: 80%;
+}
+
+.z90 {
+    zoom: 90%;
+}
+
+/*!
+ colocar na figure para definir em img filha (plantuml)
+ */
+.w400>img{
+    max-width: 400px;
+}
+.w500>img{
+    max-width: 500px;
+}
+.w600>img{
+    max-width: 600px;
+}
+
