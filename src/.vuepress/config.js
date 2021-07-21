@@ -52,7 +52,6 @@ module.exports = {
 
     sidebarDepth: 2,
     sidebar: [
-      'home',
       '01_padroes',
       '02_SOLID',
       '03_GOF',
