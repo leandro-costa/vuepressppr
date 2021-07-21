@@ -1,0 +1,30 @@
+{
+  "name": "IFBA SAJ PPR",
+  "version": "0.0.1",
+  "description": "Material de Aula",
+  "main": "index.js",
+  "authors": {
+    "name": "Leandro Souza",
+    "email": "leandro.costa@ifba.edu.br"
+  },
+  "repository": "leandro-costa/vuepressppr",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "postinstall": "patch-package",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "@vuepress/plugin-pwa": "^1.8.2",
+    "markdown-it-deflist": "^2.1.0",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-plantuml": "^1.4.1",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {}
+}
