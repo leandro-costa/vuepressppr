@@ -49,7 +49,7 @@
 - Definir o esqueleto de um algoritmo dentro de uma operação, deixando alguns passos a serem preenchidos pelas subclasses 
 ### State 
 - Permitir a um objeto alterar o seu comportamento quanto o seu estado interno mudar 
-### [Strategy](ppr/Strategy.md) 
+### [Strategy](gof/Strategy.md) 
 - Definir uma família de algoritmos, encapsular cada um, e fazê-los intercambiáveis 
 ### Command 
 - Encapsular requisição como objeto, para clientes parametrizarem diferentes requisições, filas, e suportar operações reversíveis 

@@ -1,3 +1,6 @@
+---
+sidebar: auto
+---
 # Strategy (GOF)
 
 ## Intenção

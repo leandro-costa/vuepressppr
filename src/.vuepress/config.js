@@ -51,12 +51,16 @@ module.exports = {
     lastUpdated: true,
 
     sidebarDepth: 2,
-    sidebar: [
-      '01_padroes',
-      '02_SOLID',
-      '03_GOF',
-      '04_nao_GOF'
-    ]
+      sidebar: {
+        '/': [
+          '01_padroes',
+          '02_SOLID',
+          '03_GOF',
+          '04_nao_GOF'
+        ],
+  
+        '/gof/': 'auto'
+      }
 
   },
 
