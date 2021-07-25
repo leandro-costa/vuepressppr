@@ -1,0 +1,3 @@
+# Flyweight (GOF)
+
+Em breve
