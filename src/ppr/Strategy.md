@@ -18,7 +18,6 @@ Existem muitos algoritmos para quebrar um stream de texto em linhas. Codificar d
 
 Podemos evitar esses problemas definindo classes que encapsulam diferentes algoritmos de quebra de linhas. Um algoritmo encapsulado dessa maneira é chamado **strategy** (estratégia).
 
-```plantuml
 @startuml
 class Composition{
 traverse()
@@ -48,7 +47,6 @@ Compositor <|-- SimpleCompositor
 Compositor <|-- TexCompositor
 Compositor <|-- ArrayCompositor
 @enduml
-```
 
 Suponha que uma classe Composition seja responsável pela manutenção e atualização das quebras de linhas de texto exibidas num visualizador de texto. As estratégias de quebra de linhas não são implementadas pela classe Composition. Em vez disso, são implementadas separadamente por subclasses da classe abstrata Compositor. Subclasses de Compositor implementam diferentes estratégias:
 
@@ -69,7 +67,7 @@ Use o padrão Strategy quando:
 
 
 ## Estrutura
-```plantuml
+
 @startuml
 class Context{
 contextinterface()
@@ -94,7 +92,7 @@ Strategy <|-- ConcreteStrategyA
 Strategy <|-- ConcreteStrategyB
 Strategy <|-- ConcreteStrategyC
 @enduml
-```
+
 
 ## Participantes
 
