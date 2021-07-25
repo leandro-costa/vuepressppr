@@ -1,5 +1,6 @@
 ---
 sidebar: auto
+prev: ../03_GOF
 ---
 # Strategy (GOF)
 
@@ -154,7 +155,7 @@ Considere os seguintes aspectos de implementação:
 
 1. Definindo as interfaces de Strategy e Context. As interfaces de Strategy e Context podem fornecer a uma Concrete Strategy um acesso eficiente a quaisquer dados que necessite de um contexto, e vice-versa. Uma solução é fazer com que context passe dados através de parâmetros para as operações de Strategy - em outras palavras, levar os dados para a estratégia. Isso mantém Strategy e Context desacoplados. Por outro lado, Context pode passar dados de que Strategy não necessita. Uma outra técnica é fazer um contexto passar a si próprio como um argumento, e então a estratégia solicitar dados do contexto explicitamente. Alternativamente, a estratégia pode armazenar uma referência para o seu contexto, eliminando de todo a necessidade de passar qualquer coisa. De ambas as maneiras, a estratégia pode solicitar exatamente o que ela necessita. Porém, agora, Context deve definir uma interface mais elaborada para os seus dados, o que acopla Strategy e Context mais fortemente. As necessidades de um algoritmo específico e seus requisitos de dados determinarão qual a melhor técnica.
 2. Estratégias como parâmetros template. Em C++, templates podem ser usados para configurar uma classe com uma estratégia. Esta técnica somente é aplicável se: (1) Strategy pode ser selecionada em tempo de compilação e (2) ela não tem que ser mudada em tempo de execução. Nesse caso, a classe a ser configurada (por exemplo, Context) é definida como uma classe template que tem como parâmetro uma classe *Strategy:* 
-```c++
+```objectivec
 template <class AStrategy>
 class Context
     void Operation () { theStrategy.DoAlgorithm(); }
@@ -164,7 +165,7 @@ private:
 );
 ```
 A classe é então configurada com uma classe Strategy quando é instanciada:
-```c++
+```objectivec
 class MyStrategy {
 public:
     void DoAlgorithm();
