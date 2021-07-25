@@ -27,23 +27,23 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "01_padroes.html",
-    "revision": "4b855b2a9febe082b49879af7a72be8f"
+    "revision": "a7dd70313c4fa98364f99ef4fc39c462"
   },
   {
     "url": "02_SOLID.html",
-    "revision": "8c485073fa230bc72796b06d81c432e4"
+    "revision": "781837314ed0d9fa3b888ec0a47d6ab8"
   },
   {
     "url": "03_GOF.html",
-    "revision": "4529a5c53615ed821036aa4d42c51ed1"
+    "revision": "2553c2d871c30b44e39044700a72f0b5"
   },
   {
     "url": "04_nao_GOF.html",
-    "revision": "b3beeac50338da3218f62a426f8170a7"
+    "revision": "0c96c506a5f903b96077a7f86e7ce99e"
   },
   {
     "url": "404.html",
-    "revision": "71b27e9604e4808962e5f82fe8f3536a"
+    "revision": "6135cbbeed1654f1a1270f2123aa9d29"
   },
   {
     "url": "assets/css/0.styles.716e4c57.css",
@@ -66,8 +66,8 @@ self.__precacheManifest = [
     "revision": "8097eb1c1a22fad56b7099f4dd3ac1df"
   },
   {
-    "url": "assets/js/13.89e8328d.js",
-    "revision": "051bb73627890ccb8805e9db5d08476f"
+    "url": "assets/js/13.09bbe75b.js",
+    "revision": "c0574336a0d622c9e6bc2c8881a6d008"
   },
   {
     "url": "assets/js/14.7f7f1087.js",
@@ -130,24 +130,24 @@ self.__precacheManifest = [
     "revision": "9a0cb0a5688b846fed6d9e49089545c0"
   },
   {
-    "url": "assets/js/app.be16b7ea.js",
-    "revision": "1bc5cdae86fe85c766843abe41bcf2fc"
+    "url": "assets/js/app.3a031a01.js",
+    "revision": "9655d25514c700a7b51d2dbf2bb13da4"
   },
   {
     "url": "gof/AbstractFactory.html",
-    "revision": "368c0d272d65cd2a2f5648016807f170"
+    "revision": "83a36909b31c868e6ced5a48d5bb6671"
   },
   {
     "url": "gof/FactoryMethod.html",
-    "revision": "72363e1896e970616a0f7981084b18c7"
+    "revision": "d2e9914ff418fae3049fff1046a625af"
   },
   {
     "url": "gof/Strategy.html",
-    "revision": "db72c0c95ba8c8f4b48362d32555738d"
+    "revision": "5a9afaf62ca8152c6f89ea2c039e8bdc"
   },
   {
     "url": "gof/TemplateMethod.html",
-    "revision": "ea205196d077af88a8f4c649df4da8c0"
+    "revision": "fe4d610c760fbed01c39160706ddbe8d"
   },
   {
     "url": "icon-192x192.png",
@@ -167,7 +167,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "1d9f70c67b5afdff81323a05fb419ba6"
+    "revision": "b1fbe08fd171a2b1ac9afec562ed5005"
   },
   {
     "url": "logo.png",
