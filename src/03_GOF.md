@@ -1,4 +1,6 @@
-# GOF
+# GOF 
+
+[^GAMMA]
 
 
 ## Criação
@@ -60,6 +62,7 @@
 ### [Visitor](gof/Visitor.md) :construction:
 - Representar uma operação a ser realizada sobre os elementos de uma estrutura de objetos	 
 
+## Referências
 
-
+!!!include(src/ref.md)!!!
 

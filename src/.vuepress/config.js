@@ -67,7 +67,10 @@ module.exports = {
       md.use(require("markdown-it-footnote"))
       md.use(require("markdown-it-deflist"))
       md.use(require("markdown-it-katex"))
+      md.use(require("markdown-it-include"))
+      
     },
+    lineNumbers: true
 
   },
 

@@ -4,6 +4,8 @@ prev: ../03_GOF
 ---
 # Strategy (GOF)
 
+[^GAMMA]
+
 ## Intenção
 
 Definir uma família de algoritmos, encapsular cada uma delas e torná-las intercambiáveis. Strategy permite que o algoritmo varie independentemente dos clientes que o utilizam
@@ -288,3 +290,8 @@ ObjectWindows utiliza objetos Validator para encapsular estratégias de validaç
 
 ## Padrão relacionados
 [Flyweight](Flyweight.md): objetos Strategy geralmente são bons flyweights.
+
+
+## Referências
+
+!!!include(src/ref.md)!!!

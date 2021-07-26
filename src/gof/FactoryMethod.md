@@ -22,7 +22,6 @@ Uma vez que a subclasse Document a ser instanciada é própria da aplicação es
 
 O padrão Factory Method oferece uma solução. Ele encapsula o conhecimento sobre a subclasse de Document que deve ser criada e move este conhecimento para fora do framework.
 
-```plantuml
 @startuml
 abstract class Document{
     {abstract} open()
@@ -57,7 +56,6 @@ note right of Application::newDocument
 end note
 
 @enduml
-```
 
 As subclasses de `Application` redefinem uma operação abstrata `createDocument` em `Application` para retornar a subclasse apropriada de `Document.` Uma vez que uma subclasse de `Application` é instanciada, pode então instanciar `Documents` específicos da aplicação sem conhecer suas classes. Chamamos `createDocument` um **factory method** porque ele é responsável pela "manufatura" de um objeto.
 
@@ -71,7 +69,6 @@ Use o padrão Factory Method quando:
 
 ## Estrutura
 
-```plantuml
 @startuml
 abstract class Product{
 }
@@ -100,7 +97,6 @@ note right of Creator::anOperation
 end note
 
 @enduml
-```
 
 ## Participantes
 - **Product** (Document)
@@ -114,13 +110,75 @@ end note
     - Redefine o `factoryMethod` para retornar a uma instância de um
 `ConcreteProduct.`
 
-
-
 ## Colaborações
 
-Em construção :construction:
+- Creator depende das suas subclasses para definir o método fábrica de maneira que retorne uma instância do ConcreteProduct apropriado.
 
 ## Consequências
+
+Os Factory Methods eliminam a necessidade de anexar classes específicas das aplicações no código. O código lida somente com a interface de `Product`; portanto, ele pode trabalhar com quaisquer classes `ConcreteProduct` definidas pelo usuário.
+
+Uma desvantagem em potencial dos Factory Methods é que os clientes podem ter que fornecer subclasses da classe `Creator` somente para criar um objeto `ConcreteProduct` em particular. Usar subclasses é bom quando o cliente tem que fornecer subclasses a `Creator` de qualquer maneira, caso contrário, o cliente deve lidar com outro ponto de evolução.
+
+Apresentamos aqui duas consequências adicionais do Factory Method:
+
+1. Fornece ganchos para subclasses. Criar objetos dentro de uma classe com um método fábrica é sempre mais flexível do que criar um objeto diretamente. Factory Method dá às subclasses um gancho para fornecer uma versão estendida de um objeto. No exemplo de Documentos, a classe `Document` poderia definir um Factory Method chamado `createFileDialog` que cria um objeto file dialog por omissão para abrir um documento existente. Uma de `Document` pode definir um `fileDialog` específico da aplicação redefinindo este método fábrica. Neste caso, o método de fábrica não é abstrato, mas fornece uma implementação por omissão razoável.
+
+2. Conecta hierarquias de classe paralelas. Nos exemplos que consideramos até aqui o Factory Method é somente chamado por `Creators`. Mas isto não precisa ser obrigatoriamente assim; os clientes podem achar os Factory Method úteis, especialmente no caso de hierarquias de classe paralelas. Hierarquias de classe paralelas ocorrem quando uma classe delega alguma das suas responsabilidades para uma classe separada. Considere, por exemplo, figuras que podem ser manipuladas interativamente; ou seja, podem ser esticadas, movidas ou giradas usando o mouse. Implementar tais interações não é sempre fácil. Isso frequentemente requer armazenar e atualizar informação que registra o estado da manipulação num certo momento. Este estado é necessário somente durante a manipulação; portanto, não necessita ser mantido no objeto-figura. Além do mais, diferentes figuras se comportam de modo diferente quando são manipuladas pelo usuário. Por exemplo, esticar uma linha pode ter o efeito de mover um dos extremos, enquanto que esticar um texto pode mudar o seu espaçamento de linhas.
+Com essas restrições, é melhor usar um objeto `Manipulator` separado, que implementa a interação e mantém o registro de qualquer estado específico da manipulação que for necessário. Diferentes figuras utilizarão diferentes subclasses `Manipulator` para tratar interações específicas. A hierarquia de classes `Manipulator` resultante é paralela (ao menos parcialmente) à hierarquia de classes de `Figure`:
+
+```plantuml
+@startuml
+abstract class Figure{
+    {abstract} createManipulator()
+}
+
+class LineFigure{
+    createManipulator()
+}
+
+class TextFigure{
+    createManipulator()
+}
+
+Figure <|-- LineFigure
+Figure <|-- TextFigure
+
+
+abstract class Manipulator{
+    {abstract} downClick()
+    {abstract} drag()
+    {abstract} upClick()
+}
+
+class LineManipulator{
+    downClick()
+    drag()
+    upClick()
+}
+
+class TextManipulator{
+    downClick()
+    drag()
+    upClick()
+}
+
+Manipulator <|-- LineManipulator
+Manipulator <|-- TextManipulator
+
+Figure <- Cliente
+Cliente -> Manipulator
+
+LineFigure .> LineManipulator
+TextFigure .> TextManipulator
+
+hide empty attributes
+hide empty methods
+@enduml
+```
+
+
+
 ## Implementação
 ## Exemplo de código
 ## Usos conhecidos
