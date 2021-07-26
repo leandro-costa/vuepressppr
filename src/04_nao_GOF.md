@@ -1,2 +1,2 @@
-# Não GOF :construction:
+# Não GOF 🚧
 

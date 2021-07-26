@@ -2,7 +2,10 @@
 sidebar: auto
 prev: ../03_GOF
 ---
-# Factory Method (GOF)
+# Factory Method (GOF) 🔨
+
+[^GAMMA]
+
 
 ## Intenção
 
@@ -112,7 +115,7 @@ end note
 
 ## Colaborações
 
-- Creator depende das suas subclasses para definir o método fábrica de maneira que retorne uma instância do ConcreteProduct apropriado.
+- Creator depende das suas subclasses para definir o método de fábrica de maneira que retorne uma instância do ConcreteProduct apropriado.
 
 ## Consequências
 
@@ -122,12 +125,12 @@ Uma desvantagem em potencial dos Factory Methods é que os clientes podem ter qu
 
 Apresentamos aqui duas consequências adicionais do Factory Method:
 
-1. Fornece ganchos para subclasses. Criar objetos dentro de uma classe com um método fábrica é sempre mais flexível do que criar um objeto diretamente. Factory Method dá às subclasses um gancho para fornecer uma versão estendida de um objeto. No exemplo de Documentos, a classe `Document` poderia definir um Factory Method chamado `createFileDialog` que cria um objeto file dialog por omissão para abrir um documento existente. Uma de `Document` pode definir um `fileDialog` específico da aplicação redefinindo este método fábrica. Neste caso, o método de fábrica não é abstrato, mas fornece uma implementação por omissão razoável.
+1. Fornece ganchos para subclasses. Criar objetos dentro de uma classe com um método de fábrica é sempre mais flexível do que criar um objeto diretamente. Factory Method dá às subclasses um gancho para fornecer uma versão estendida de um objeto. No exemplo de Documentos, a classe `Document` poderia definir um Factory Method chamado `createFileDialog` que cria um objeto file dialog por omissão para abrir um documento existente. Uma de `Document` pode definir um `fileDialog` específico da aplicação redefinindo este método de fábrica. Neste caso, o método de fábrica não é abstrato, mas fornece uma implementação por omissão razoável.
 
 2. Conecta hierarquias de classe paralelas. Nos exemplos que consideramos até aqui o Factory Method é somente chamado por `Creators`. Mas isto não precisa ser obrigatoriamente assim; os clientes podem achar os Factory Method úteis, especialmente no caso de hierarquias de classe paralelas. Hierarquias de classe paralelas ocorrem quando uma classe delega alguma das suas responsabilidades para uma classe separada. Considere, por exemplo, figuras que podem ser manipuladas interativamente; ou seja, podem ser esticadas, movidas ou giradas usando o mouse. Implementar tais interações não é sempre fácil. Isso frequentemente requer armazenar e atualizar informação que registra o estado da manipulação num certo momento. Este estado é necessário somente durante a manipulação; portanto, não necessita ser mantido no objeto-figura. Além do mais, diferentes figuras se comportam de modo diferente quando são manipuladas pelo usuário. Por exemplo, esticar uma linha pode ter o efeito de mover um dos extremos, enquanto que esticar um texto pode mudar o seu espaçamento de linhas.
 Com essas restrições, é melhor usar um objeto `Manipulator` separado, que implementa a interação e mantém o registro de qualquer estado específico da manipulação que for necessário. Diferentes figuras utilizarão diferentes subclasses `Manipulator` para tratar interações específicas. A hierarquia de classes `Manipulator` resultante é paralela (ao menos parcialmente) à hierarquia de classes de `Figure`:
 
-```plantuml
+
 @startuml
 abstract class Figure{
     {abstract} createManipulator()
@@ -175,11 +178,61 @@ TextFigure .> TextManipulator
 hide empty attributes
 hide empty methods
 @enduml
-```
 
-
+A classe `Figure` fornece um método de fábrica `createManipulator` que permite aos clientes criar o correspondente `Manipulator` de uma `Figure`. As subclasses de `Figure` substituem esse método para retornar uma instância da subclasse `Manipulator` correta para elas. Como alternativa, a classe `Figure` pode implementar `createManipulator` para retornar por omissão uma instância de manipulator, e as subclasses de `Figure` podem simplesmente herdar essa instância por omissão. As classes `Figure` que fizerem assim não necessitarão de uma subclasse correspondente de `Manipulator` — por isso dizemos que as hierarquias são somente parcialmente paralelas. Note como o método de fábrica define a conexão entre as duas hierarquias de classes. Nele se localiza o conhecimento de quais classes trabalham juntas.
 
 ## Implementação
+
+Considere os seguintes tópicos ao aplicar o padrão Factory Method:
+
+1. Duas variedades principais. As duas principais variações do padrão Factory Method são: (1) o caso em que a classe `Creator` é uma classe abstrata e não fornece uma implementação para o método de fábrica que ela declara, e (2) o caso quando o `Creator` é uma classe concreta e fornece uma implementação por omissão para o método de fábrica. Também é possível ter uma classe abstrata que define uma implementação por omissão, mas isto é menos comum. O primeiro caso exige subclasses para definir uma implementação porque não existe uma omissão razoável, assim contornando o dilema de ter que instanciar classes imprevisíveis. No segundo caso, o `ConcretCreator` usa o método de fábrica principalmente por razões de flexibilidade. Está seguindo uma regra que diz: "criar objetos numa operação separada de modo que subclasses possam redefinir a maneira como eles são criados". Essa regra garante que projetistas de subclasses, caso necessário, possam mudar a classe de objetos que a classe ancestral instancia.
+2. Métodos de fábrica parametrizados. Uma outra variante do padrão permite ao método de fábrica criar múltiplos tipos de produtos. O método de fábrica recebe um parâmetro que identifica o objeto a ser criado.
+
+Todos os objetos que o método de fábrica cria compartilharão a interface de `Product`. No exemplo de `Document`, `Application` pode suportar diferentes tipos de Documents. Você passa a `createDocument` um parâmetro extra para especificar o tipo de documento a ser criado.
+
+O framework de edição gráfica Unidraw [VL90] usa esta abordagem para reconstruir objetos salvos em disco. Unidraw define uma classe creator com método de fábrica `Create` que aceita um identificador de classe como argumento. O identificador de classe especifica a classe a ser instanciada. Quando Unidraw salva um objeto em disco, primeiro grava o identificador da classe, e então suas variáveis de instância. Quando reconstrói o objeto de disco, primeiro lê o identificador de classe.
+
+Depois que o identificador de classe é lido, o framework chama `Create`, passando o identificador como o parâmetro. `Create` procura o constructor para a classe correspondente, utilizando-o para instanciar o objeto. Por último, `Create` chama a operação `read` do objeto, a qual lê a informação restante do disco e inicia as variáveis de instância do objeto.
+
+Um método de fábrica parametrizado tem a seguinte forma geral, onde `MyProduct` e `YourProduct` São subclasses de `Product`:
+
+```java
+class Creator {
+    public Product create( ProductId id){
+        if (id == MINE) return new MyProduct();
+        if (id == YOURS) return new YourProduct();
+        // repete para os produtos restantes
+        return null;
+    }
+}
+```
+
+Redefinir um método de fábrica parametrizado permite, fácil e seletivamente, estender ou mudar os produtos que um `Creator` produz. Você pode introduzir novos identificadores para novos tipos de produtos, ou pode associar identificadores existentes com diferentes produtos.
+
+Por exemplo, uma subclasse `MyCreator` poderia trocar `MyProduct` por `YourProduct` e suportar uma nova subclasse `TheirProduct`:
+
+```java
+class MyCreator extends Creator {
+    public Product create( ProductId id){
+        if (id == YOURS) return new MyProduct();
+        if (id == MINE) return new YourProduct();
+        // nota: YOURS e MINE foram trocados propositadamente
+        if (id == THEIR) return new TheirProduct();
+        return super.create(id);
+    }
+}
+```
+
+Note que a última coisa que essa operação faz é chamar `create` na classe-mãe. Isso porque `MyCreator.create` trata somente YOURS, MINE e THEIRS de modo diferente da classe-mãe.
+
+Ela não está interessada em outras classes. Daí dizermos que `MyCreator` estende os tipos de produtos criados e adia a responsabilidade da criação de todos, exceto uns poucos produtos, para sua superclasse.
+
+
+
 ## Exemplo de código
 ## Usos conhecidos
 ## Padrão relacionados
+
+## Referências
+
+!!!include(src/ref.md)!!!

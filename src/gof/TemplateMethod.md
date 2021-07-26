@@ -4,6 +4,8 @@ prev: ../03_GOF
 ---
 # Template Method (GOF)
 
+[^GAMMA]
+
 Em construção :construction:
 
 ## Intenção
@@ -18,3 +20,7 @@ Em construção :construction:
 ## Exemplo de código
 ## Usos conhecidos
 ## Padrão relacionados
+
+## Referências
+
+!!!include(src/ref.md)!!!
