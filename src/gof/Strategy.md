@@ -2,7 +2,7 @@
 sidebar: auto
 prev: ../03_GOF
 ---
-# Strategy (GOF) ✅
+# Strategy (GOF)
 
 [^GAMMA]
 
@@ -127,10 +127,10 @@ O padrão Strategy tem os seguintes benefícios e desvantagens:
 void repair () {
     switch (breakingStrategy) {
         case SimpleStrategy:
-            ComposeWithSimpleCompositor();
+            composeWithSimpleCompositor();
             break;
         case TexStrategy:
-            ComposeWithTexCompositor();
+            composeWithTexCompositor();
             break;
     }
 // junta os resultados com a composição existente, se necessário
@@ -140,7 +140,7 @@ O padrão Strategy elimina este comando case pela delegação da tarefa de quebr
 
 ```java
 void repair () {
-    compositor->Compose();
+    compositor.compose();
     // junta os resultados com a composição existente, se necessário
 }
 ```
@@ -174,7 +174,7 @@ public:
 };
 Context<MyStrategy> acontext;
 ```
-Com *templates,* não há necessidade de definir uma classe abstrata que defina a interface para Strategy. Usar Strategy como um parâmetro de template também permite vincularuma Strategy ao seu context estaticamente, o que pode melhorar a eficiência.
+Com *templates,* não há necessidade de definir uma classe abstrata que defina a interface para Strategy. Usar Strategy como um parâmetro de template também permite vincular uma Strategy ao seu context estaticamente, o que pode melhorar a eficiência.
 
 3. Tornando os objetos Strategy opcionais. A classe Context pode ser simplificada se fizer sentido não ter um objeto Strategy. Context verifica se ele tem o objeto Strategy antes de acessá-lo. Se existir um, então Contexto utiliza normalmente. Se não houver uma estratégia, então Context executa o comportamento-padrão. O benefício dessa solução é que os clientes não têm que lidar com nenhum objeto Strategya menos que eles não queiram o comportamento padrão.
 
