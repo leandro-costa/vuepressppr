@@ -6,7 +6,7 @@
 ## Criação
 
 
-### [Factory Method](gof/FactoryMethod.md) 🔨
+### [Factory Method](gof/FactoryMethod.md) ✅
 - Definir uma interface para criar um objeto mas deixar que subclasses decidam que classe instanciar 
 ### [Abstract Factory](gof/AbstractFactory.md) 🔨
 - Prover interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas 

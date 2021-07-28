@@ -159,11 +159,20 @@
         "body": [
             "```plantuml",
             "@startuml",
-            "$1.",
+            "$1",
             "@enduml",
             "```"
         ],
         "description": "plantuml diagram"
+    },
+
+    "java": {
+        "prefix": "java",
+        "body": [
+            "```java",
+            "```"
+        ],
+        "description": "java code block"
     },
 
 
