@@ -2,7 +2,7 @@
 sidebar: auto
 prev: ../03_GOF
 ---
-# Factory Method (GOF) 🔨
+# Factory Method (GOF) ✅
 
 [^GAMMA]
 
