@@ -11,7 +11,6 @@
 
 [^Santos]:R. Santos.Introdução à programação orientada a objetos usando Java. Campus, 2003.ISBN:9788535212068.
 
-
 [^Forbellone]:Forbellone, A. and Eberspacher, H., 2000. Lógica De Programação. Sao Paulo: Makron Books.
 
 [^Ascencio]: Ascencio, A. and Campos, E., 2008. Fundamentos Da Programação De Computadores. São Paulo: Pearson Prentice Hall.
@@ -21,9 +20,6 @@
 [^Farrer]: Farrer, H., 1999. Algoritmos Estruturados. Rio de Janeiro: LTC Editora.
 
 [^Manzano]: Manzano, J. and Oliveira, J., 2005. Algoritmos. 17th ed. São Paulo (SP): Érica.
-
-
-
 
 [^GAMMA]: GAMMA, Erich. et al. Padrões de projetos: Soluções reutilizáveis de software orientados a objetos Bookman editora, 2009.
 

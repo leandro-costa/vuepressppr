@@ -127,7 +127,7 @@ Apresentamos aqui duas consequências adicionais do Factory Method:
 
 1. Fornece ganchos para subclasses. Criar objetos dentro de uma classe com um método de fábrica é sempre mais flexível do que criar um objeto diretamente. Factory Method dá às subclasses um gancho para fornecer uma versão estendida de um objeto. No exemplo de Documentos, a classe `Document` poderia definir um Factory Method chamado `createFileDialog` que cria um objeto file dialog por omissão para abrir um documento existente. Uma de `Document` pode definir um `fileDialog` específico da aplicação redefinindo este método de fábrica. Neste caso, o método de fábrica não é abstrato, mas fornece uma implementação por omissão razoável.
 
-2. Conecta hierarquias de classe paralelas. Nos exemplos que consideramos até aqui o Factory Method é somente chamado por `Creators`. Mas isto não precisa ser obrigatoriamente assim; os clientes podem achar os Factory Method úteis, especialmente no caso de hierarquias de classe paralelas. Hierarquias de classe paralelas ocorrem quando uma classe delega alguma das suas responsabilidades para uma classe separada. Considere, por exemplo, figuras que podem ser manipuladas interativamente; ou seja, podem ser esticadas, movidas ou giradas usando o mouse. Implementar tais interações não é sempre fácil. Isso frequentemente requer armazenar e atualizar informação que registra o estado da manipulação num certo momento. Este estado é necessário somente durante a manipulação; portanto, não necessita ser mantido no objeto-figura. Além do mais, diferentes figuras se comportam de modo diferente quando são manipuladas pelo usuário. Por exemplo, esticar uma linha pode ter o efeito de mover um dos extremos, enquanto que esticar um texto pode mudar o seu espaçamento de linhas.
+2. Conecta hierarquias de classe paralelas. Nos exemplos que consideramos até aqui o Factory Method é somente chamado por `Creators`. Mas isto não precisa ser obrigatoriamente assim; os clientes podem achar os Factory Methods úteis, especialmente no caso de hierarquias de classe paralelas. Hierarquias de classe paralelas ocorrem quando uma classe delega alguma das suas responsabilidades para uma classe separada. Considere, por exemplo, figuras que podem ser manipuladas interativamente; ou seja, podem ser esticadas, movidas ou giradas usando o mouse. Implementar tais interações não é sempre fácil. Isso frequentemente requer armazenar e atualizar informação que registra o estado da manipulação num certo momento. Este estado é necessário somente durante a manipulação; portanto, não necessita ser mantido no objeto-figura. Além do mais, diferentes figuras se comportam de modo diferente quando são manipuladas pelo usuário. Por exemplo, esticar uma linha pode ter o efeito de mover um dos extremos, enquanto que esticar um texto pode mudar o seu espaçamento de linhas.
 Com essas restrições, é melhor usar um objeto `Manipulator` separado, que implementa a interação e mantém o registro de qualquer estado específico da manipulação que for necessário. Diferentes figuras utilizarão diferentes subclasses `Manipulator` para tratar interações específicas. A hierarquia de classes `Manipulator` resultante é paralela (ao menos parcialmente) à hierarquia de classes de `Figure`:
 
 
@@ -230,8 +230,115 @@ Ela não está interessada em outras classes. Daí dizermos que `MyCreator` este
 
 
 ## Exemplo de código
+
+```java
+public class MazeGame {
+    public Maze createMaze(){
+        Maze aMaze = new Maze();
+        Room r1 = new Room(l) ;
+        Room r2 = new Room(2) ;
+        Door theDoor = new Door(r1,r2);
+
+        aMaze.addRoom(r1);
+        aMaze.addRoom(r2);
+
+        r1.setSide(North, new Wall());
+        rl.setSide(East, theDoor);
+        rl.setSide(South, new Wall());
+        r1.setSide(West, new Wall());
+
+        r2.setSide(North, new Wall());
+        r2.setSide(South, new Wall());
+        r2.setSide(West, new Wall());
+        r2.setSide(East, theDoor) ;
+        
+        return aMaze;
+    }
+}
+```
+
+A função `createMaze` constrói e retorna um labirinto. Um problema com esta função é que codifica de maneira rígida as classes de labirinto, salas, portas e paredes. Nós introduziremos o Factory Method para permitir às subclasses escolherem estes componentes.
+
+Primeiramente, definiremos o Factory Method em `MazeGame` para criar os objetos-labirinto, sala, parede e porta:
+```java
+public class MazeGame {
+    //...
+    // métodos—fábrica
+    public MazeGame makeMaze() { 
+        return new Maze();
+    }
+    public Room makeRoom(int n) { 
+        return new Room(n); 
+    }
+    public Wall makeWall(){ 
+        return new Wall();
+    }
+    public Door makeDoor (Room r1, Room r2){ 
+        return new Door (r1, r2);
+    }
+}
+```
+Cada Factory Method retorna um componente de labirinto de um certo tipo. `MazeGame` fornece implementações por omissão que retornam os tipos mais simples de labirinto, salas, portas e paredes.
+
+Agora podemos reescrever `createMaze` para usar esses métodos fábrica:
+
+```java
+public class MazeGame {
+    public Maze createMaze(){
+        Maze aMaze = makeMaze();
+        Room r1 = makeRoom(l) ;
+        Room r2 = makeRoom(2) ;
+        Door theDoor = makeDoor(r1,r2);
+
+        aMaze.addRoom(r1);
+        aMaze.addRoom(r2);
+
+        r1.setSide(North, makeWall());
+        rl.setSide(East, theDoor);
+        rl.setSide(South, makeWall());
+        r1.setSide(West, makeWall());
+
+        r2.setSide(North, makeWall());
+        r2.setSide(South, makeWall());
+        r2.setSide(West, makeWall());
+        r2.setSide(East, theDoor) ;
+        
+        return aMaze;
+    }
+    //...
+}
+```
+
+Diferentes jogos podem introduzir subclasses de `MazeGame` para especializar partes do labirinto. As subclasses de `MazeGame` podem redefinir alguns ou todos os Factory Methods para especificar variações em produtos. Por exemplo, um `BombedMazeGame` pode redefinir os produtos `Room` e para retornar variedades com bombas:
+```java
+public class BombedMazeGame extends MazeGame {
+    public Wall makeWall(){ 
+        return new BombedWall();
+    }
+    public Room makeRoom(int n) { 
+        return new RoomWithABomb(n); 
+    }
+}
+```
+
 ## Usos conhecidos
+
+Os Factory Methods permeiam toolkits e frameworks. O exemplo precedente de documentos é um uso típico no MacApp e ET++ [WGM88]. O exemplo do manipulador vem do Unidraw.
+
+A classe View no frameworks Model/View/Controller/Smalltalk-80 tem um método defaultController que cria um controlador, e isso pode parecer ser o Factory Method [Par90]. Mas subclasses de View especificam a classe no seu controlador por omissão através da definição de defaultControllerClass, que retorna a classe da qual defaultController cria instâncias. Assim, defaultControllerClass é o verdadeiro método fábrica, isto é, o método que as subclasses deveriam redefinir.
+
+Um exemplo mais esotérico no Smalltalk-80 é o Factory Method parserClass definido por Behavior (uma superclasse de todos os objetos que representam classes). Isto permite a uma classe usar um parser (analisador) customizado para seu código-fonte. Por exemplo, um cliente pode definir uma classe SQLParser para analisar o código-fonte de uma classe com comandos SQL embutidos. A Classe Behavior implementa parserClass retornando a classe Parser padrão do Smalltalk. A classe que inclui comandos SQL embutidos redefine este método (como um método de classe) e retorna a classe SQLParser.
+
+O sistema ORB Orbix da IONA Technologies [ION94] usa Factory Method para gerar um tipo apropriado de [proxy](Proxy.md) quando um objeto solicita uma referência para um Objeto remoto. O Factory Method torna fácil substituir o proxy-padrão por um outro que, por exemplo, use caching do lado do cliente.
+
+
 ## Padrão relacionados
+
+[Abstract Factory](AbstractFactory.md) é freqüentemente implementado utilizado o padrão Factory Method. O exemplo na relação de Motivação no padrão Abstract Factory também ilustra o padrão Factory Method.
+
+Factory Methods são usualmente chamados dentro de [Template Methods](TemplateMethod.md). No exemplo do documento acima, NewDocument é um template method.
+
+[Prototypes](Prototype.md) não exigem subclassificação de Creator. Contudo, freqüentemente necessitam uma operação Initialize na classe Product. A Creator usa Initialize para iniciar o objeto. O Factory Method não exige uma operação desse tipo.
 
 ## Referências
 

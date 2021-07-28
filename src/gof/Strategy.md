@@ -2,7 +2,7 @@
 sidebar: auto
 prev: ../03_GOF
 ---
-# Strategy (GOF)
+# Strategy (GOF) ✅
 
 [^GAMMA]
 
