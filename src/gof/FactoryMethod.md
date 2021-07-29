@@ -25,6 +25,8 @@ Uma vez que a subclasse Document a ser instanciada é própria da aplicação es
 
 O padrão Factory Method oferece uma solução. Ele encapsula o conhecimento sobre a subclasse de Document que deve ser criada e move este conhecimento para fora do framework.
 
+<figure>
+
 @startuml
 abstract class Document{
     {abstract} open()
@@ -58,7 +60,13 @@ note right of Application::newDocument
   doc.open();
 end note
 
+hide empty attributes
+hide empty methods
+
 @enduml
+
+<figcaption>Exemplo factory Method.</figcaption>
+</figure>
 
 As subclasses de `Application` redefinem uma operação abstrata `createDocument` em `Application` para retornar a subclasse apropriada de `Document.` Uma vez que uma subclasse de `Application` é instanciada, pode então instanciar `Documents` específicos da aplicação sem conhecer suas classes. Chamamos `createDocument` um **factory method** porque ele é responsável pela "manufatura" de um objeto.
 
@@ -71,6 +79,8 @@ Use o padrão Factory Method quando:
 - classes delegam responsabilidade para uma dentre várias subclasses auxiliares, e você quer o conhecimento de qual subclasse auxiliar que é a delegada.
 
 ## Estrutura
+
+<figure>
 
 @startuml
 abstract class Product{
@@ -98,8 +108,13 @@ note right of Creator::anOperation
   product = factoryMethod();
   ...
 end note
+hide empty attributes
+hide empty methods
 
 @enduml
+
+<figcaption>Estrutura Factory Method.</figcaption>
+</figure>
 
 ## Participantes
 - **Product** (Document)
@@ -130,6 +145,8 @@ Apresentamos aqui duas consequências adicionais do Factory Method:
 2. Conecta hierarquias de classe paralelas. Nos exemplos que consideramos até aqui o Factory Method é somente chamado por `Creators`. Mas isto não precisa ser obrigatoriamente assim; os clientes podem achar os Factory Methods úteis, especialmente no caso de hierarquias de classe paralelas. Hierarquias de classe paralelas ocorrem quando uma classe delega alguma das suas responsabilidades para uma classe separada. Considere, por exemplo, figuras que podem ser manipuladas interativamente; ou seja, podem ser esticadas, movidas ou giradas usando o mouse. Implementar tais interações não é sempre fácil. Isso frequentemente requer armazenar e atualizar informação que registra o estado da manipulação num certo momento. Este estado é necessário somente durante a manipulação; portanto, não necessita ser mantido no objeto-figura. Além do mais, diferentes figuras se comportam de modo diferente quando são manipuladas pelo usuário. Por exemplo, esticar uma linha pode ter o efeito de mover um dos extremos, enquanto que esticar um texto pode mudar o seu espaçamento de linhas.
 Com essas restrições, é melhor usar um objeto `Manipulator` separado, que implementa a interação e mantém o registro de qualquer estado específico da manipulação que for necessário. Diferentes figuras utilizarão diferentes subclasses `Manipulator` para tratar interações específicas. A hierarquia de classes `Manipulator` resultante é paralela (ao menos parcialmente) à hierarquia de classes de `Figure`:
 
+
+<figure>
 
 @startuml
 abstract class Figure{
@@ -179,6 +196,9 @@ hide empty attributes
 hide empty methods
 @enduml
 
+
+<figcaption>Exemplo2 Factory Method.</figcaption>
+</figure>
 A classe `Figure` fornece um método de fábrica `createManipulator` que permite aos clientes criar o correspondente `Manipulator` de uma `Figure`. As subclasses de `Figure` substituem esse método para retornar uma instância da subclasse `Manipulator` correta para elas. Como alternativa, a classe `Figure` pode implementar `createManipulator` para retornar por omissão uma instância de manipulator, e as subclasses de `Figure` podem simplesmente herdar essa instância por omissão. As classes `Figure` que fizerem assim não necessitarão de uma subclasse correspondente de `Manipulator` — por isso dizemos que as hierarquias são somente parcialmente paralelas. Note como o método de fábrica define a conexão entre as duas hierarquias de classes. Nele se localiza o conhecimento de quais classes trabalham juntas.
 
 ## Implementação

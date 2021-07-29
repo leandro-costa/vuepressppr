@@ -24,6 +24,8 @@ Existem muitos algoritmos para quebrar um stream de texto em linhas. Codificar d
 
 Podemos evitar esses problemas definindo classes que encapsulam diferentes algoritmos de quebra de linhas. Um algoritmo encapsulado dessa maneira é chamado **strategy** (estratégia).
 
+<figure>
+
 @startuml
 class Composition{
 traverse()
@@ -52,7 +54,14 @@ class ArrayCompositor{
 Compositor <|-- SimpleCompositor
 Compositor <|-- TexCompositor
 Compositor <|-- ArrayCompositor
+
+hide empty attributes
+hide empty methods
+
 @enduml
+
+<figcaption>Exemplo Strategy.</figcaption>
+</figure>
 
 Suponha que uma classe Composition seja responsável pela manutenção e atualização das quebras de linhas de texto exibidas num visualizador de texto. As estratégias de quebra de linhas não são implementadas pela classe Composition. Em vez disso, são implementadas separadamente por subclasses da classe abstrata Compositor. Subclasses de Compositor implementam diferentes estratégias:
 
@@ -73,6 +82,8 @@ Use o padrão Strategy quando:
 
 
 ## Estrutura
+
+<figure>
 
 @startuml
 class Context{
@@ -97,7 +108,14 @@ class ConcreteStrategyC{
 Strategy <|-- ConcreteStrategyA
 Strategy <|-- ConcreteStrategyB
 Strategy <|-- ConcreteStrategyC
+
+hide empty attributes
+hide empty methods
+
 @enduml
+
+<figcaption>Estrutura Strategy.</figcaption>
+</figure>
 
 
 ## Participantes
@@ -176,7 +194,7 @@ Context<MyStrategy> acontext;
 ```
 Com *templates,* não há necessidade de definir uma classe abstrata que defina a interface para Strategy. Usar Strategy como um parâmetro de template também permite vincular uma Strategy ao seu context estaticamente, o que pode melhorar a eficiência.
 
-3. Tornando os objetos Strategy opcionais. A classe Context pode ser simplificada se fizer sentido não ter um objeto Strategy. Context verifica se ele tem o objeto Strategy antes de acessá-lo. Se existir um, então Contexto utiliza normalmente. Se não houver uma estratégia, então Context executa o comportamento-padrão. O benefício dessa solução é que os clientes não têm que lidar com nenhum objeto Strategya menos que eles não queiram o comportamento padrão.
+3. Tornando os objetos Strategy opcionais. A classe Context pode ser simplificada se fizer sentido não ter um objeto Strategy. Context verifica se ele tem o objeto Strategy antes de acessá-lo. Se existir um, então Contexto utiliza normalmente. Se não houver uma estratégia, então Context executa o comportamento-padrão. O benefício dessa solução é que os clientes não têm que lidar com nenhum objeto Strategy a menos que eles não queiram o comportamento padrão.
 
 ## Exemplo de código
 

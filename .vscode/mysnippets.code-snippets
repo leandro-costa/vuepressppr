@@ -155,15 +155,18 @@
     },
 
     "plantuml": {
-        "prefix": "plantuml",
+        "prefix": "figure plantuml",
         "body": [
-            "```plantuml",
+            "<figure>",
+            "",
             "@startuml",
-            "$1",
+            "",
             "@enduml",
-            "```"
+            "",
+            "<figcaption>$1.</figcaption>",
+            "</figure>"
         ],
-        "description": "plantuml diagram"
+        "description": "figure vuepress"
     },
 
     "java": {
