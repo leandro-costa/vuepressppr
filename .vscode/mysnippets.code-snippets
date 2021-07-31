@@ -139,21 +139,6 @@
         ],
         "description": "imagem via live server"
     },
-    "figure": {
-        "prefix": "figure",
-        "body": [
-            "<figure>",
-            "",
-            "@startuml",
-            "",
-            "@enduml",
-            "",
-            "<figcaption>$1.</figcaption>",
-            "</figure>"
-        ],
-        "description": "figure vuepress"
-    },
-
     "plantuml": {
         "prefix": "figure plantuml",
         "body": [
@@ -177,6 +162,15 @@
         ],
         "description": "java code block"
     },
+
+    
+    "include": {
+        "prefix": "include",
+        "body": [
+            "!!!include($1)!!!"
+        ],
+        "description": "include"
+    }
 
 
     "span": {

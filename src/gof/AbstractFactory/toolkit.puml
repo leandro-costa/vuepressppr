@@ -1,0 +1,47 @@
+@startuml
+abstract class WidgetFactory{
+    {abstract} createWindow()
+    {abstract} createScrollBar()
+}
+
+class MotifWidgetFactory{
+    createWindow()
+    createScrollBar()
+}
+
+class PMWidgetFactory{
+    createWindow()
+    createScrollBar()
+}
+MotifWidgetFactory --|> WidgetFactory
+PMWidgetFactory --|> WidgetFactory
+
+interface Window
+class PMWindow
+class MotifWindow
+
+Window <|..PMWindow
+Window <|..MotifWindow
+
+interface ScrollBar
+class PMScrollBar
+class MotifScrollBar
+
+ScrollBar <|..PMScrollBar
+ScrollBar <|..MotifScrollBar
+
+Cliente --> Window
+Cliente --> ScrollBar
+WidgetFactory <-- Cliente 
+
+
+MotifWidgetFactory .> MotifWindow
+MotifWidgetFactory .> MotifScrollBar
+
+PMWidgetFactory .> PMWindow
+PMWidgetFactory .> PMScrollBar
+
+hide empty attributes
+hide empty methods
+
+@enduml

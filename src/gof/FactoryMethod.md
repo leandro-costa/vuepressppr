@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-prev: ../03_GOF
+prev: /03_GOF
 ---
 # Factory Method (GOF) ✅
 
@@ -96,7 +96,8 @@ class ConcreteCreator{
 }
 
 Creator <|-- ConcreteCreator 
-ConcreteProduct <- ConcreteCreator
+ConcreteProduct <- ConcreteCreator :cria
+Product <. Creator :usa
 Product  <|-- ConcreteProduct 
 
 note right of ConcreteCreator::factoryMethod 
@@ -262,15 +263,15 @@ public class MazeGame {
         aMaze.addRoom(r1);
         aMaze.addRoom(r2);
 
-        r1.setSide(North, new Wall());
-        rl.setSide(East, theDoor);
-        rl.setSide(South, new Wall());
-        r1.setSide(West, new Wall());
+        r1.setSide(NORTH, new Wall());
+        r1.setSide(EAST, theDoor);
+        r1.setSide(SOUTH, new Wall());
+        r1.setSide(WEST, new Wall());
 
-        r2.setSide(North, new Wall());
-        r2.setSide(South, new Wall());
-        r2.setSide(West, new Wall());
-        r2.setSide(East, theDoor) ;
+        r2.setSide(NORTH, new Wall());
+        r2.setSide(SOUTH, new Wall());
+        r2.setSide(EAST, new Wall());
+        r2.setSide(WEST, theDoor) ;
         
         return aMaze;
     }
@@ -313,15 +314,15 @@ public class MazeGame {
         aMaze.addRoom(r1);
         aMaze.addRoom(r2);
 
-        r1.setSide(North, makeWall());
-        rl.setSide(East, theDoor);
-        rl.setSide(South, makeWall());
-        r1.setSide(West, makeWall());
+        r1.setSide(NORTH, makeWall());
+        r1.setSide(EAST, theDoor);
+        r1.setSide(SOUTH, makeWall());
+        r1.setSide(WEST, makeWall());
 
-        r2.setSide(North, makeWall());
-        r2.setSide(South, makeWall());
-        r2.setSide(West, makeWall());
-        r2.setSide(East, theDoor) ;
+        r2.setSide(NORTH, makeWall());
+        r2.setSide(SOUTH, makeWall());
+        r2.setSide(EAST, makeWall());
+        r2.setSide(WEST, theDoor) ;
         
         return aMaze;
     }

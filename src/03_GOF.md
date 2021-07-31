@@ -8,13 +8,13 @@
 
 ### [Factory Method](gof/FactoryMethod.md) ✅
 - Definir uma interface para criar um objeto mas deixar que subclasses decidam que classe instanciar 
-### [Abstract Factory](gof/AbstractFactory.md) 🔨
+### [Abstract Factory](gof/AbstractFactory) ✅
 - Prover interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas 
 ### Builder 🚧
 - Separar a construção de objeto complexo da representação para criar representações diferentes com mesmo processo 
 ### Prototype 🚧
 - Especificar tipos a criar usando uma instância como protótipo e criar novos objetos ao copiar este protótipo 
-### Singleton 🚧
+### Singleton 🔨
 - Garantir que uma classe só tenha uma única instância, e prover um ponto de acesso global a ela 
 
 
@@ -50,7 +50,7 @@
 - Definir o esqueleto de um algoritmo dentro de uma operação, deixando alguns passos a serem preenchidos pelas subclasses 
 ### State 🚧
 - Permitir a um objeto alterar o seu comportamento quanto o seu estado interno mudar 
-### [Strategy](gof/Strategy.md)
+### [Strategy](gof/Strategy.md) ✅
 - Definir uma família de algoritmos, encapsular cada um, e fazê-los intercambiáveis 
 ### Command 🚧
 - Encapsular requisição como objeto, para clientes parametrizarem diferentes requisições, filas, e suportar operações reversíveis 

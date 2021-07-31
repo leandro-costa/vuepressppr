@@ -2,7 +2,7 @@
 sidebar: auto
 prev: /03_GOF
 ---
-# Template Method (GOF) 🔨
+# Singleton (GOF) 🔨 
 
 [^GAMMA]
 
