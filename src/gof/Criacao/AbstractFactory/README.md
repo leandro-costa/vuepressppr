@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-prev: /gof/Criacao
+prev: /gof/Criacao/
 ---
 # Abstract Factory (GOF) ✅
 
