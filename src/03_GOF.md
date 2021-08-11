@@ -3,7 +3,7 @@
 [^GAMMA]
 
 
-## Criação
+## [Criação](/gof/DiscusssoPadroesCriacao) 
 
 
 ### [Factory Method](gof/FactoryMethod.md) ✅
@@ -14,7 +14,7 @@
 - Separar a construção de objeto complexo da representação para criar representações diferentes com mesmo processo 
 ### Prototype 🚧
 - Especificar tipos a criar usando uma instância como protótipo e criar novos objetos ao copiar este protótipo 
-### Singleton 🔨
+### [Singleton](/gof/Singleton) 🔨
 - Garantir que uma classe só tenha uma única instância, e prover um ponto de acesso global a ela 
 
 
