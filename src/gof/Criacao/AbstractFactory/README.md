@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-prev: /03_GOF
+prev: /gof/Criacao
 ---
 # Abstract Factory (GOF) ✅
 
@@ -21,7 +21,7 @@ Podemos resolver esse problema definindo uma classe abstrata `WidgetFactory` que
 
 <figure>
 
-!!!include(src/gof/AbstractFactory/toolkit.puml)!!!
+!!!include(src/gof/Criacao/AbstractFactory/diagram/toolkit.puml)!!!
 
 <figcaption>Toolkit para construção de interfaces gráficas.</figcaption>
 </figure>
@@ -41,7 +41,7 @@ Use o padrão Abstract Factory quando:
 
 <figure>
 
-!!!include(src/gof/AbstractFactory/estrutura.puml)!!!
+!!!include(src/gof/Criacao/AbstractFactory/diagram/estrutura.puml)!!!
 
 <figcaption>Estrutura do Abstract Factory.</figcaption>
 </figure>
@@ -131,13 +131,13 @@ A classe `MazeFactory` pode criar componentes de labirintos. Ela constrói salas
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/AbstractFactory/MazeFactory.cpp
+<<< src/gof/Criacao/AbstractFactory/code/MazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/AbstractFactory/MazeFactory.java
+<<< src/gof/Criacao/AbstractFactory/code/MazeFactory.java
 
 </code-block>
 </code-group>
@@ -147,20 +147,21 @@ A classe `MazeFactory` pode criar componentes de labirintos. Ela constrói salas
 
 `CreateMaze` constrói um pequeno labirinto consistindo em duas salas com uma porta entre elas. `CreateMaze` codifica de maneira rígida os nomes das classes, tornando difícil criar labirintos com componentes diferentes.
 
- src/gof/AbstractFactory/CreateMazeOriginal.java
+
+<<< src/gof/Criacao/AbstractFactory/code/CreateMazeOriginal.java
 
 Aqui apresentamos uma versão de `CreateMaze` que corrige essa falha aceitando uma `MazeFactory` como um parâmetro:
 
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/AbstractFactory/MazeGameMazeFactory.cpp
+<<< src/gof/Criacao/AbstractFactory/code/MazeGameMazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/AbstractFactory/MazeGameMazeFactory.java
+<<< src/gof/Criacao/AbstractFactory/code/MazeGameMazeFactory.java
 
 </code-block>
 </code-group>
@@ -171,13 +172,13 @@ Podemos criar `EnchantedMazeFactory`, uma fábrica para labirintos encantados, i
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/AbstractFactory/EnchantedMazeFactory.cpp
+<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/AbstractFactory/EnchantedMazeFactory.java
+<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.java
 
 </code-block>
 </code-group>
@@ -190,13 +191,13 @@ A última classe que definiremos é `BombedMazeFactory`, uma subclasse de `MazeF
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/AbstractFactory/EnchantedMazeFactory.cpp
+<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/AbstractFactory/EnchantedMazeFactory.java
+<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.java
 
 </code-block>
 </code-group>
@@ -208,13 +209,13 @@ Para construir um simples labirinto que pode conter bombas, simplesmente chamamo
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/AbstractFactory/MazeGameRun.cpp
+<<< src/gof/Criacao/AbstractFactory/code/MazeGameRun.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/AbstractFactory/MazeGameRun.java
+<<< src/gof/Criacao/AbstractFactory/code/MazeGameRun.java
 
 </code-block>
 </code-group>

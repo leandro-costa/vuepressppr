@@ -1,7 +1,7 @@
 Maze* MazeGame::CreateMaze (MazeFactory& factory){
     Maze* aMaze = factory.MakeMaze();
     Room* r1 = factory.MakeRoom(1);
-    Roam* r2 factory.MakeROOm(2);
+    Roam* r2 factory.MakeRoom(2);
     Door* aDoor factory.MakeDoor (r1, r2);
 
     aMaze->AddRoom(r1);

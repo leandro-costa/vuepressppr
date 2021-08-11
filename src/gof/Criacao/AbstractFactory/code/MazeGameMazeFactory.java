@@ -1,7 +1,7 @@
 public Maze createMaze (MazeFactory factory){
     Maze aMaze = factory.makeMaze();
     Room r1 = factory.makeRoom(1);
-    Roam r2 factory.makeROOm(2);
+    Roam r2 factory.makeRoom(2);
     Door aDoor factory.makeDoor (r1, r2);
 
     aMaze.addRoom(r1);
