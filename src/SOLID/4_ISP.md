@@ -1,0 +1,1 @@
+## Princípio da Segregação da Interface

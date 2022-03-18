@@ -7,7 +7,7 @@
 
 [^Dornelles]:Nemora  Dornelles.As 15 principais linguagens de programação do mundo! | Becode.https://becode.com.br/principais-linguagens-de-programacao/. (Acessado em 15/08/2019).
 
-[^Oracle]:Oracle."Hello World!" for Microsoft Windows (The Java™Tutorials > Getting Started> The "Hello World!" Application).https://docs.oracle.com/javase/tutorial/getStarted/cupojava/win32.html. (Acessado em 07/08/2019).
+[^Oracle]:Oracle."Hello World!" for Microsoft Windows (The Java™Tutorials > Getting Started> The "Hello World!" Application).[https://docs.oracle.com/javase/tutorial/getStarted/cupojava/win32.html](https://docs.oracle.com/javase/tutorial/getStarted/cupojava/win32.html). (Acessado em 07/08/2019).
 
 [^Santos]:R. Santos.Introdução à programação orientada a objetos usando Java. Campus, 2003.ISBN:9788535212068.
 
@@ -23,3 +23,6 @@
 
 [^GAMMA]: GAMMA, Erich. et al. Padrões de projetos: Soluções reutilizáveis de software orientados a objetos Bookman editora, 2009.
 
+[^RobsonSRP]:Robson Castilho. Princípio da Responsabilidade Única (SRP) [https://robsoncastilho.com.br/2013/02/06/principios-solid-principio-da-responsabilidade-unica-srp/](https://robsoncastilho.com.br/2013/02/06/principios-solid-principio-da-responsabilidade-unica-srp/).  (Acessado em 15/03/2022) 
+
+[^JoaoRobertoSOLID]:João Roberto da Paixão.O que é SOLID: O guia completo para você entender os 5 princípios da POO.[https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530](https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530) (Acessado em 18/03/2022) 

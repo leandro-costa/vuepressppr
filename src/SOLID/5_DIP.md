@@ -1,0 +1,1 @@
+## Princípio da inversão da dependência

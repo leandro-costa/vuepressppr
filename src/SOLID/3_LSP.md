@@ -1,0 +1,1 @@
+## Princípio da substituição de Liskov

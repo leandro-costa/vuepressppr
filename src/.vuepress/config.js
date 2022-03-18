@@ -53,7 +53,7 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: [
       '01_padroes',
-      '02_SOLID',
+      'SOLID/',
       '03_GOF',
       '04_nao_GOF'
     ]
