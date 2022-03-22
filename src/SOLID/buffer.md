@@ -1,40 +1,4 @@
-
-Exemplo prático do SRP:
-
-A classe Order viola o SRP porque realiza 3 tipos distintos de tarefas. Além de lidar com as informações do pedido, ela também é responsável pela exibição e manipulação dos dados. Lembre-se, o princípio da responsabilidade única preza que uma classe deve ter um, e somente um, motivo para mudar.
-A violação do Single Responsibility Principle pode gerar alguns problemas, sendo eles:
-Falta de coesão — uma classe não deve assumir responsabilidades que não são suas;
-Alto acoplamento — Mais responsabilidades geram um maior nível de dependências, deixando o sistema engessado e frágil para alterações;
-Dificuldades na implementação de testes automatizados — É difícil de “mockar” esse tipo de classe;
-Dificuldades para reaproveitar o código;
-Aplicando o SRP na classe Order, podemos refatorar o código da seguinte forma:
-
-Perceba no exemplo acima que agora temos 3 classes, cada uma cuidando da sua responsabilidade.
-O princípio da responsabilidade única não se limita somente a classes, ele também pode ser aplicado em métodos e funções, ou seja, tudo que é responsável por executar uma ação, deve ser responsável por apenas aquilo que se propõe a fazer.
-
-Considero o SRP um dos princípios mais importantes, ele acaba sendo a base para outros princípios e padrões porque aborda temas como acoplamento e coesão, características que todo código orientado a objetos deveria ter.
-Aplicando esse princípio, automaticamente você estará escrevendo um código mais limpo e de fácil manutenção! Se você tem interesse nesse assunto, recomendo a leitura das boas práticas para escrever códigos impecáveis.
 1. OCP — Open-Closed Principle:
-Princípio Aberto-Fechado — Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação, ou seja, quando novos comportamentos e recursos precisam ser adicionados no software, devemos estender e não alterar o código fonte original.
-Exemplo prático do OCP:
-Em um sistema hipotético de RH, temos duas classes que representam os contratos de trabalhos dos funcionários de uma pequena empresa, contratados e estágiários. Além de uma classe para processar a folha de pagamento.
-
-A classe FolhaDePagamento precisa verificar o funcionário para aplicar a regra de negócio correta na hora do pagamento. Supondo que a empresa cresceu e resolveu trabalhar com funcionários PJ, obviamente seria necessário modificar essa classe! Sendo assim, estaríamos quebrando o princípio Open-Closed do SOLID.
-Qual o problema de se alterar a classe FolhaDePagamento?
-Não seria mais fácil apenas acrescentar mais um IF e verificar o novo tipo de funcionário PJ aplicando as respectivas regras? Sim, e provavelmente essa seria a solução que programadores menos experientes iriam fazer. Mas, esse é exatamente o problema! Alterar uma classe já existente para adicionar um novo comportamento, corremos um sério risco de introduzir bugs em algo que já estava funcionando.
-Lembre-se: OCP preza que uma classe deve estar fechada para alteração e aberta para extensão.
-Como adicionamos um novo comportamento sem alterar o código fonte já existente?
-O guru Uncle Bob resumiu a solução em uma frase:
-Separate extensible behavior behind an interface, and flip the dependencies.
-Em tradução direta, seria:
-Separe o comportamento extensível por trás de uma interface e inverta as dependências.
-O que devemos fazer é concentrar nos aspectos essências do contexto, abstraindo-os para uma interface. Se as abstrações são bem definidas, logo o software estará aberto para extensão.
-Aplicando OCP na prática
-Voltando para o nosso exemplo, podemos concluir que o contexto que estamos lidando é a remuneração dos contratos de trabalho, aplicando as premissas de se isolar o comportamento extensível atrás de uma interface, podemos criar uma interface com o nome Remuneravel contendo o método remuneracao(), e fazer com que nossas classes de contrato de trabalho implementem essa interface. Além disso, iremos colocar as regras de calculo de remuneração para suas respectivas classes, dentro do método remuneracao(), fazendo com que a classe FolhaDePagamento dependa somente da interface Remuneravel que iremos criar.
-Veja o código refatorado abaixo:
-
-Agora a classe FolhaDePagamento não precisa mais saber quais métodos chamar para calcular. Ela será capaz de calcular o pagamento corretamente de qualquer novo tipo de funcionário que seja criado no futuro (ContratoPJ) — desde que ele implemente a interface Remuneravel — sem qualquer necessidade de alteração do seu código fonte. Dessa forma, acabamos de implementar o princípio de Aberto-Fechado do SOLID em nosso código!
-Open-Closed Principle também é base para o padrão de projeto Strategy — Falerei desse padrão em um próximo artigo. Particularmente esse é o princípio que eu mais admiro, a sua principal vantagem é a facilidade na adição de novos requisitos, diminuindo as chances de introduzir novos bugs — ou bugs de menor expressão — pois o novo comportamento fica isolado, e o que estava funcionando provavelmente continuara funcionando.
 3. LSP— Liskov Substitution Principle:
 Princípio da substituição de Liskov — Uma classe derivada deve ser substituível por sua classe base.
 O princípio da substituição de Liskov foi introduzido por Barbara Liskov em sua conferência “Data abstraction” em 1987. A definição formal de Liskov diz que:
