@@ -6,8 +6,6 @@
 ## [Criação](/gof/Criacao/) 
 
 
-
-
 ## Estrutural
 
 
