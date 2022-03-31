@@ -41,17 +41,31 @@ abstract class Application{
     openDocument()
 }
 
-class MyApplication{
+class Word{
+    createDocument()    
+}
+
+class PowerPoint{
+    createDocument()    
+}
+
+class Excel{
     createDocument()    
 }
 
 Document -o Application  :docs
-Application <|-- MyApplication 
-MyDocument <- MyApplication
-Document  <|-- MyDocument 
+Application <|-- Word 
+Application <|-- PowerPoint 
+Application <|-- Excel
+Docx <- Word
+Pptx <- PowerPoint
+Xlsx <- Excel
+Document  <|-- Docx 
+Document  <|-- Pptx 
+Document  <|-- Xlsx 
 
-note right of MyApplication::createDocument 
-  return new MyDocument()
+note right of Word::createDocument 
+  return new Docx()
 end note
 
 note right of Application::newDocument 
@@ -67,6 +81,8 @@ hide empty methods
 
 <figcaption>Exemplo factory Method.</figcaption>
 </figure>
+
+
 
 As subclasses de `Application` redefinem uma operação abstrata `createDocument` em `Application` para retornar a subclasse apropriada de `Document.` Uma vez que uma subclasse de `Application` é instanciada, pode então instanciar `Documents` específicos da aplicação sem conhecer suas classes. Chamamos `createDocument` um **factory method** porque ele é responsável pela "manufatura" de um objeto.
 

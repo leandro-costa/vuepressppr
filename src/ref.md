@@ -23,6 +23,8 @@
 
 [^GAMMA]: GAMMA, Erich. et al. Padrões de projetos: Soluções reutilizáveis de software orientados a objetos Bookman editora, 2009.
 
+[^Alexander]: Alexander, Christopher. A pattern language: towns, buildings, construction. Oxford university press, 1977.
+
 [^RobsonSRP]:Robson Castilho. Princípio da Responsabilidade Única (SRP) [https://robsoncastilho.com.br/2013/02/06/principios-solid-principio-da-responsabilidade-unica-srp/](https://robsoncastilho.com.br/2013/02/06/principios-solid-principio-da-responsabilidade-unica-srp/).  (Acessado em 15/03/2022) 
 
 [^RobsonOCP]:Robson Castilho. Princípio do Aberto/Fechado (OCP) [https://robsoncastilho.com.br/2013/02/23/principios-solid-principio-do-abertofechado-ocp/](https://robsoncastilho.com.br/2013/02/23/principios-solid-principio-do-abertofechado-ocp/).  (Acessado em 15/03/2022) 

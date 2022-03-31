@@ -81,7 +81,7 @@ padrão Singleton:
 
     A classe `Singleton` é declarada como
 
-    ```c++
+    ```c
     class Singleton {
     public:
         static Singleton* Instance() ;
@@ -94,7 +94,7 @@ padrão Singleton:
     
     A implementação correspondente é a seguinte
     
-    ```c++
+    ```c
     Singleton* Singleton::_instance = 0;
     
     Singleton* Singleton::Instance(){
@@ -130,7 +130,7 @@ padrão Singleton:
     A solução da ligação fixa a escolha da classe do singleton em tempo de "linkedição", o que torna difícil escolher a classe do singleton em tempo de execução. O uso de instruções condicionais para determinação da subclasse é mais flexível, porém codifica de maneira rígida o conjunto das classes Singleton possíveis. Nenhuma abordagem é flexível o bastante em todos os casos.
     Uma abordagem mais flexível utiliza um sistema de registro de singletons (registry of singletons). Em vez de ter Instance definindo o conjunto das classes Singleton possíveis, as classes Singleton podem registrar suas instâncias singleton por nome, num sistema de registro de conhecimento geral. O sistema de registro associa nomes e singletons. Os nomes são constituídos de cadeias de caracteres. Quando Instance necessita um singleton, ela consulta o sistema de registro, procurando o singleton pelo nome. O sistema de registro procura o singleton correspondente (se existir) e o retorna ao cliente. Essa solução libera Instance da necessidade de ter que conhecer todas as possíveis classes ou instâncias do Singleton. Tudo o que é necessário é uma interface comum para todas as classes Singleton, que inclua operações de registro:
 
-    ```c++
+    ```c
     class Singleton {
     public:
         static void Register(const char* name, Singleton*) ;
