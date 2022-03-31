@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-prev: /gof/
+prev: /03_GOF.md
 ---
 # Abstract Factory (GOF) ✅
 
