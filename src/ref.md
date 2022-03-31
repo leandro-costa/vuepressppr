@@ -25,6 +25,8 @@
 
 [^Alexander]: Alexander, Christopher. A pattern language: towns, buildings, construction. Oxford university press, 1977.
 
+[^WikAntipadrao]: Antipadrão. [https://pt.wikipedia.org/wiki/Antipadr%C3%A3o](https://pt.wikipedia.org/wiki/Antipadr%C3%A3o). (Acessado em 15/03/2022) 
+
 [^RobsonSRP]:Robson Castilho. Princípio da Responsabilidade Única (SRP) [https://robsoncastilho.com.br/2013/02/06/principios-solid-principio-da-responsabilidade-unica-srp/](https://robsoncastilho.com.br/2013/02/06/principios-solid-principio-da-responsabilidade-unica-srp/).  (Acessado em 15/03/2022) 
 
 [^RobsonOCP]:Robson Castilho. Princípio do Aberto/Fechado (OCP) [https://robsoncastilho.com.br/2013/02/23/principios-solid-principio-do-abertofechado-ocp/](https://robsoncastilho.com.br/2013/02/23/principios-solid-principio-do-abertofechado-ocp/).  (Acessado em 15/03/2022) 

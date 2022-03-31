@@ -371,11 +371,11 @@ O sistema ORB Orbix da IONA Technologies [ION94] usa Factory Method para gerar u
 
 ## Padrão relacionados
 
-[Abstract Factory](AbstractFactory.md) é freqüentemente implementado utilizado o padrão Factory Method. O exemplo na relação de Motivação no padrão Abstract Factory também ilustra o padrão Factory Method.
+[Abstract Factory](/gof/AbstractFactory.md) é freqüentemente implementado utilizado o padrão Factory Method. O exemplo na relação de Motivação no padrão Abstract Factory também ilustra o padrão Factory Method.
 
-Factory Methods são usualmente chamados dentro de [Template Methods](TemplateMethod.md). No exemplo do documento acima, NewDocument é um template method.
+Factory Methods são usualmente chamados dentro de [Template Methods](/gof/TemplateMethod.md). No exemplo do documento acima, NewDocument é um template method.
 
-[Prototypes](Prototype.md) não exigem subclassificação de Creator. Contudo, freqüentemente necessitam uma operação Initialize na classe Product. A Creator usa Initialize para iniciar o objeto. O Factory Method não exige uma operação desse tipo.
+[Prototypes](/gof/Prototype.md) não exigem subclassificação de Creator. Contudo, frequentemente necessitam uma operação Initialize na classe Product. A Creator usa Initialize para iniciar o objeto. O Factory Method não exige uma operação desse tipo.
 
 ## Referências
 

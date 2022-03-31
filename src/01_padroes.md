@@ -118,6 +118,7 @@ Os padrões de projeto são descrições de objetos que se comunicam e classes q
             <li>Adapter (object)</li>
             <li>Bridge</li>
             <li>Composite</li>
+            <li>Decorator</li>
             <li>Facade</li>
             <li>Flyweight</li>
             <li>Proxy</li>
@@ -139,42 +140,80 @@ Os padrões de projeto são descrições de objetos que se comunicam e classes q
   </tr>
 </tbody>
 </table>
-{
-\usebackgroundtemplate{}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.9\paperwidth]{tabela}
-\caption{Tabela de padrões do Gof \cite{gamma1994design}}
-\label{fig:tabela}
-\end{figure}
-		
+<figure>
 
-\begin{figure}
-\centering
-\includegraphics[height=0.7\paperheight]{relacao}
-\caption{Relação entre os padrões do Gof \cite{gamma1994design}}
-\label{fig:relacao}
-\end{figure}
-		
+@startuml
+'skinparam linetype polyline
 
-}
+class "Factory Method" as FactoryMethod
+class Interperter
+class "Template Method" as TemplateMethod
+class "Abstract Factory" as AbstractFactory
+class Builder
+class Prototype
+class Singleton
+class Adapter
+class Bridge
+class Composite
+class Decorator
+class Facade
+class Flyweight
+class Proxy
+class "Chain of Responsibility" as ChainofResponsibility
+class Command
+class Iterator
+class Mediator
+class Memento
+class Observer
+class State
+class Strategy
+class Visitor
+
+ChainofResponsibility ---> Composite : Definindo \na cadeia
+Command ---> Composite : Usando \ncomposto
+Command ---> Memento : Evitando \nhisterese
+Iterator ---> Memento : Salvando o \nestado da iteração
+Composite ---> Iterator : Enumerando \nfilhos
+Visitor ---> Iterator : Definindo\percussos
+Composite ---> Visitor : Adicionando\nOperações
+Interperter ---> Visitor : Adicionando\nOperações
+Interperter ---> Composite : Definindo\na gramática
+Interperter ---> Flyweight : Compartilhando\nsímbolos terminais
+Composite ---> Flyweight : Compartilhando\ncompostos
+Flyweight <--- State : Compartilhando\nestados
+Strategy ---> Flyweight : Compartilhando\nestrategias
+TemplateMethod ---> Strategy : Definindo os\npasso do\nalgoritmo
+Decorator ---> Strategy : Mudando o \nexterior x\ninterior
+Strategy ---> Decorator : Mudando o \nexterior x\ninterior
+Composite ---> Decorator : Acrescentando\nresponsabilidade\na objetos
+Composite ---> Builder : Criando\ncompostos
+FactoryMethod <--- TemplateMethod  : usos frequentes
+FactoryMethod <--- AbstractFactory  : implementa usando
+Prototype <--- AbstractFactory : Configurar\na fabrica\ndinamicamente
+Singleton <--- AbstractFactory : instância\núnica
+Facade ---> Singleton : instância\núnica
+Observer --> Mediator : administração\nde dependências\ncomplexas
+
+
+Decorator -[hidden]-> Observer
+
+
+Adapter -[hidden]-> Bridge
+Bridge -[hidden]-> Proxy
+Adapter -[hidden]> AbstractFactory
+
+
+hide empty attributes
+hide empty methods
+hide circle
+
+@enduml
+
+<figcaption>Relação entre os padrões do Gof.</figcaption>
+</figure>
+
 
 !!!include(src/ref.md)!!!
 
-
-%
-%Anti-padrões de programação[editar | editar código-fonte]
-%Complexidade acidental: Introdução de complexidade desnecessária em uma solução
-%Ação à distância: Interação inesperada entre partes distantes de um sistema
-%Fé cega: Falta de checar (a) a correção de um bug ou (b) o resultado de uma subrotina
-%Âncora do barco: Manter uma parte de um sistema que não tem mais uso
-%Espera ativa: Consumir CPU enquanto espera por algo acontecer, normalmente checando várias vezes ao invés de enviar mensagem
-%Culto de programação: Usar padrões sem saber o motivo
-%Programando por exceção: Adicionar código novo para lidar com cada caso especial quando esse é reconhecido
-%Fluxo de lava: Manter código indesejável (redundante ou de baixa qualidade) porque removê-lo é caro ou tem conseguências imprevisíveis
-%Números mágicos: Incluir números inexplicados em algoritmos
-%Strings mágicas: Incluir literais no código para comparações inexplicadas
-%Don't repeat yourself': Escrever código que contém padrões repetitivos, a serem evitados com o princípio da abstração
-%Código espaguete: Programas que têm a estrutura pouco compreensível, especialmente por mal uso das estruturas de código
 

@@ -3,7 +3,7 @@
 [^GAMMA]
 
 
-## [Criação](/gof/Criacao/) 
+## [Criação](/gof/Criacao) 
 
 
 

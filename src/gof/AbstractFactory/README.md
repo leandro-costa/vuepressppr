@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-prev: /gof/Criacao/
+prev: /gof/
 ---
 # Abstract Factory (GOF) ✅
 
@@ -21,7 +21,7 @@ Podemos resolver esse problema definindo uma classe abstrata `WidgetFactory` que
 
 <figure>
 
-!!!include(src/gof/Criacao/AbstractFactory/diagram/toolkit.puml)!!!
+!!!include(src/gof/AbstractFactory/diagram/toolkit.puml)!!!
 
 <figcaption>Toolkit para construção de interfaces gráficas.</figcaption>
 </figure>
@@ -41,7 +41,7 @@ Use o padrão Abstract Factory quando:
 
 <figure>
 
-!!!include(src/gof/Criacao/AbstractFactory/diagram/estrutura.puml)!!!
+!!!include(src/gof/AbstractFactory/diagram/estrutura.puml)!!!
 
 <figcaption>Estrutura do Abstract Factory.</figcaption>
 </figure>
@@ -131,13 +131,13 @@ A classe `MazeFactory` pode criar componentes de labirintos. Ela constrói salas
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/Criacao/AbstractFactory/code/MazeFactory.cpp
+<<< src/gof/AbstractFactory/code/MazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/Criacao/AbstractFactory/code/MazeFactory.java
+<<< src/gof/AbstractFactory/code/MazeFactory.java
 
 </code-block>
 </code-group>
@@ -148,20 +148,20 @@ A classe `MazeFactory` pode criar componentes de labirintos. Ela constrói salas
 `CreateMaze` constrói um pequeno labirinto consistindo em duas salas com uma porta entre elas. `CreateMaze` codifica de maneira rígida os nomes das classes, tornando difícil criar labirintos com componentes diferentes.
 
 
-<<< src/gof/Criacao/AbstractFactory/code/CreateMazeOriginal.java
+<<< src/gof/AbstractFactory/code/CreateMazeOriginal.java
 
 Aqui apresentamos uma versão de `CreateMaze` que corrige essa falha aceitando uma `MazeFactory` como um parâmetro:
 
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/Criacao/AbstractFactory/code/MazeGameMazeFactory.cpp
+<<< src/gof/AbstractFactory/code/MazeGameMazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/Criacao/AbstractFactory/code/MazeGameMazeFactory.java
+<<< src/gof/AbstractFactory/code/MazeGameMazeFactory.java
 
 </code-block>
 </code-group>
@@ -172,13 +172,13 @@ Podemos criar `EnchantedMazeFactory`, uma fábrica para labirintos encantados, i
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.cpp
+<<< src/gof/AbstractFactory/code/EnchantedMazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.java
+<<< src/gof/AbstractFactory/code/EnchantedMazeFactory.java
 
 </code-block>
 </code-group>
@@ -191,13 +191,13 @@ A última classe que definiremos é `BombedMazeFactory`, uma subclasse de `MazeF
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.cpp
+<<< src/gof/AbstractFactory/code/EnchantedMazeFactory.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/Criacao/AbstractFactory/code/EnchantedMazeFactory.java
+<<< src/gof/AbstractFactory/code/EnchantedMazeFactory.java
 
 </code-block>
 </code-group>
@@ -209,13 +209,13 @@ Para construir um simples labirinto que pode conter bombas, simplesmente chamamo
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/Criacao/AbstractFactory/code/MazeGameRun.cpp
+<<< src/gof/AbstractFactory/code/MazeGameRun.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/Criacao/AbstractFactory/code/MazeGameRun.java
+<<< src/gof/AbstractFactory/code/MazeGameRun.java
 
 </code-block>
 </code-group>
@@ -236,9 +236,9 @@ ET++ [WGM88] usa o padrão Abstract Factory para obter portabilidade entre difer
 
 ## Padrão relacionados
 
-As classes AbstractFactory são frequentemente implementadas com métodos-fábrica [Factory Method](../FactoryMethod), mas elas também podem ser implementadas usando [Prototype](../Prototype).
+As classes AbstractFactory são frequentemente implementadas com métodos-fábrica [Factory Method](/gof/FactoryMethod), mas elas também podem ser implementadas usando [Prototype](/gof/Prototype).
 
-Uma fábrica concreta é frequentemente um [Singleton](../Singleton).
+Uma fábrica concreta é frequentemente um [Singleton](/gof/Singleton).
 
 
 ## Referências
