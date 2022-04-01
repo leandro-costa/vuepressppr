@@ -13,7 +13,7 @@ A ideia de padrões foi apresentada por Christopher Alexander em 1977 no context
 
 ## Conceito
 
-Também conhecidos como \textit{Padrões de Desenho de Software OO} ou simplesmente como \textit{Padrões}.
+Também conhecidos como *Padrões de Desenho de Software OO* ou simplesmente como *Padrões.*
 
 ::: tip Definição
 Cada padrão descreve um problema que ocorre repetidas vezes em nosso ambiente, e então descreve o núcleo da solução para aquele problema, de tal maneira que pode-se usar essa solução milhões de vezes sem nunca fazê-la da mesma forma duas vezes [^Alexander]

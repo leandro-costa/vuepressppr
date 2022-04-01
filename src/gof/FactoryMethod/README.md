@@ -1,6 +1,6 @@
 ---
 sidebar: auto
-prev: /gof/Criacao/
+prev: /03_GOF
 ---
 # Factory Method (GOF) ✅
 

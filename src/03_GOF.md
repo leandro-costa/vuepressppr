@@ -3,7 +3,7 @@
 [^GAMMA]
 
 
-## [Criação](/gof/Criacao) 
+## [Criação](/03_GOF) 
 
 
 ## Estrutural
@@ -45,7 +45,7 @@
 ### Interpreter 🚧
 - Dada uma linguagem, definir uma representação para sua gramática junto com um interpretador 
 ### Iterator 🚧
-- Prover uma maneira de acessar elementos de um objeto agregado seqüencialmente sem expor sua representação interna 
+- Prover uma maneira de acessar elementos de um objeto agregado sequencialmente sem expor sua representação interna 
 ### Visitor 🚧
 - Representar uma operação a ser realizada sobre os elementos de uma estrutura de objetos	 
 
