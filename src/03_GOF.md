@@ -3,7 +3,7 @@
 [^GAMMA]
 
 
-## [Criação](/03_GOF) 
+## [Criação](gof/Criacao.md) 
 
 
 ## Estrutural

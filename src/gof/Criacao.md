@@ -1,3 +1,7 @@
+---
+sidebar: auto
+prev: /03_GOF
+---
 # Discussão sobre padrões de criação
 
 Existem duas maneiras comuns de parametrizar um sistema pelas classes de objetos que ele cria. Uma é criar subclasses da classe que cria os objetos; isto corresponde a usar o padrão [Factory Method](/gof/FactoryMethod). A principal desvantagem desta solução é que requer a criação de uma nova subclasse somente para mudar a classe do produto. Tais mudanças podem gerar uma cascata de modificações encadeadas. Por exemplo, quando o criador do produto é ele próprio, criado por um método fábrica, então você tem que redefinir também o seu criador.
