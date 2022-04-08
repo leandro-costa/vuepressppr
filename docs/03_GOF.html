@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>GOF 🔨 | Padrões de Projetos</title>
@@ -16,16 +17,201 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="msapplication-TileImage" content="/icon-192x192.png">
     <meta name="msapplication-TileColor" content="#000000">
-    
-    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style"><link rel="preload" href="/vuepressppr/assets/js/app.c22798eb.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/2.fd694179.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/13.41ab6839.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script"><link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js"><link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js"><link rel="prefetch" href="/vuepressppr/assets/js/12.fb774cab.js"><link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js"><link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js"><link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js"><link rel="prefetch" href="/vuepressppr/assets/js/17.6af70c8b.js"><link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js"><link rel="prefetch" href="/vuepressppr/assets/js/19.bc43c532.js"><link rel="prefetch" href="/vuepressppr/assets/js/20.2bab264f.js"><link rel="prefetch" href="/vuepressppr/assets/js/21.2356b627.js"><link rel="prefetch" href="/vuepressppr/assets/js/22.72349944.js"><link rel="prefetch" href="/vuepressppr/assets/js/23.7d221001.js"><link rel="prefetch" href="/vuepressppr/assets/js/24.918cdccd.js"><link rel="prefetch" href="/vuepressppr/assets/js/25.f9ee66c9.js"><link rel="prefetch" href="/vuepressppr/assets/js/26.fe45b076.js"><link rel="prefetch" href="/vuepressppr/assets/js/27.fd50f3f6.js"><link rel="prefetch" href="/vuepressppr/assets/js/28.66fa507d.js"><link rel="prefetch" href="/vuepressppr/assets/js/29.37a86571.js"><link rel="prefetch" href="/vuepressppr/assets/js/30.b0b7273e.js"><link rel="prefetch" href="/vuepressppr/assets/js/31.3d7f955d.js"><link rel="prefetch" href="/vuepressppr/assets/js/32.65d1262f.js"><link rel="prefetch" href="/vuepressppr/assets/js/33.57f6c489.js"><link rel="prefetch" href="/vuepressppr/assets/js/34.62ba6309.js"><link rel="prefetch" href="/vuepressppr/assets/js/4.5f801113.js"><link rel="prefetch" href="/vuepressppr/assets/js/5.2b7133b0.js"><link rel="prefetch" href="/vuepressppr/assets/js/6.28e79f91.js"><link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js"><link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js"><link rel="prefetch" href="/vuepressppr/assets/js/9.11f50ff4.js">
+
+    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style">
+    <link rel="preload" href="/vuepressppr/assets/js/app.c22798eb.js" as="script">
+    <link rel="preload" href="/vuepressppr/assets/js/2.fd694179.js" as="script">
+    <link rel="preload" href="/vuepressppr/assets/js/13.41ab6839.js" as="script">
+    <link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script">
+    <link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/12.fb774cab.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/17.6af70c8b.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/19.bc43c532.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/20.2bab264f.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/21.2356b627.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/22.72349944.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/23.7d221001.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/24.918cdccd.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/25.f9ee66c9.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/26.fe45b076.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/27.fd50f3f6.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/28.66fa507d.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/29.37a86571.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/30.b0b7273e.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/31.3d7f955d.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/32.65d1262f.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/33.57f6c489.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/34.62ba6309.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/4.5f801113.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/5.2b7133b0.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/6.28e79f91.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/9.11f50ff4.js">
     <link rel="stylesheet" href="/vuepressppr/assets/css/0.styles.47a93a5c.css">
-  </head>
-  <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressppr/" class="home-link router-link-active"><!----> <span class="site-name">Padrões de Projetos</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+</head>
+
+<body>
+    <div id="app" data-server-rendered="true">
+        <div class="theme-container">
+            <header class="navbar">
+                <div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div>
+                <a href="/vuepressppr/" class="home-link router-link-active">
+                    <!----><span class="site-name">Padrões de Projetos</span></a>
+                <div class="links">
+                    <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value="">
+                        <!---->
+                    </div>
+                    <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
     GitHub
-    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>
+                </div>
+            </header>
+            <div class="sidebar-mask"></div>
+            <aside class="sidebar">
+                <nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
     GitHub
-    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/vuepressppr/01_padroes.html" class="sidebar-link">Padrões de Projetos 🚧</a></li><li><a href="/vuepressppr/02_AntiPadroes.html" class="sidebar-link">Anti-padrões de programação</a></li><li><a href="/vuepressppr/SOLID/" class="sidebar-link">Princípios SOLID</a></li><li><a href="/vuepressppr/03_GOF.html" aria-current="page" class="active sidebar-link">GOF 🔨</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#criacao" class="sidebar-link">Criação</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#estrutural" class="sidebar-link">Estrutural</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#adapter-🚧" class="sidebar-link">Adapter 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#bridge-🚧" class="sidebar-link">Bridge 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#composite-🚧" class="sidebar-link">Composite 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#decorator-🚧" class="sidebar-link">Decorator 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#facade-🚧" class="sidebar-link">Façade 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#flyweight-🚧" class="sidebar-link">Flyweight 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#proxy-🚧" class="sidebar-link">Proxy 🚧</a></li></ul></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#comportamental" class="sidebar-link">Comportamental</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#observer-🚧" class="sidebar-link">Observer 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#mediator-🚧" class="sidebar-link">Mediator 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#chain-of-responsibility-🚧" class="sidebar-link">Chain of Responsibility 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#memento-🚧" class="sidebar-link">Memento 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#template-method-🔨" class="sidebar-link">Template Method 🔨</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#state-🚧" class="sidebar-link">State 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#strategy-✅" class="sidebar-link">Strategy ✅</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#command-🚧" class="sidebar-link">Command 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#interpreter-🚧" class="sidebar-link">Interpreter 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#iterator-🚧" class="sidebar-link">Iterator 🚧</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#visitor-🚧" class="sidebar-link">Visitor 🚧</a></li></ul></li><li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#referencias" class="sidebar-link">Referências</a></li></ul></li><li><a href="/vuepressppr/04_nao_GOF.html" class="sidebar-link">Não GOF 🚧</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="gof-🔨"><a href="#gof-🔨" class="header-anchor">#</a> GOF 🔨</h1> <p><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p> <h2 id="criacao"><a href="#criacao" class="header-anchor">#</a> <a href="/vuepressppr/gof/Criacao.html">Criação</a></h2> <h2 id="estrutural"><a href="#estrutural" class="header-anchor">#</a> Estrutural</h2> <h3 id="adapter-🚧"><a href="#adapter-🚧" class="header-anchor">#</a> Adapter 🚧</h3> <ul><li>Converter a interface de uma classe em outra interface esperada pelos clientes.</li></ul> <h3 id="bridge-🚧"><a href="#bridge-🚧" class="header-anchor">#</a> Bridge 🚧</h3> <ul><li>Desacoplar uma abstração de sua implementação para que os dois possam variar independentemente</li></ul> <h3 id="composite-🚧"><a href="#composite-🚧" class="header-anchor">#</a> Composite 🚧</h3> <ul><li>Permitir o tratamento de objetos individuais e composições desses objetos de maneira uniforme</li></ul> <h3 id="decorator-🚧"><a href="#decorator-🚧" class="header-anchor">#</a> Decorator 🚧</h3> <ul><li>Anexar responsabilidades adicionais a um objeto dinamicamente</li></ul> <h3 id="facade-🚧"><a href="#facade-🚧" class="header-anchor">#</a> Façade 🚧</h3> <ul><li>Oferecer uma interface única de nível mais elevado para um conjunto de interfaces de um subsistema</li></ul> <h3 id="flyweight-🚧"><a href="#flyweight-🚧" class="header-anchor">#</a> Flyweight 🚧</h3> <ul><li>Usar compartilhamento para suportar eficientemente grandes quantidades de objetos complexos</li></ul> <h3 id="proxy-🚧"><a href="#proxy-🚧" class="header-anchor">#</a> Proxy 🚧</h3> <ul><li>Prover um substituto ou ponto através do qual um objeto possa controlar o acesso a outro</li></ul> <h2 id="comportamental"><a href="#comportamental" class="header-anchor">#</a> Comportamental</h2> <h3 id="observer-🚧"><a href="#observer-🚧" class="header-anchor">#</a> Observer 🚧</h3> <ul><li>Definir uma dependência um-para-muitos entre objetos para que quando um objeto mudar de estado, os seus dependentes sejam notificados e atualizados automaticamente</li></ul> <h3 id="mediator-🚧"><a href="#mediator-🚧" class="header-anchor">#</a> Mediator 🚧</h3> <ul><li>Definir um objeto que encapsula a forma como um conjunto de objetos interagem</li></ul> <h3 id="chain-of-responsibility-🚧"><a href="#chain-of-responsibility-🚧" class="header-anchor">#</a> Chain of Responsibility 🚧</h3> <ul><li>Compor objetos em cascata para, através dela, delegar uma requisição até que um objeto a sirva</li></ul> <h3 id="memento-🚧"><a href="#memento-🚧" class="header-anchor">#</a> Memento 🚧</h3> <ul><li>Externalizar o estado interno de um objeto para que o objeto possa ter esse estado restaurado posteriormente</li></ul> <h3 id="template-method-🔨"><a href="#template-method-🔨" class="header-anchor">#</a> <a href="gof/Criacao/TemplateMethod">Template Method</a> 🔨</h3> <ul><li>Definir o esqueleto de um algoritmo dentro de uma operação, deixando alguns passos a serem preenchidos pelas subclasses</li></ul> <h3 id="state-🚧"><a href="#state-🚧" class="header-anchor">#</a> State 🚧</h3> <ul><li>Permitir a um objeto alterar o seu comportamento quanto o seu estado interno mudar</li></ul> <h3 id="strategy-✅"><a href="#strategy-✅" class="header-anchor">#</a> <a href="/vuepressppr/gof/Criacao/Strategy.html">Strategy</a> ✅</h3> <ul><li>Definir uma família de algoritmos, encapsular cada um, e fazê-los intercambiáveis</li></ul> <h3 id="command-🚧"><a href="#command-🚧" class="header-anchor">#</a> Command 🚧</h3> <ul><li>Encapsular requisição como objeto, para clientes parametrizarem diferentes requisições, filas, e suportar operações reversíveis</li></ul> <h3 id="interpreter-🚧"><a href="#interpreter-🚧" class="header-anchor">#</a> Interpreter 🚧</h3> <ul><li>Dada uma linguagem, definir uma representação para sua gramática junto com um interpretador</li></ul> <h3 id="iterator-🚧"><a href="#iterator-🚧" class="header-anchor">#</a> Iterator 🚧</h3> <ul><li>Prover uma maneira de acessar elementos de um objeto agregado sequencialmente sem expor sua representação interna</li></ul> <h3 id="visitor-🚧"><a href="#visitor-🚧" class="header-anchor">#</a> Visitor 🚧</h3> <ul><li>Representar uma operação a ser realizada sobre os elementos de uma estrutura de objetos</li></ul> <h2 id="referencias"><a href="#referencias" class="header-anchor">#</a> Referências</h2> <hr class="footnotes-sep"> <section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>GAMMA, Erich. et al. Padrões de projetos: Soluções reutilizáveis de software orientados a objetos Bookman editora, 2009. <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/03_GOF.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/6/2022, 8:37:02 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>
+                <ul class="sidebar-links">
+                    <li><a href="/vuepressppr/01_padroes.html" class="sidebar-link">Padrões de Projetos 🚧</a></li>
+                    <li><a href="/vuepressppr/02_AntiPadroes.html" class="sidebar-link">Anti-padrões de programação</a></li>
+                    <li><a href="/vuepressppr/SOLID/" class="sidebar-link">Princípios SOLID</a></li>
+                    <li><a href="/vuepressppr/03_GOF.html" aria-current="page" class="active sidebar-link">GOF 🔨</a>
+                        <ul class="sidebar-sub-headers">
+                            <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#criacao" class="sidebar-link">Criação</a></li>
+                            <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#estrutural" class="sidebar-link">Estrutural</a>
+                                <ul class="sidebar-sub-headers">
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#adapter-🚧" class="sidebar-link">Adapter 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#bridge-🚧" class="sidebar-link">Bridge 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#composite-🚧" class="sidebar-link">Composite 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#decorator-🚧" class="sidebar-link">Decorator 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#facade-🚧" class="sidebar-link">Façade 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#flyweight-🚧" class="sidebar-link">Flyweight 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#proxy-🚧" class="sidebar-link">Proxy 🚧</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#comportamental" class="sidebar-link">Comportamental</a>
+                                <ul class="sidebar-sub-headers">
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#observer-🚧" class="sidebar-link">Observer 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#mediator-🚧" class="sidebar-link">Mediator 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#chain-of-responsibility-🚧" class="sidebar-link">Chain of Responsibility 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#memento-🚧" class="sidebar-link">Memento 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#template-method-🔨" class="sidebar-link">Template Method 🔨</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#state-🚧" class="sidebar-link">State 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#strategy-✅" class="sidebar-link">Strategy ✅</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#command-🚧" class="sidebar-link">Command 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#interpreter-🚧" class="sidebar-link">Interpreter 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#iterator-🚧" class="sidebar-link">Iterator 🚧</a></li>
+                                    <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#visitor-🚧" class="sidebar-link">Visitor 🚧</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-sub-header"><a href="/vuepressppr/03_GOF.html#referencias" class="sidebar-link">Referências</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/vuepressppr/04_nao_GOF.html" class="sidebar-link">Não GOF 🚧</a></li>
+                </ul>
+            </aside>
+            <main class="page">
+                <div class="theme-default-content content__default">
+                    <h1 id="gof-🔨"><a href="#gof-🔨" class="header-anchor">#</a> GOF 🔨</h1>
+                    <p><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+                    <h2 id="criacao"><a href="#criacao" class="header-anchor">#</a> <a href="/vuepressppr/gof/Criacao.html">Criação</a></h2>
+                    <h2 id="estrutural"><a href="#estrutural" class="header-anchor">#</a> Estrutural</h2>
+                    <h3 id="adapter-🚧"><a href="#adapter-🚧" class="header-anchor">#</a> Adapter 🚧</h3>
+                    <ul>
+                        <li>Converter a interface de uma classe em outra interface esperada pelos clientes.</li>
+                    </ul>
+                    <h3 id="bridge-🚧"><a href="#bridge-🚧" class="header-anchor">#</a> Bridge 🚧</h3>
+                    <ul>
+                        <li>Desacoplar uma abstração de sua implementação para que os dois possam variar independentemente</li>
+                    </ul>
+                    <h3 id="composite-🚧"><a href="#composite-🚧" class="header-anchor">#</a> Composite 🚧</h3>
+                    <ul>
+                        <li>Permitir o tratamento de objetos individuais e composições desses objetos de maneira uniforme</li>
+                    </ul>
+                    <h3 id="decorator-🚧"><a href="#decorator-🚧" class="header-anchor">#</a> Decorator 🚧</h3>
+                    <ul>
+                        <li>Anexar responsabilidades adicionais a um objeto dinamicamente</li>
+                    </ul>
+                    <h3 id="facade-🚧"><a href="#facade-🚧" class="header-anchor">#</a> Façade 🚧</h3>
+                    <ul>
+                        <li>Oferecer uma interface única de nível mais elevado para um conjunto de interfaces de um subsistema</li>
+                    </ul>
+                    <h3 id="flyweight-🚧"><a href="#flyweight-🚧" class="header-anchor">#</a> Flyweight 🚧</h3>
+                    <ul>
+                        <li>Usar compartilhamento para suportar eficientemente grandes quantidades de objetos complexos</li>
+                    </ul>
+                    <h3 id="proxy-🚧"><a href="#proxy-🚧" class="header-anchor">#</a> Proxy 🚧</h3>
+                    <ul>
+                        <li>Prover um substituto ou ponto através do qual um objeto possa controlar o acesso a outro</li>
+                    </ul>
+                    <h2 id="comportamental"><a href="#comportamental" class="header-anchor">#</a> Comportamental</h2>
+                    <h3 id="observer-🚧"><a href="#observer-🚧" class="header-anchor">#</a> Observer 🚧</h3>
+                    <ul>
+                        <li>Definir uma dependência um-para-muitos entre objetos para que quando um objeto mudar de estado, os seus dependentes sejam notificados e atualizados automaticamente</li>
+                    </ul>
+                    <h3 id="mediator-🚧"><a href="#mediator-🚧" class="header-anchor">#</a> Mediator 🚧</h3>
+                    <ul>
+                        <li>Definir um objeto que encapsula a forma como um conjunto de objetos interagem</li>
+                    </ul>
+                    <h3 id="chain-of-responsibility-🚧"><a href="#chain-of-responsibility-🚧" class="header-anchor">#</a> Chain of Responsibility 🚧</h3>
+                    <ul>
+                        <li>Compor objetos em cascata para, através dela, delegar uma requisição até que um objeto a sirva</li>
+                    </ul>
+                    <h3 id="memento-🚧"><a href="#memento-🚧" class="header-anchor">#</a> Memento 🚧</h3>
+                    <ul>
+                        <li>Externalizar o estado interno de um objeto para que o objeto possa ter esse estado restaurado posteriormente</li>
+                    </ul>
+                    <h3 id="template-method-🔨"><a href="#template-method-🔨" class="header-anchor">#</a> <a href="gof/Criacao/TemplateMethod">Template Method</a> 🔨</h3>
+                    <ul>
+                        <li>Definir o esqueleto de um algoritmo dentro de uma operação, deixando alguns passos a serem preenchidos pelas subclasses</li>
+                    </ul>
+                    <h3 id="state-🚧"><a href="#state-🚧" class="header-anchor">#</a> State 🚧</h3>
+                    <ul>
+                        <li>Permitir a um objeto alterar o seu comportamento quanto o seu estado interno mudar</li>
+                    </ul>
+                    <h3 id="strategy-✅"><a href="#strategy-✅" class="header-anchor">#</a> <a href="/vuepressppr/gof/Criacao/Strategy.html">Strategy</a> ✅</h3>
+                    <ul>
+                        <li>Definir uma família de algoritmos, encapsular cada um, e fazê-los intercambiáveis</li>
+                    </ul>
+                    <h3 id="command-🚧"><a href="#command-🚧" class="header-anchor">#</a> Command 🚧</h3>
+                    <ul>
+                        <li>Encapsular requisição como objeto, para clientes parametrizarem diferentes requisições, filas, e suportar operações reversíveis</li>
+                    </ul>
+                    <h3 id="interpreter-🚧"><a href="#interpreter-🚧" class="header-anchor">#</a> Interpreter 🚧</h3>
+                    <ul>
+                        <li>Dada uma linguagem, definir uma representação para sua gramática junto com um interpretador</li>
+                    </ul>
+                    <h3 id="iterator-🚧"><a href="#iterator-🚧" class="header-anchor">#</a> Iterator 🚧</h3>
+                    <ul>
+                        <li>Prover uma maneira de acessar elementos de um objeto agregado sequencialmente sem expor sua representação interna</li>
+                    </ul>
+                    <h3 id="visitor-🚧"><a href="#visitor-🚧" class="header-anchor">#</a> Visitor 🚧</h3>
+                    <ul>
+                        <li>Representar uma operação a ser realizada sobre os elementos de uma estrutura de objetos</li>
+                    </ul>
+                    <h2 id="referencias"><a href="#referencias" class="header-anchor">#</a> Referências</h2>
+                    <hr class="footnotes-sep">
+                    <section class="footnotes">
+                        <ol class="footnotes-list">
+                            <li id="fn1" class="footnote-item">
+                                <p>GAMMA, Erich. et al. Padrões de projetos: Soluções reutilizáveis de software orientados a objetos Bookman editora, 2009. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+                            </li>
+                        </ol>
+                    </section>
+                </div>
+                <footer class="page-edit">
+                    <div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/03_GOF.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span>
+                    </div>
+                    <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/6/2022, 8:37:02 PM</span></div>
+                </footer>
+                <div class="page-nav">
+                    <p class="inner"><span class="prev">
       ←
       <a href="/vuepressppr/SOLID/" class="prev">
         Princípios SOLID
@@ -33,7 +219,19 @@
         Não GOF 🚧
       </a>
       →
-    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/vuepressppr/assets/js/app.c22798eb.js" defer></script><script src="/vuepressppr/assets/js/2.fd694179.js" defer></script><script src="/vuepressppr/assets/js/13.41ab6839.js" defer></script><script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
-  </body>
+    </span></p>
+                </div>
+            </main>
+        </div>
+        <div class="global-ui">
+            <!---->
+            <!---->
+        </div>
+    </div>
+    <script src="/vuepressppr/assets/js/app.c22798eb.js" defer></script>
+    <script src="/vuepressppr/assets/js/2.fd694179.js" defer></script>
+    <script src="/vuepressppr/assets/js/13.41ab6839.js" defer></script>
+    <script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
+</body>
+
 </html>

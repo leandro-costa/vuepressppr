@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Anti-padrões de programação | Padrões de Projetos</title>
@@ -16,28 +17,157 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="msapplication-TileImage" content="/icon-192x192.png">
     <meta name="msapplication-TileColor" content="#000000">
-    
-    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style"><link rel="preload" href="/vuepressppr/assets/js/app.c22798eb.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/2.fd694179.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/12.fb774cab.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script"><link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js"><link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js"><link rel="prefetch" href="/vuepressppr/assets/js/13.41ab6839.js"><link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js"><link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js"><link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js"><link rel="prefetch" href="/vuepressppr/assets/js/17.6af70c8b.js"><link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js"><link rel="prefetch" href="/vuepressppr/assets/js/19.bc43c532.js"><link rel="prefetch" href="/vuepressppr/assets/js/20.2bab264f.js"><link rel="prefetch" href="/vuepressppr/assets/js/21.2356b627.js"><link rel="prefetch" href="/vuepressppr/assets/js/22.72349944.js"><link rel="prefetch" href="/vuepressppr/assets/js/23.7d221001.js"><link rel="prefetch" href="/vuepressppr/assets/js/24.918cdccd.js"><link rel="prefetch" href="/vuepressppr/assets/js/25.f9ee66c9.js"><link rel="prefetch" href="/vuepressppr/assets/js/26.fe45b076.js"><link rel="prefetch" href="/vuepressppr/assets/js/27.fd50f3f6.js"><link rel="prefetch" href="/vuepressppr/assets/js/28.66fa507d.js"><link rel="prefetch" href="/vuepressppr/assets/js/29.37a86571.js"><link rel="prefetch" href="/vuepressppr/assets/js/30.b0b7273e.js"><link rel="prefetch" href="/vuepressppr/assets/js/31.3d7f955d.js"><link rel="prefetch" href="/vuepressppr/assets/js/32.65d1262f.js"><link rel="prefetch" href="/vuepressppr/assets/js/33.57f6c489.js"><link rel="prefetch" href="/vuepressppr/assets/js/34.62ba6309.js"><link rel="prefetch" href="/vuepressppr/assets/js/4.5f801113.js"><link rel="prefetch" href="/vuepressppr/assets/js/5.2b7133b0.js"><link rel="prefetch" href="/vuepressppr/assets/js/6.28e79f91.js"><link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js"><link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js"><link rel="prefetch" href="/vuepressppr/assets/js/9.11f50ff4.js">
+
+    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style">
+    <link rel="preload" href="/vuepressppr/assets/js/app.c22798eb.js" as="script">
+    <link rel="preload" href="/vuepressppr/assets/js/2.fd694179.js" as="script">
+    <link rel="preload" href="/vuepressppr/assets/js/12.fb774cab.js" as="script">
+    <link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script">
+    <link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/13.41ab6839.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/17.6af70c8b.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/19.bc43c532.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/20.2bab264f.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/21.2356b627.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/22.72349944.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/23.7d221001.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/24.918cdccd.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/25.f9ee66c9.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/26.fe45b076.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/27.fd50f3f6.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/28.66fa507d.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/29.37a86571.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/30.b0b7273e.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/31.3d7f955d.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/32.65d1262f.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/33.57f6c489.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/34.62ba6309.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/4.5f801113.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/5.2b7133b0.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/6.28e79f91.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js">
+    <link rel="prefetch" href="/vuepressppr/assets/js/9.11f50ff4.js">
     <link rel="stylesheet" href="/vuepressppr/assets/css/0.styles.47a93a5c.css">
-  </head>
-  <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressppr/" class="home-link router-link-active"><!----> <span class="site-name">Padrões de Projetos</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+</head>
+
+<body>
+    <div id="app" data-server-rendered="true">
+        <div class="theme-container">
+            <header class="navbar">
+                <div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div>
+                <a href="/vuepressppr/" class="home-link router-link-active">
+                    <!----><span class="site-name">Padrões de Projetos</span></a>
+                <div class="links">
+                    <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value="">
+                        <!---->
+                    </div>
+                    <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
     GitHub
-    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>
+                </div>
+            </header>
+            <div class="sidebar-mask"></div>
+            <aside class="sidebar">
+                <nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
     GitHub
-    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/vuepressppr/01_padroes.html" class="sidebar-link">Padrões de Projetos 🚧</a></li><li><a href="/vuepressppr/02_AntiPadroes.html" aria-current="page" class="active sidebar-link">Anti-padrões de programação</a></li><li><a href="/vuepressppr/SOLID/" class="sidebar-link">Princípios SOLID</a></li><li><a href="/vuepressppr/03_GOF.html" class="sidebar-link">GOF 🔨</a></li><li><a href="/vuepressppr/04_nao_GOF.html" class="sidebar-link">Não GOF 🚧</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="anti-padroes-de-programacao"><a href="#anti-padroes-de-programacao" class="header-anchor">#</a> Anti-padrões de programação</h1> <p><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p> <ul><li>Complexidade acidental
-<ul><li>Introdução de complexidade desnecessária em uma solução</li></ul></li> <li>Ação à distância
-<ul><li>Interação inesperada entre partes distantes de um sistema</li></ul></li> <li>Fé cega:
-<ul><li>Falta de checar (a) a correção de um bug ou (b) o resultado de uma subrotina</li></ul></li> <li>Âncora do barco
-<ul><li>Manter uma parte de um sistema que não tem mais uso</li></ul></li> <li>Espera ativa
-<ul><li>Consumir CPU enquanto espera por algo acontecer, normalmente checando várias vezes ao invés de enviar mensagem</li></ul></li> <li>Culto de programação
-<ul><li>Usar padrões sem saber o motivo</li></ul></li> <li>Programando por exceção
-<ul><li>Adicionar código novo para lidar com cada caso especial quando esse é reconhecido</li></ul></li> <li>Fluxo de lava
-<ul><li>Manter código indesejável (redundante ou de baixa qualidade) porque removê-lo é caro ou tem conseguências imprevisíveis</li></ul></li> <li>Números mágicos
-<ul><li>Incluir números inexplicados em algoritmos</li></ul></li> <li>Strings mágicas
-<ul><li>Incluir literais no código para comparações inexplicadas</li></ul></li> <li>Don't repeat yourself'
-<ul><li>Escrever código que contém padrões repetitivos, a serem evitados com o princípio da abstração</li></ul></li> <li>Código espaguete
-<ul><li>Programas que têm a estrutura pouco compreensível, especialmente por mal uso das estruturas de código</li></ul></li></ul> <hr class="footnotes-sep"> <section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p>Antipadrão. <a href="https://pt.wikipedia.org/wiki/Antipadr%C3%A3o" target="_blank" rel="noopener noreferrer">https://pt.wikipedia.org/wiki/Antipadr%C3%A3o<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>. (Acessado em 15/03/2022) <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/02_AntiPadroes.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/31/2022, 11:06:21 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>
+                <ul class="sidebar-links">
+                    <li><a href="/vuepressppr/01_padroes.html" class="sidebar-link">Padrões de Projetos 🚧</a></li>
+                    <li><a href="/vuepressppr/02_AntiPadroes.html" aria-current="page" class="active sidebar-link">Anti-padrões de programação</a></li>
+                    <li><a href="/vuepressppr/SOLID/" class="sidebar-link">Princípios SOLID</a></li>
+                    <li><a href="/vuepressppr/03_GOF.html" class="sidebar-link">GOF 🔨</a></li>
+                    <li><a href="/vuepressppr/04_nao_GOF.html" class="sidebar-link">Não GOF 🚧</a></li>
+                </ul>
+            </aside>
+            <main class="page">
+                <div class="theme-default-content content__default">
+                    <h1 id="anti-padroes-de-programacao"><a href="#anti-padroes-de-programacao" class="header-anchor">#</a> Anti-padrões de programação</h1>
+                    <p><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+                    <ul>
+                        <li>Complexidade acidental
+                            <ul>
+                                <li>Introdução de complexidade desnecessária em uma solução</li>
+                            </ul>
+                        </li>
+                        <li>Ação à distância
+                            <ul>
+                                <li>Interação inesperada entre partes distantes de um sistema</li>
+                            </ul>
+                        </li>
+                        <li>Fé cega:
+                            <ul>
+                                <li>Falta de checar (a) a correção de um bug ou (b) o resultado de uma subrotina</li>
+                            </ul>
+                        </li>
+                        <li>Âncora do barco
+                            <ul>
+                                <li>Manter uma parte de um sistema que não tem mais uso</li>
+                            </ul>
+                        </li>
+                        <li>Espera ativa
+                            <ul>
+                                <li>Consumir CPU enquanto espera por algo acontecer, normalmente checando várias vezes ao invés de enviar mensagem</li>
+                            </ul>
+                        </li>
+                        <li>Culto de programação
+                            <ul>
+                                <li>Usar padrões sem saber o motivo</li>
+                            </ul>
+                        </li>
+                        <li>Programando por exceção
+                            <ul>
+                                <li>Adicionar código novo para lidar com cada caso especial quando esse é reconhecido</li>
+                            </ul>
+                        </li>
+                        <li>Fluxo de lava
+                            <ul>
+                                <li>Manter código indesejável (redundante ou de baixa qualidade) porque removê-lo é caro ou tem conseguências imprevisíveis</li>
+                            </ul>
+                        </li>
+                        <li>Números mágicos
+                            <ul>
+                                <li>Incluir números inexplicados em algoritmos</li>
+                            </ul>
+                        </li>
+                        <li>Strings mágicas
+                            <ul>
+                                <li>Incluir literais no código para comparações inexplicadas</li>
+                            </ul>
+                        </li>
+                        <li>Don't repeat yourself'
+                            <ul>
+                                <li>Escrever código que contém padrões repetitivos, a serem evitados com o princípio da abstração</li>
+                            </ul>
+                        </li>
+                        <li>Código espaguete
+                            <ul>
+                                <li>Programas que têm a estrutura pouco compreensível, especialmente por mal uso das estruturas de código</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr class="footnotes-sep">
+                    <section class="footnotes">
+                        <ol class="footnotes-list">
+                            <li id="fn1" class="footnote-item">
+                                <p>Antipadrão. <a href="https://pt.wikipedia.org/wiki/Antipadr%C3%A3o" target="_blank" rel="noopener noreferrer">https://pt.wikipedia.org/wiki/Antipadr%C3%A3o<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.
+                                    (Acessado em 15/03/2022) <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+                            </li>
+                        </ol>
+                    </section>
+                </div>
+                <footer class="page-edit">
+                    <div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/02_AntiPadroes.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span>
+                    </div>
+                    <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/31/2022, 11:06:21 AM</span></div>
+                </footer>
+                <div class="page-nav">
+                    <p class="inner"><span class="prev">
       ←
       <a href="/vuepressppr/01_padroes.html" class="prev">
         Padrões de Projetos 🚧
@@ -45,7 +175,19 @@
         Princípios SOLID
       </a>
       →
-    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/vuepressppr/assets/js/app.c22798eb.js" defer></script><script src="/vuepressppr/assets/js/2.fd694179.js" defer></script><script src="/vuepressppr/assets/js/12.fb774cab.js" defer></script><script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
-  </body>
+    </span></p>
+                </div>
+            </main>
+        </div>
+        <div class="global-ui">
+            <!---->
+            <!---->
+        </div>
+    </div>
+    <script src="/vuepressppr/assets/js/app.c22798eb.js" defer></script>
+    <script src="/vuepressppr/assets/js/2.fd694179.js" defer></script>
+    <script src="/vuepressppr/assets/js/12.fb774cab.js" defer></script>
+    <script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
+</body>
+
 </html>
