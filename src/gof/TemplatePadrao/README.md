@@ -2,7 +2,7 @@
 sidebar: auto
 prev: /03_GOF
 ---
-# Builder (GOF) 
+# {Padrao} (GOF) 
 
 ## Intenção
 ## Também conhecido como
@@ -15,9 +15,9 @@ prev: /03_GOF
 
 <figure>
 
-!!!include(src/gof/Builder/diagram/estrutura.puml)!!!
+!!!include(src/gof/TemplatePadrao/diagram/estrutura.puml)!!!
 
-<figcaption>Estrutura do Abstract Factory.</figcaption>
+<figcaption>Estrutura do {Padrao}.</figcaption>
 </figure>
 
 ## Participantes
@@ -31,13 +31,13 @@ prev: /03_GOF
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/Builder/code/MazeFactory.cpp
+<<< src/gof/TemplatePadrao/code/Code1.cpp
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/Builder/code/MazeFactory.java
+<<< src/gof/TemplatePadrao/code/Code1.java
 
 </code-block>
 </code-group>

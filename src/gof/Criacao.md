@@ -12,7 +12,7 @@ Considere o framework para um editor de desenhos descrito no padrão Prototype.
 Há várias maneiras de parametrizar uma GraphicTool pela classe do produto:
 - Aplicando-se o padrão FactoryMethod, uma subclasse de GraphicTool será criada para cada subclasse de Graphic na paleta. A GraphicTool terá uma nova operação NewGraphic, que cada subclasse de GraphicTool redefinirá.
 - Aplicando-se o padrão Abstract Factory, haverá uma hierarquia de classes de GraphicsFactories, uma para cada subclasse de Graphic. Neste caso, cada fábrica cria apenas o produto: CircleFactory criará círculos (Circles), LineFactory criará linhas (Lines), e assim por diante. Uma GraphicTool será parametrizada como uma fábrica para criação do tipo apropriado de Graphics.
-- Aplicando-se o padrão Prototype,cada subclasse de Graphics implementará a operação Clone, e uma GraphicTool será parametrizada com um protó- tipo da Graphic que ela cria.
+- Aplicando-se o padrão Prototype,cada subclasse de Graphics implementará a operação Clone, e uma GraphicTool será parametrizada com um protótipo da Graphic que ela cria.
 
 Definir qual é o melhor padrão depende de muitos fatores. No nosso framework para editores de desenhos, o padrão Factory Method é inicialmente mais fácil de usar. É fácil definir uma subclasse de GraphicTool e as instâncias de GraphicTool são criadas somente quando a paleta é definida. Aqui, a principal desvantagem é a proliferação de subclasses de GraphicTool, sendo que nenhuma delas faz muita coisa.
 
@@ -29,9 +29,9 @@ Projetos que usam Abstract Factory, Prototype ou Builder são ainda mais flexív
 - Definir uma interface para criar um objeto mas deixar que subclasses decidam que classe instanciar 
 ## [Abstract Factory](/gof/AbstractFactory) ✅
 - Prover interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas 
-## Builder 🚧
+## [Builder](/gof/Builder) 🚧
 - Separar a construção de objeto complexo da representação para criar representações diferentes com mesmo processo 
-## Prototype 🚧
+## [Prototype](/gof/Prototype) 🚧
 - Especificar tipos a criar usando uma instância como protótipo e criar novos objetos ao copiar este protótipo 
 ## [Singleton](/gof/Singleton) 🔨
 - Garantir que uma classe só tenha uma única instância, e prover um ponto de acesso global a ela 
