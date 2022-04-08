@@ -27,23 +27,23 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "01_padroes.html",
-    "revision": "9d9eb145fb2437bee49dea05e9fba68c"
+    "revision": "14e6ed903a0c0bcab5e758b54b109434"
   },
   {
     "url": "02_AntiPadroes.html",
-    "revision": "df707bb6db38fd7f5e7c497e33fc4b23"
+    "revision": "ae7dd2b2c15e7f23a54dabacdff84b04"
   },
   {
     "url": "03_GOF.html",
-    "revision": "2393a7a3f966bb54fe36d1a7a9c7f8bd"
+    "revision": "b2fad74738201ac86306ab580be5cd0d"
   },
   {
     "url": "04_nao_GOF.html",
-    "revision": "e4ffbd0b164d770750e7a1e0aa7612bd"
+    "revision": "d4fe9c80cf2cd53369c75e4f533290e2"
   },
   {
     "url": "404.html",
-    "revision": "3b3cb602958be2bed495825d62944e8c"
+    "revision": "f5757cd00088adb4f04990fd9ba1b9d4"
   },
   {
     "url": "assets/css/0.styles.47a93a5c.css",
@@ -66,8 +66,8 @@ self.__precacheManifest = [
     "revision": "ead44ea77b96935e8a014ec7835cd135"
   },
   {
-    "url": "assets/js/13.2b62df3a.js",
-    "revision": "fb950e2415873466dc181016bfc6bfa3"
+    "url": "assets/js/13.41ab6839.js",
+    "revision": "9f750bd19eec81992f706ee2a871ceed"
   },
   {
     "url": "assets/js/14.77172f79.js",
@@ -182,36 +182,36 @@ self.__precacheManifest = [
     "revision": "1a2f58af9be533a2c628322a474cddbb"
   },
   {
-    "url": "assets/js/app.1a8cc65c.js",
-    "revision": "d653c8088c9baa64be2b65e5dbbbae60"
+    "url": "assets/js/app.1773010b.js",
+    "revision": "44bc2ec56c1c3d525b9cab776e7f8a82"
   },
   {
     "url": "gof/AbstractFactory/index.html",
-    "revision": "04ff963631b2716129e2f6fcf37ba0bc"
+    "revision": "5dd84ecde9d5866e4184a131bf15c931"
   },
   {
     "url": "gof/Criacao.html",
-    "revision": "0c9f72da9ff0b61535be452a8f00695f"
+    "revision": "9e696a56ce33ae10fc626a4a8ba41e55"
   },
   {
     "url": "gof/Criacao/Singleton/index.html",
-    "revision": "346dc455168f11de07189ef26aa42c77"
+    "revision": "c85562c977a32fbba6652c4f4b53c9e6"
   },
   {
     "url": "gof/FactoryMethod/index.html",
-    "revision": "328ccd6a69c33bdce4151a9d51a49db0"
+    "revision": "ccf6ceedbcbb0ef86175d987ae8134aa"
   },
   {
     "url": "gof/Singleton/index.html",
-    "revision": "af40c804c9a3261e666347140fcee23c"
+    "revision": "411726539a9d11dc5d7f362e5e97bf87"
   },
   {
     "url": "gof/Strategy.html",
-    "revision": "6c47ee4cdea6e76ce617f16a2657005b"
+    "revision": "7fe543a1f7f4ce9e445b5b0e8720649c"
   },
   {
     "url": "gof/TemplateMethod.html",
-    "revision": "dabe9ee0e5b191817e6653bdf41f2d88"
+    "revision": "13988359b27abaa634f6fcf7fa19c1e0"
   },
   {
     "url": "icon-192x192.png",
@@ -231,7 +231,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "ddf2a380c8d01a43e4ab299e086ddf4f"
+    "revision": "88de4e7272f6eb06d272342aec0185f4"
   },
   {
     "url": "logo.png",
@@ -239,43 +239,43 @@ self.__precacheManifest = [
   },
   {
     "url": "nao_gof/Multiton/index.html",
-    "revision": "ad49643a08a7ebd450f5de095a603666"
+    "revision": "f1bf9d436de2c2c70fe8286a348e9792"
   },
   {
     "url": "nao_gof/ObjectPool/index.html",
-    "revision": "6f059b95d134272fd1903f78589b6e8f"
+    "revision": "9b27e1b9dec185b75c4c998fb135cfff"
   },
   {
     "url": "ref.html",
-    "revision": "34e10fb2c179c82d6e75154462efa62d"
+    "revision": "30e6feda62a9df213f6f1798f45bc887"
   },
   {
     "url": "SOLID/1_SRP.html",
-    "revision": "0947a2757d1bee96b693af847967a5b6"
+    "revision": "d8eecae18320161a2b405ba35f8574f2"
   },
   {
     "url": "SOLID/2_OCP.html",
-    "revision": "007cfa63f98f6ff46fbbf4a806086031"
+    "revision": "09005a955d176c4f22639c0907bf1d6e"
   },
   {
     "url": "SOLID/3_LSP.html",
-    "revision": "45ccbec21a197577c6c465eccc08134d"
+    "revision": "c8b09ed3ba29ccd535a7c513fcd33106"
   },
   {
     "url": "SOLID/4_ISP.html",
-    "revision": "d1060494df01de9688e49c86f6e98970"
+    "revision": "56a45c0c22d0711c891bda67d2a566ec"
   },
   {
     "url": "SOLID/5_DIP.html",
-    "revision": "674bbaa56203632be70e7750a3f7da7d"
+    "revision": "cc3009faee79a64ff4a660436793e31c"
   },
   {
     "url": "SOLID/buffer.html",
-    "revision": "2ad8b63f6b6404c6aaa39143a7ef00a2"
+    "revision": "1ac98f988db3f3d569171b7b8387f9b9"
   },
   {
     "url": "SOLID/index.html",
-    "revision": "63acc59ab08652523de1b52f3e9110c3"
+    "revision": "e05a409cdcf1a3e79b28033c3d6e50d2"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
