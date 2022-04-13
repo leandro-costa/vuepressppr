@@ -1,0 +1,35 @@
+@startuml
+
+class Cliente{
+    main()
+}
+
+interface Prototype{
+    Clonar()
+}
+
+abstract FrotaPrototype implements Prototype{
+    #cor
+	#placa
+	#tipo
+	#marca
+    clonar()
+    exibirInfo()
+}
+
+class PrototypeCarro extends FrotaPrototype{
+    clonar()
+    exibirInfo()
+}
+
+class PrototypeMoto extends FrotaPrototype{
+    clonar()
+    exibirInfo()
+}
+class PrototypeOnibus extends FrotaPrototype{
+    clonar()
+    exibirInfo()
+}
+
+Cliente . Prototype
+@enduml
