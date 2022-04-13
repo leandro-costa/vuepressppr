@@ -32,3 +32,8 @@
 [^RobsonOCP]:Robson Castilho. Princípio do Aberto/Fechado (OCP) [https://robsoncastilho.com.br/2013/02/23/principios-solid-principio-do-abertofechado-ocp/](https://robsoncastilho.com.br/2013/02/23/principios-solid-principio-do-abertofechado-ocp/).  (Acessado em 15/03/2022) 
 
 [^JoaoRobertoSOLID]:João Roberto da Paixão.O que é SOLID: O guia completo para você entender os 5 princípios da POO.[https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530](https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530) (Acessado em 18/03/2022) 
+
+
+[^guru]:Prototype. Refactoring Guru. Disponível em: [](https://refactoring.guru/pt-br/design-patterns/prototype). Acesso em: 07 de abril de 2022.
+
+[^K19]: K19. Design Patterns em Java. 2012
