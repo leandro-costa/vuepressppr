@@ -15,7 +15,11 @@ prev: /03_GOF
 
 <figure>
 
-!!!include(src/gof/TemplatePadrao/diagram/estrutura.puml)!!!
+```plantuml
+
+!!!include(diagram/estrutura.puml)!!!
+
+```
 
 <figcaption>Estrutura do {Padrao}.</figcaption>
 </figure>
@@ -31,13 +35,15 @@ prev: /03_GOF
 <code-group>
 <code-block title="C++">
 
-<<< src/gof/TemplatePadrao/code/Code1.cpp
+!!!include(code/Code1.cpp)!!!
+
 
 </code-block>
 
 <code-block title="Java">
 
-<<< src/gof/TemplatePadrao/code/Code1.java
+!!!include(code/Code1.java)!!!
+
 
 </code-block>
 </code-group>
@@ -48,4 +54,4 @@ prev: /03_GOF
 
 ## Referências
 
-!!!include(src/ref.md)!!!
+!!!include(../../ref.md)!!!
