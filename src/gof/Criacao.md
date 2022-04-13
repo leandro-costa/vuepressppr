@@ -26,12 +26,21 @@ Projetos que usam Abstract Factory, Prototype ou Builder são ainda mais flexív
 
 
 ## [Factory Method](src/gof/FactoryMethod) ✅
+
 - Definir uma interface para criar um objeto mas deixar que subclasses decidam que classe instanciar 
+
 ## [Abstract Factory](src/gof/AbstractFactory) ✅
+
 - Prover interface para criar famílias de objetos relacionados ou dependentes sem especificar suas classes concretas 
+
 ## [Builder](src/gof/Builder) 🚧
+
 - Separar a construção de objeto complexo da representação para criar representações diferentes com mesmo processo 
-## [Prototype](src/gof/Prototype) 🚧
+
+## [Prototype_Wanderson](src/gof/Prototype_Wanderson) 
+
 - Especificar tipos a criar usando uma instância como protótipo e criar novos objetos ao copiar este protótipo 
+
 ## [Singleton](src/gof/Singleton) 🔨
+
 - Garantir que uma classe só tenha uma única instância, e prover um ponto de acesso global a ela 
