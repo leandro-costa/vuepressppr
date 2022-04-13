@@ -88,16 +88,31 @@ Clonar objetos complexos que têm referências circulares pode ser bem complicad
 
 <code-block title="Java">
 
-!!!include(code/Code1.java)!!!
+!!!include(code/Cliente.java)!!!
 
+!!!include(code/FrotaPrototype.java)!!!
+
+!!!include(code/PrototypeCarro.java)!!!
+
+!!!include(code/PrototypeMoto.java)!!!
+
+!!!include(code/PrototypeOnibus.java)!!!
 
 </code-block>
 </code-group>
 
 ## Padrão relacionados
 
+Muitos projetos começam usando o Factory Method (menos complicado e mais customizável através de subclasses) e evoluem para o Abstract Factory, Prototype, ou Builder.
+Classes Abstract Factory são quase sempre baseadas em um conjunto de métodos fábrica, mas você também pode usar o Prototype para compor métodos dessas classes.
+Projetos que fazem um uso pesado de Composite e do Decorator podem se beneficiar com frequência do uso do Prototype. Aplicando o padrão permite que você clone estruturas complexas ao invés de reconstruí-las do zero (Prototype, 2022). 
 
 
 ## Referências
+
+GAMMA, Erich et al. Padrões de Projeto: Soluções reutilizáveis de software orientado a objetos. Porto Alegre. 2000.
+Prototype. Refactoring Guru. Disponível em: https://refactoring.guru/pt-br/design-patterns/prototype. Acesso em: 07 de abril de 2022.
+K19. Design Patterns em Java. 2012
+
 
 !!!include(../../ref.md)!!!
