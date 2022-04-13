@@ -6,23 +6,8 @@
 ## [Criação](gof/Criacao.md) 
 
 
-## Estrutural
+## [Estrutural](gof/Estrutural.md) 
 
-
-### Adapter 🚧
-- Converter a interface de uma classe em outra interface esperada pelos clientes.
-### Bridge 🚧
-- Desacoplar uma abstração de sua implementação para que os dois possam variar independentemente 
-### Composite 🚧
-- Permitir o tratamento de objetos individuais e composições desses objetos de maneira uniforme 
-### Decorator 🚧
-- Anexar responsabilidades adicionais a um objeto dinamicamente 
-### Façade 🚧
-- Oferecer uma interface única de nível mais elevado para um conjunto de interfaces de um subsistema 
-### Flyweight 🚧
-- Usar compartilhamento para suportar eficientemente grandes quantidades de objetos complexos 
-### Proxy 🚧
-- Prover um substituto ou ponto através do qual um objeto possa controlar o acesso a outro 
 
 ## Comportamental
 
