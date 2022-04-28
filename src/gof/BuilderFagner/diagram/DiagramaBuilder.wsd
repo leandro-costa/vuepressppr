@@ -1,0 +1,73 @@
+skinparam style strictuml
+hide empty members
+title Builder Car
+
+class Client{ 
+ 
+}
+
+class DirectorPolo{ 
+  CarBuilder 
+  constructCar() 
+}
+
+
+class "CarBuilder" as CarBu
+class CarBu {
+    buildeName()
+    buildeModelType()
+    buildeEngine()
+    buildeTransmission()
+    buildeMultimedia()
+    getResult()   
+}
+
+
+class "CarBasicBuilder" as CarB
+class CarB {
+    String name
+    ModelType modelType
+    Engine engine
+    Transmission transmission    
+    Multimedia multimedia
+  generateFile()   
+}
+
+class "CarIntermediaryBuilder" as CarI
+class CarI{
+    String name
+    ModelType modelType
+    Engine engine
+    Transmission transmission    
+    Multimedia multimedia
+  generateFile()   
+}
+
+class "CarCompleteBuilder" as CarC
+class CarC {
+      String name
+      ModelType modelType
+      Engine engine
+      Transmission transmission    
+      Multimedia multimedia
+  generateFile()   
+}
+
+
+
+Client -right-> DirectorPolo 
+
+CarBu -left-o  DirectorPolo 
+
+CarC -up-|> CarBu
+CarB -up-|> CarBu
+CarI -up-|> CarBu
+
+
+
+
+
+
+
+
+
