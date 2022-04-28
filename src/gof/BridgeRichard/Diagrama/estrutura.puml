@@ -1,0 +1,53 @@
+@startuml
+
+    interface Dispositivo{
+        boolean isLigado()
+        void Ligado()
+        void Desligado()
+        int getVolume()
+        void setVolume(int volume)
+        int getCanal()
+        void setCanal(int canal)
+        void printStatus()
+    }
+     
+
+    class Tv implements Dispositivo{
+        -boolean on
+        -int volume
+        -int canal
+    }
+
+    class Radio implements Dispositivo{
+        -boolean on
+        -int volume
+        -int canal
+
+    }  
+
+    interface ControleRemoto{
+        void Ligar()
+        void volumeParaCima()
+        void volumeParaBaixo()
+        void canalParaCima()
+        void canalParaBaixo()
+    }
+
+    class ControleBasico implements ControleRemoto{
+        #Dispositivo dispositivo
+        
+        +ControleBasico()
+        +ControleBasico(Dispositivo dispositivo)
+
+    }
+
+    ControleBasico o-- Dispositivo
+    Cliente-->ControleRemoto
+
+    class ControleAvancado extends ControleBasico{
+        +ControleAvancado(Dispositivo dispositivo)
+
+        +void mudo()
+    }
+    
+@enduml
