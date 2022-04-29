@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{Bridge} (GOF) | Padrões de Projetos</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css">
+    <link rel="icon" href="/vuepressppr/logo.png">
+    <link rel="manifest" href="/vuepressppr/manifest.json">
+    <link rel="apple-touch-icon" href="/vuepressppr/icon-192x192.png">
+    <link rel="mask-icon" href="/vuepressppr/icon-192x192.png" color="#3eaf7c">
+    <meta name="description" content="Material para as aulas da disciplina de Padrões de Projetos">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style"><link rel="preload" href="/vuepressppr/assets/js/app.c089e0e7.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/2.63c38da0.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/23.74f1c03e.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/5.2b7133b0.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/6.28e79f91.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script"><link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js"><link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js"><link rel="prefetch" href="/vuepressppr/assets/js/12.fb774cab.js"><link rel="prefetch" href="/vuepressppr/assets/js/13.97058f82.js"><link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js"><link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js"><link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js"><link rel="prefetch" href="/vuepressppr/assets/js/17.f3abe831.js"><link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js"><link rel="prefetch" href="/vuepressppr/assets/js/19.c99e69be.js"><link rel="prefetch" href="/vuepressppr/assets/js/20.d06df924.js"><link rel="prefetch" href="/vuepressppr/assets/js/21.84ee0397.js"><link rel="prefetch" href="/vuepressppr/assets/js/22.516a37df.js"><link rel="prefetch" href="/vuepressppr/assets/js/24.45aab871.js"><link rel="prefetch" href="/vuepressppr/assets/js/25.b79a6340.js"><link rel="prefetch" href="/vuepressppr/assets/js/26.793e594c.js"><link rel="prefetch" href="/vuepressppr/assets/js/27.d7af70d4.js"><link rel="prefetch" href="/vuepressppr/assets/js/28.9bdac829.js"><link rel="prefetch" href="/vuepressppr/assets/js/29.f12628d0.js"><link rel="prefetch" href="/vuepressppr/assets/js/30.908e2c50.js"><link rel="prefetch" href="/vuepressppr/assets/js/31.f4ebc6d7.js"><link rel="prefetch" href="/vuepressppr/assets/js/32.1ad291b4.js"><link rel="prefetch" href="/vuepressppr/assets/js/33.a15606af.js"><link rel="prefetch" href="/vuepressppr/assets/js/34.ccff6b5b.js"><link rel="prefetch" href="/vuepressppr/assets/js/35.a8474c54.js"><link rel="prefetch" href="/vuepressppr/assets/js/36.8332203f.js"><link rel="prefetch" href="/vuepressppr/assets/js/37.c69b180a.js"><link rel="prefetch" href="/vuepressppr/assets/js/38.cc034efa.js"><link rel="prefetch" href="/vuepressppr/assets/js/4.552a1731.js"><link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js"><link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js"><link rel="prefetch" href="/vuepressppr/assets/js/9.a4cc5b73.js">
+    <link rel="stylesheet" href="/vuepressppr/assets/css/0.styles.47a93a5c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressppr/" class="home-link router-link-active"><!----> <span class="site-name">Padrões de Projetos</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>{Bridge} (GOF)</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressppr/gof/BridgeFagner/#tambem-conhecido-como" class="sidebar-link">Também conhecido como</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#intencao" class="sidebar-link">Intenção</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#motivacao" class="sidebar-link">Motivação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#aplicabilidade" class="sidebar-link">Aplicabilidade</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#estrutura" class="sidebar-link">Estrutura</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#participantes" class="sidebar-link">Participantes</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#colaboracoes" class="sidebar-link">Colaborações</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#consequencias" class="sidebar-link">Consequências</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#implementacao" class="sidebar-link">Implementação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#exemplo-de-codigo" class="sidebar-link">Exemplo de código</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressppr/gof/BridgeFagner/#exemplo-gof" class="sidebar-link">Exemplo GOF</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/gof/BridgeFagner/#exemplo-2" class="sidebar-link">Exemplo 2</a></li></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#usos-conhecidos" class="sidebar-link">Usos conhecidos</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#padroes-relacionados" class="sidebar-link">Padrões relacionados</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BridgeFagner/#referencias" class="sidebar-link">Referências</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="bridge-gof"><a href="#bridge-gof" class="header-anchor">#</a> {Bridge} (GOF)</h1> <p>Desacoplar uma abstração da sua implementação, de modo que as duas possam variar
+independentemente.</p> <h2 id="tambem-conhecido-como"><a href="#tambem-conhecido-como" class="header-anchor">#</a> Também conhecido como</h2> <p>Handle/Body</p> <h2 id="intencao"><a href="#intencao" class="header-anchor">#</a> Intenção</h2> <p>Separar a construção de um objeto complexo da sua representação de modo que o mesmo processo de construção possa criar diferentes representações.</p> <h2 id="motivacao"><a href="#motivacao" class="header-anchor">#</a> Motivação</h2> <p>Quando uma abstração pode ter uma entre várias implementações possíveis, a maneira
+usual de acomodá-las é usando a herança. Uma classe abstrata define a interface para
+a abstração, e subclasses concretas a implementam de formas diferentes. Mas essa
+abordagem nem sempre é suficientemente flexível. A herança liga uma implementação
+à abstração permanentemente, o que torna difícil modificar, aumentar e reutilizar
+abstrações e implementações independentemente.
+Considere a implementação de uma Janela portável em um toolkit para construir
+interfaces de usuários. Por exemplo, essa abstração deveria nos habilitar a escrever
+aplicações que trabalham tanto com o sistema XWindow quanto com o Presentation-
+Manager (PM), da IBM. Usando a herança, poderíamos definir uma classe abstrata
+Window e subclasses XWindow e PMWindow que implementam a interface Janela
+para diferentes plataformas. Porém, essa abordagem tem dois problemas:</p> <ol><li>É inconveniente estender a abstração Window para cobrir diferentes tipos de janela ou novas plataformas. Imagine uma subclasse IconWindow de Window que especializa a abstração Window para ícones. Para suportar IconWindows para ambas as plataformas, temos que implementar duas classes novas, XIconWindow e PMIconWindow. Pior ainda, teremos que definir duas classes para cada tipo de janela. Suportar uma terceira plataforma exige ainda uma outra subclasse de Window para cada tipo de janela.</li></ol> <figure><p><img src="img/bridg098.gif" alt=""></p></figure> <ol start="2"><li>Ela torna o código do cliente dependente de plataforma. Sempre que um cliente cria uma janela, instancia uma classe concreta que tem uma implementação específica. Por exemplo, a criação de um objeto Xwindow amarra a abstração Window à implementação do XWindow, o que torna o código do cliente dependente da implementação do XWindow. Isso, por sua vez, torna mais difícil portar o código do cliente para outras plataformas.
+Os clientes deveriam ser capazes de criar uma janela sem se prenderem a uma implementação concreta. Somente a implementação da janela deveria depender da plataforma na qual a aplicação é executada. Portanto, o código do cliente deveria instanciar janelas sem mencionar plataformas específicas.</li></ol> <p>O padrão Bridge trata desses problemas colocando a abstração Window e sua implementação em hierarquias de classes separadas. Existe somente uma hierarquia de classes para interfaces de janelas (Window, IconWindow, TransientWindow) e uma hierarquia separada para implementações de janelas específicas das plataformas, tendo como sua raiz WindowImp. Por exemplo, a subclasse XWindowImp fornece uma implementação baseada no sistema XWindow.</p> <figure><p><img src="img/bridg100.gif" alt=""></p></figure> <p>Todas as operações das subclasses de Window são implementadas em termos das operações abstratas da interface WindowImp. Isso desacopla as abstrações de janelas das várias implementações específicas para cada plataforma. Referimo-nos ao relacionamento entre Window e WindowImp como uma ponte (bridge) porque ela forma uma ponte entre abstração e sua implementação, permitindo que variem de forma independente.</p> <h2 id="aplicabilidade"><a href="#aplicabilidade" class="header-anchor">#</a> Aplicabilidade</h2> <p>Use o padrão Bridge quando:</p> <p>• desejar evitar um vínculo permanente entre uma abstração e sua implementação.
+Isso pode ocorrer, por exemplo, quando a implementação deve ser selecionada ou alterada em tempo de execução;</p> <p>• tanto as abstrações como suas implementações tiverem de ser extensíveis por meio de subclasses. Neste caso, o padrão Bridge permite combinar as diferentes abstrações e implementações e estendê-las independentemente;</p> <p>• mudanças na implementação de uma abstração não puderem ter impacto sobre os clientes; ou seja, quando o código dos mesmos não puder ser recompilado.</p> <p>• (C++) você desejar ocultar completamente a implementação de uma abstração dos clientes. Em C++, a representação de uma classe é visível na interface da classe;</p> <p>• tiver uma proliferação de classes, como foi mostrado no primeiro diagrama da seção Motivação. Tal hierarquia de classes indica necessidade de separar um objeto em duas partes. Rumbaugh usa o termo “generalizações aninhadas” (nested generalizations) [RPB+91] para se referir às hierarquias de cada classe;</p> <p>• desejar compartilhar uma implementação entre múltiplos objetos (talvez usando
+a contagem de referências) e este fato deve estar oculto do cliente. Um exemplo
+simples é a classe String mencionada por Coplien [Cop92], na qual múltiplos
+objetos podem compartilhar a mesma representação de uma string (StringRep).</p> <h2 id="estrutura"><a href="#estrutura" class="header-anchor">#</a> Estrutura</h2> <figure><p><img src="img/bridge.gif" alt=""></p></figure> <h2 id="participantes"><a href="#participantes" class="header-anchor">#</a> Participantes</h2> <p>• Abstraction (Window)
+– define a interface da abstração;
+– mantém uma referência para um objeto do tipo Implementor.</p> <p>• RefinedAbstraction (IconWindow).
+– estende a interface definida por Abstraction.</p> <p>• Implementor (WindowImp)
+– define a interface para as classes de implementação. Essa interface não
+precisa corresponder exatamente à interface de Abstraction; de fato, as
+duas interfaces podem ser bem diferentes. A interface de Implementor
+fornece somente operações primitivas e Abstraction define operações de
+nível mais alto baseadas nessas primitivas.</p> <p>• ConcreteImplementor (XwindowImp, PMWindowImp)
+– implementa a interface de Implementor e define sua implementação concreta.</p> <h2 id="colaboracoes"><a href="#colaboracoes" class="header-anchor">#</a> Colaborações</h2> <p>• Abstraction repassa as solicitações dos clientes para o seu objeto Implementor.</p> <h2 id="consequencias"><a href="#consequencias" class="header-anchor">#</a> Consequências</h2> <p>O padrão Bridge tem as seguintes conseqüências:</p> <ol><li><p>Desacopla a interface da implementação. Uma implementação não fica permanentemente presa a uma interface. A implementação de uma abstração pode
+ser configurada em tempo de execução. É até mesmo possível para um objeto
+mudar sua implementação em tempo de execução.
+O desacoplamento de Abstraction e Implementor também elimina dependências
+em tempo de compilação da implementação. Mudar uma classe de
+implementação não requer a recompilação da classe Abstraction e seus
+clientes. Essa propriedade é essencial quando você quer assegurar compatibilidade
+no nível binário entre diferentes versões de uma biblioteca de
+classes.
+Além disso, esse desacoplamento encoraja o uso de camadas que podem
+melhorar a estruturação de um sistema. A parte de alto nível de um sistema
+somente tem que ter conhecimento de Abstraction e Implementor.</p></li> <li><p>Extensibilidade melhorada. Você pode estender as hierarquias de Abstraction
+e Implementor independentemente.</p></li> <li><p>Ocultação de detalhes de implementação dos clientes. Você pode proteger e isolar
+os clientes de detalhes de implementação, tais como o compartilhamento de
+objetos Implementor e o mecanismo de contagem de referências que os
+acompanham (se houver).</p></li></ol> <h2 id="implementacao"><a href="#implementacao" class="header-anchor">#</a> Implementação</h2> <p>Considere os seguintes aspectos de implementação quando aplicar o padrão Bridge:</p> <ol><li><p>Há somente um Implementor. Em situações onde há somente uma
+implementação, não é necessário criar uma classe abstrata Implementor.
+Trata-se aqui de um caso degenerado do padrão Bridge; existe uma relação um
+para um entre Abstraction e Implementor. Não obstante, essa separação ainda
+é útil quando uma mudança na implementação numa classe não deve afetar
+seus clientes existentes – ou seja, não deveriam ser recompilados, apenas
+“linkeditadas” novamente. Carolan [CAR89] usa o termo “Cheshire Cat”, para
+descrever esta separação. Em C++, a interface da classe Implementor pode ser
+definida num arquivo header privado, o qual não é fornecido aos clientes. Isso
+permite ocultar completamente uma implementação de uma classe dos seus
+clientes.</p></li> <li><p>Criar o objeto Implementor correto. Como, quando e onde você decide qual
+classe Implementor instanciar, se existe mais do que uma?
+Se a Abstraction tem conhecimento de todas as classes ConcreteImplementor,
+então pode instanciar uma delas no seu constructor; pode decidir por uma
+delas através de parâmetros passados para o seu constructor. Se, por exemplo,
+uma classe da categoria coleção suporta múltiplas implementações, a
+decisão pode se basear no tamanho da coleção. Uma implementação com uma lista ligada pode ser usada para coleções pequenas, e uma tabela de
+randomização (hash table) para coleções maiores.
+Uma outra abordagem é escolher, inicialmente, uma implementação-padrão e
+mudá-la mais tarde, de acordo com a utilização. Por exemplo, se a coleção
+cresce além de um certo limiar, então ela muda sua implementação para uma
+mais apropriada, para um número maior de itens.
+É possível também delegar totalmente a decisão para outro objeto. No exemplo
+Window/WindowImp, nós podemos introduzir um objeto-fábrica (ver Abstract
+Factory (95)) cuja única função é encapsular aspectos específicos de plataformas.
+A fábrica sabe que tipo de objeto WindowImp criar para a plataforma em
+uso; uma Window simplesmente solicita isso para uma WindowImp, e esta
+retorna o tipo correto. Um benefício dessa abordagem é que a Abstraction não
+está acoplada diretamente a nenhuma das classes Implementor.</p></li> <li><p>Compartilhando Implementors. Coplien ilustra como a expressão Handle/
+Body em C++ pode ser usado para compartilhar implementações entre
+vários objetos [Cop92]. O Body armazena um contador de referências que a
+classe Handle incrementa e decrementa. O código para atribuir handles com
+bodies compartilhados têm a seguinte forma geral:</p></li></ol> <div class="theme-code-block" data-v-759a7d02><p data-v-759a7d02>Handle &amp;Handle::operator=(const Handle &amp;other)
+{
+other._body-&gt;Ref();
+_body-&gt;Unref();</p> <div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>if (_body-&gt;RefCount() == 0)
+{
+    delete _body;
+}
+_body = other._body;
+
+return *this;
+</code></pre></div><p data-v-759a7d02>}</p></div> <ol start="4"><li>Utilização de herança múltipla. Você pode usar a herança múltipla em C++ para combinar uma interface com a sua implementação [Mar91]. Por exemplo, uma classe pode herdar publicamente de Abstraction e privadamente de um ConcreteImplementor.Porém, porque esta abordagem usa herança estática, ela liga uma implementação permanentemente à sua interface. Portanto, você não pode implementar um autêntico padrão Bridge com herança múltipla – pelo menos não em C++.</li></ol> <h2 id="exemplo-de-codigo"><a href="#exemplo-de-codigo" class="header-anchor">#</a> Exemplo de código</h2> <h3 id="exemplo-gof"><a href="#exemplo-gof" class="header-anchor">#</a> Exemplo GOF</h3> <p>O código C++ a seguir implementa o exemplo Window/WindowImp da seção Motivação.
+A classe Window define a abstração de janela para aplicações de clientes:</p> <div class="theme-code-block" data-v-759a7d02><p data-v-759a7d02>class Window {
+public:
+Window(View* contents);</p> <div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>    // requests handled by window
+    virtual void DrawContents();
+
+    virtual void Open();
+    virtual void Close();
+    virtual void Iconify();
+    virtual void Deiconify();
+
+    // requests forwarded to implementation
+    virtual void SetOrigin(const Point&amp; at);
+    virtual void SetExtent(const Point&amp; extent);
+    virtual void Raise();
+    virtual void Lower();
+
+    virtual void DrawLine(const Point&amp;, const Point&amp;);
+    virtual void DrawRect(const Point&amp;, const Point&amp;);
+    virtual void DrawPolygon(const Point[], int n);
+    virtual void DrawText(const char*, const Point&amp;);
+
+protected:
+    WindowImp* GetWindowImp();
+    View* GetView();
+
+private:
+    WindowImp* _imp;
+    View* _contents; // the window's contents
+};
+</code></pre></div></div> <p>Window mantém uma referência para uma WindowImp, a classe abstrata que
+declara uma interface para o sistema de janelas subjacente.</p> <div class="theme-code-block" data-v-759a7d02><p data-v-759a7d02>class WindowImp {
+public:
+virtual void ImpTop() = 0;
+virtual void ImpBottom() = 0;
+virtual void ImpSetExtent(const Point&amp;) = 0;
+virtual void ImpSetOrigin(const Point&amp;) = 0;</p> <div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>    virtual void DeviceRect(Coord, Coord, Coord, Coord) = 0;
+    virtual void DeviceText(const char*, Coord, Coord) = 0;
+    virtual void DeviceBitmap(const char*, Coord, Coord) = 0;
+    // lots more functions for drawing on windows...
+protected:
+    WindowImp();
+};
+</code></pre></div></div> <p>As subclasses de Window definem os diferentes tipos de janelas que a aplicação
+pode usar, tais como janelas de aplicação, ícones, janelas transitórias para diálogos, palettes flutuantes de ferramentas, e assim por diante.
+Por exemplo, a ApplicationWindow implementará a DrawContents para desenhar
+a instância de View por ela armazenada:</p> <div class="theme-code-block" data-v-759a7d02><div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>class ApplicationWindow : public Window {
+public:
+    // ...
+    virtual void DrawContents();
+};
+
+void ApplicationWindow::DrawContents () {
+    GetView()-&gt;DrawOn(this);
+}
+</code></pre></div></div> <p>IconWindow armazena o nome de um mapa de bits para o ícone que ela exibe...</p> <div class="theme-code-block" data-v-759a7d02><div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>class IconWindow : public Window {
+public:
+    // ...
+    virtual void DrawContents();
+private:
+    const char* _bitmapName;
+};
+</code></pre></div></div> <p>... e implementa os DrawContents para desenhar um mapa de bits na janela:</p> <div class="theme-code-block" data-v-759a7d02><div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>void IconWindow::DrawContents() {
+    WindowImp* imp = GetWindowImp();
+    if (imp != 0) {
+        imp-&gt;DeviceBitmap(_bitmapName, 0.0, 0.0);
+    }
+}
+</code></pre></div></div> <p>São possíveis muitas outras variações de Window. Uma TransientWindow pode
+necessitar se comunicar com a janela criada por ela durante o diálogo; daí manter uma referência para aquela janela. Uma PalleteWindow sempre flutua acima de outras
+janelas. Uma IconDockWindow contém IconWindows e as arranja de maneira ordenada.
+As operações de Window são definidas em termos da interface de WindowImp. Por
+exemplo, a DrawRect extrai quatro coordenadas dos seus dois parâmetros Point antes
+de chamar a operação de WindowImp que desenha o retângulo na janela:</p> <div class="theme-code-block" data-v-759a7d02><p data-v-759a7d02>void Window::DrawRect(const Point&amp; p1, const Point&amp; p2) {</p> <div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>    WindowImp* imp = GetWindowImp();
+
+    imp-&gt;DeviceRect(p1.X(), p1.Y(), p2.X(), p2.Y());
+
+}
+</code></pre></div></div> <p>As subclasses concretas de WindowImp suportam diferentes sistemas de janelas.
+A subclasse XWindowImp suporta o sistema XWindow:</p> <div class="theme-code-block" data-v-759a7d02><p data-v-759a7d02>class XWindowImp : public WindowImp {</p> <div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>public:
+    XWindowImp();
+
+    virtual void DeviceRect(Coord, Coord, Coord, Coord);
+    // remainder of public interface...
+private:
+    // lots of X window system-specific state, including:
+    Display* _dpy;
+    Drawable _winid;  // window id
+    GC _gc;           // window graphic context
+};    
+</code></pre></div></div> <p>Para o PresentationManager (PM), nós definimos uma classe PMWindowImp:</p> <div class="theme-code-block" data-v-759a7d02><p data-v-759a7d02>class PMWindowImp : public WindowImp {
+public:
+PMWindowImp();
+virtual void DeviceRect(Coord, Coord, Coord, Coord);</p> <div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>    // remainder of public interface...
+private:
+    // lots of PM window system-specific state, including:
+    HPS _hps;
+};    
+</code></pre></div></div> <p>Estas subclasses implementam operações de WindowImp em termos do sistema de
+janelas primitivo. Por exemplo, DeviceRect é implementada para X como segue:</p> <div class="theme-code-block" data-v-759a7d02><div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>void XWindowImp::DeviceRect (
+
+    Coord x0, Coord y0, Coord x1, Coord y1
+
+) {
+    int x = round(min(x0, x1));
+    int y = round(min(y0, y1));
+    int w = round(abs(x0 - x1));
+    int h = round(abs(y0 - y1));
+    XDrawRectangle(_dpy, _winid, _gc, x, y, w, h);
+}    
+</code></pre></div></div> <p>A implementação para o PM pode se assemelhar ao seguinte:</p> <div class="theme-code-block" data-v-759a7d02><div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>void PMWindowImp::DeviceRect (
+ 
+   Coord x0, Coord y0, Coord x1, Coord y1 ) 
+
+   {
+    Coord left = min(x0, x1);
+    Coord right = max(x0, x1);
+    Coord bottom = min(y0, y1);
+    Coord top = max(y0, y1);
+
+    PPOINTL point[4];
+
+    point[0].x = left;    point[0].y = top;
+    point[1].x = right;   point[1].y = top;
+    point[2].x = right;   point[2].y = bottom;
+    point[3].x = left;    point[3].y = bottom;
+
+    if (
+        (GpiBeginPath(_hps, 1L) == false) ||
+        (GpiSetCurrentPosition(_hps, &amp;point[3]) == false) ||
+        (GpiPolyLine(_hps, 4L, point) == GPI_ERROR)  ||
+        (GpiEndPath(_hps) == false)
+    ) {
+        // report error
+
+    } else {
+        GpiStrokePath(_hps, 1L, 0L);
+    }
+}
+</code></pre></div></div> <p>Como uma janela obtém uma instância da subclasse correta de WindowImp? Neste
+exemplo, assumiremos que Window tem essa responsabilidade. A sua operação GetWindowImp obtém a instância correta de uma fábrica abstrata (ver Abstract Factory (95)) que efetivamente encapsula todos os aspectos específicos do sistema de janelas.</p> <div class="theme-code-block" data-v-759a7d02><div class="language- extra-class" data-v-759a7d02><pre data-v-759a7d02><code data-v-759a7d02>WindowImp* Window::GetWindowImp () {
+    if (_imp == 0) {
+        _imp = WindowSystemFactory::Instance()-&gt;MakeWindowImp();
+    }
+    return _imp;
+}    
+</code></pre></div></div> <p>O método WindowSystemFactory::Instance () retorna uma fábrica abstrata que manufatura todos os objetos específicos do sistema de janelas. Para simplificar, nós o tornaremos um Singleton (130) e deixaremos a classe Window acessar a fábrica diretamente.</p> <h3 id="exemplo-2"><a href="#exemplo-2" class="header-anchor">#</a> Exemplo 2</h3> <figure><p>skinparam style strictuml
+hide empty members
+title Bridge Report File</p> <p>abstract Report &lt;<abstract>&gt; {
+File file
+generateReport()
+generateFile()<br>
+}</abstract></p> <p>abstract File &lt;<abstract>&gt;{<br>
+generateFile()
+}</abstract></p> <p>class &quot;BasicReport&quot; as B
+class B {
+generateReport()
+generateFile()
+}</p> <p>class &quot;CompleteReport&quot; as C
+class C {
+generateReport()
+generateFile()</p> <p>}</p> <p>class &quot;PDFFile&quot; as PDF
+class PDF {
+generateFile()</p> <p>}</p> <p>class &quot;CSVFile&quot; as CSV
+class CSV {
+generateFile()</p> <p>}</p> <p>File --o Report</p> <p>B -up-|&gt; Report
+C -up-|&gt; Report</p> <p>CSV -up-|&gt; File
+PDF -up-|&gt; File</p> <figcaption>Diagrama Bridge - Exemplo 2.</figcaption></figure> <!----> <h2 id="usos-conhecidos"><a href="#usos-conhecidos" class="header-anchor">#</a> Usos conhecidos</h2> <p>O exemplo de Window acima provém da ET++ [WGM88]. Em ET++, a WindowImp é
+chamada de “WindowPort” e tem subclasses como XWindowPort e SunWindowPort.
+O objeto Window cria o seu correspondente Implementor solicitando-o de uma fábrica
+abstrata chamada “WindowSystem”. WindowSystem fornece uma interface para
+criação de objetos específicos da plataforma, tais como fontes tipográficas, cursores, mapas de bits e assim por diante.</p> <p>O projeto da ET++ de Window/WindowPort estende o padrão Bridge no sentido
+de que WindowPort também mantém uma referência de volta para a Window. A
+classe implementor de WindowPort usa essa referência para notificar Window sobre
+eventos específicos de WindowPort: a chegada de eventos de entrada, redimensionamento de janelas, etc.</p> <p>Tanto Coplien [Cop92] como Stroustrup [Str91] mencionam classes Handle e
+dão alguns exemplos. Seus exemplos enfatizam tópicos de administração da memória,
+tais como compartilhamento de representações de “strings”, e suporte para
+objetos de tamanho variável. Nosso foco está mais em suportar extensões independentes, tanto de abstrações quanto de suas implementações.</p> <p>libg++[Lea88] define classes que implementam estruturas de dados comuns,
+tais como Set, LinkedSet, HashSet, LinkedList e HashTable. Set é uma classe abstrata que define uma abstração de um conjunto, enquanto que LinkedList e HashTable são implementadores concretos (concrete implementors) para uma lista ligada e uma tabela de randomização, respectivamente. LinkedSet e HashSet são implementadores que fazem uma ponte entre Set e seus correspondentes concretos LinkedList e HashTable. Esse é um exemplo de um padrão Bridge degenerado porque não há uma classe abstrata Implementor.</p> <p>O AppKit, da NeXT, [Add94] usa o padrão Bridge na implementação e exibição
+de imagens gráficas. Uma imagem pode ser representada de diversas maneiras. A
+forma de exibição ótima de uma imagem depende das propriedades do dispositivo
+de display, especificamente de suas capacidades quanto a cores e resolução. Sem a
+ajuda do AppKit, os desenvolvedores teriam que determinar qual seria a implementação a ser usada sob várias circunstâncias em cada aplicação.</p> <p>Para aliviar os desenvolvedores desta responsabilidade, a AppKit fornece uma
+bridge (ponte) chamada NXImage/NXImageRep. NXImage define a interface para a
+manipulação de imagens. A implementação de imagens é definida numa hierarquia
+de classes separada NXImageRep, a qual tem subclasses, tais como NXEPSImageRep,
+NXCachedImageRep e NXBitMapImageRep. NXImage mantém uma referência para
+um ou mais objetos NXImageRep. Se existe mais do que uma implementação de
+imagem, então NXImage seleciona a mais adequada para o dispositivo de display que
+está sendo usado. NXImage é até mesmo capaz de converter de uma implementação
+para outra, se necessário.</p> <p>O aspecto interessante dessa variante do Bridge, é que NXImage pode armazenar
+mais do que uma implementação NXImageRep ao mesmo tempo.</p> <h2 id="padroes-relacionados"><a href="#padroes-relacionados" class="header-anchor">#</a> Padrões relacionados</h2> <p>Um padrão Abstract Factory (95) pode criar e configurar uma Bridge específica.
+O padrão Adapter (140) é orientado para fazer com que classes não-relacionadas
+trabalhem em conjunto. Ele é normalmente aplicado a sistemas que já foram projetados.
+Por outro lado, Bridge é usado em um projeto, desde o início, para permitir que
+abstrações e implementações possam variar independentemente.</p> <h2 id="referencias"><a href="#referencias" class="header-anchor">#</a> Referências</h2></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/gof/BridgeFagner/README.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/29/2022, 12:29:43 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressppr/03_GOF.html" class="prev">
+        GOF 🔨
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/vuepressppr/assets/js/app.c089e0e7.js" defer></script><script src="/vuepressppr/assets/js/2.63c38da0.js" defer></script><script src="/vuepressppr/assets/js/23.74f1c03e.js" defer></script><script src="/vuepressppr/assets/js/5.2b7133b0.js" defer></script><script src="/vuepressppr/assets/js/6.28e79f91.js" defer></script><script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
+  </body>
+</html>
