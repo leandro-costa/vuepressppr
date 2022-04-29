@@ -177,8 +177,6 @@ replicação (deep copying) – as cópias podem ter que ser deletadas (ou expli
 
 <figure>
 
-```plantuml
-
 @startuml
      
      abstract class Shape{
@@ -205,8 +203,6 @@ replicação (deep copying) – as cópias podem ter que ser deletadas (ou expli
     
 
     @enduml
-
-```
 
 <figcaption>Estrutura do Código Prototype.</figcaption>
 </figure>
