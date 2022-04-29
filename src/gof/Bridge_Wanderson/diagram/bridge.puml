@@ -1,0 +1,68 @@
+@startuml
+
+class Executa{
+}
+
+interface Dispositivo{
+    +isligado()
+    +ligado()
+    +desligado()
+    +getVolume()
+    +setVolume(int percent)
+    +getChannel()
+    +setChannel(int channel)
+    +printStatus()
+}
+
+interface Controle{
+    +power()
+    +volumeDown()
+    +volumeUp()
+    +channelDown()
+    +channelUp()
+}
+
+class Tv implements Dispositivo{
+    -on
+    -volume
+    -channel
+}
+
+class Radio implements Dispositivo{
+    -on
+    -volume
+    -channel
+}
+
+class ControleBasico implements Controle{
+    #dispositivo
+    +power()
+    +volumeDown()
+    +volumeUp()
+    +channelDown()
+    +channelUp()
+}
+
+class ControleAvancado extends ControleBasico{
+    +mudo()
+    +power()
+    +volumeDown()
+    +volumeUp()
+    +channelDown()
+    +channelUp()
+}
+Executa . Controle
+Controle o--> Dispositivo : contém
+
+note right of ControleAvancado::mudo 
+dispositivo.setVolume(0) 
+end note
+
+note right of ControleBasico::power 
+        if (dispositivo.isligado()) {
+            dispositivo.disable();
+        } else {
+            dispositivo.enable();
+        }
+end note
+@enduml
