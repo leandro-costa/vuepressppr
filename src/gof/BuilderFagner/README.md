@@ -30,9 +30,9 @@ O padrão Builder captura todos estes relacionamentos. Cada classe conversora é
 ## Aplicabilidade
 Use o padrão Builder quando:
 
-● o algoritmo para criação de um objeto complexo deve ser independente das partes que compõem o objeto e de como elas são montadas.
+- o algoritmo para criação de um objeto complexo deve ser independente das partes que compõem o objeto e de como elas são montadas.
 
-● o processo de construção deve permitir diferentes representações para o objeto que é construído.
+- o processo de construção deve permitir diferentes representações para o objeto que é construído.
 
 ## Estrutura
 
@@ -63,13 +63,13 @@ resultado final.
 
 ## Colaborações
 
-● O cliente cria o objeto Director e o configura com o objeto Builder desejado.
+- O cliente cria o objeto Director e o configura com o objeto Builder desejado.
 
-● Director notifica o construtor sempre que uma parte do produto deve ser construída.
+- Director notifica o construtor sempre que uma parte do produto deve ser construída.
 
-● Builder trata solicitações do diretor e acrescenta partes ao produto.
+- Builder trata solicitações do diretor e acrescenta partes ao produto.
 
-● O cliente recupera o produto do construtor.
+- O cliente recupera o produto do construtor.
 
 O seguinte diagrama de interação ilustra como Builder e Director cooperam com um cliente:
 
@@ -112,11 +112,11 @@ Definiremos uma variante da função-membro (C++) CreateMaze (página 94) que
 aceita como argumento um construtor (builder) da classe MazeBuilder.
 A classe MazeBuilder define a seguinte interface para a construção de labirintos:
 
-<code-block>
+```c
+!!!include(src/gof/BuilderFagner/code/C++/Code1.cpp)!!!
 
-!!!include(code/C++/Code1.cpp)!!!
+```
 
-</code-block>
 
 Essa interface pode criar três coisas: (1) o labirinto, (2) salas, cada uma com um
 número de sala, e (3) portas entre salas numeradas. A operação GetMaze retorna o
@@ -128,11 +128,11 @@ nada fazem. Elas não são declaradas virtuais puras para permitir às classes d
 Dada a interface MazeBuilder, podemos criar a função membro CreateMaze,
 de forma a aceitar este construtor (builder) como um parâmetro.
 
-<code-block>
+```c
 
-!!!include(code/C++/Code2.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code2.cpp)!!!
 
-</code-block>
+```
 
 Compare esta versão de CreateMaze com a original. Observe como o builder
 oculta a representação interna do labirinto – isto é, as classes que definem salas, portas e paredes – e como estas partes são montadas para completar o labirinto final. Alguém poderia supor que existem classes para representar salas e portas, mas não há sinal de uma classe para paredes. Isto torna mais fácil mudar a forma pela qual um labirinto é representado, uma vez que nenhum dos clientes de MazeBuilder tem que ser modificado.
@@ -141,11 +141,11 @@ Como os outros padrões de criação, o padrão Builder encapsula como os objeto
 são criados, neste caso através da interface definida por MazeBuilder. Isso significa que podemos reutilizar MazeBuilder para construir diferentes tipos de labirintos. A operação CreateComplexMaze nos dá um exemplo:
 
 
-<code-block>
+```c
 
-!!!include(code/C++/Code3.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code3.cpp)!!!
 
-</code-block>
+```
 
 Note que MazeBuilder, ele próprio, não cria labirintos; sua finalidade principal
 é somente definir uma interface para criar labirintos. Ele define implementações
@@ -156,11 +156,12 @@ A subclasse StandardMazeBuilder é uma implementação que constrói labirintos
 simples. Ela mantém o controle do labirinto que está construindo através da
 variável _currentMaze.
 
-<code-block>
+```c
 
-!!!include(code/C++/Code4.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code4.cpp)!!!
 
-</code-block>
+```
+
 
 
 A CommonWall é uma operação utilitária que determina a direção da parede
@@ -168,49 +169,47 @@ comum entre duas salas.
 
 O constructor (C++) StandardMazeBuilder simplesmente inicia _currentMaze.
 
-<code-block>
+```c
 
-!!!include(code/C++/Code5.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code5.cpp)!!!
 
-</code-block>
+```
 
 A operação BuildMaze instancia um Maze (labirinto) que outras operações
 montarão e que, em algum momento, retornarão para o cliente (com GetMaze).
 
 
-<code-block>
+```c
 
-!!!include(code/C++/Code6.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code6.cpp)!!!
 
-</code-block>
+```
 
 A operação BuildRoom cria uma sala e constrói as paredes em volta dela:
 
 
-<code-block>
+```c
+!!!include(src/gof/BuilderFagner/code/C++/Code7.cpp)!!!
+```
 
-!!!include(code/C++/Code7.cpp)!!!
-
-</code-block>
 
 Para construir uma porta entre duas salas, StandardMazeBuilder procura
 ambas as salas no labirinto e encontra a parede adjacente:
 
-<code-block>
-
-!!!include(code/C++/Code8.cpp)!!!
-
-</code-block>
+```c
+!!!include(src/gof/BuilderFagner/code/C++/Code8.cpp)!!!
+```
 
 
 Os clientes agora podem usar CreateMaze em conjunto com StandardMaze-
 Builder para criar um labirinto:
 
-<code-block>
+```c
 
-!!!include(code/C++/Code9.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code9.cpp)!!!
+```
 
-</code-block>
+
 
 Poderíamos ter posto todas as operações de StandardMazeBuilder em Maze e
 deixado cada Maze construir a si próprio. Porém, ao tornar Maze menor é mais fácil
@@ -222,28 +221,31 @@ Um MazeBuilder mais exótico é CountingMazeBuilder. Esse construtor não
 cria nenhum labirinto, ele apenas conta os diferentes tipos de componentes que
 teriam sido criados.
 
-<code-block>
+```c
 
-!!!include(code/C++/Code10.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code10.cpp)!!!
+```
 
-</code-block>
+
 
 O construtor inicia os contadores e as operações de MazeBuilder redefinidas
 os incrementam adequadamente.
 
-<code-block>
+```c
 
-!!!include(code/C++/Code11.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code11.cpp)!!!
+```
 
-</code-block>
+
 
 Aqui apresentamos como um cliente pode usar um CountingMazeBuilder:
 
-<code-block>
+```c
 
-!!!include(code/C++/Code12.cpp)!!!
+!!!include(src/gof/BuilderFagner/code/C++/Code12.cpp)!!!
+```
 
-</code-block>
+
 
 ### Exemplo 2
 
@@ -254,33 +256,32 @@ Aqui apresentamos como um cliente pode usar um CountingMazeBuilder:
 <figcaption>Diagrama Builder - Exemplo 2.</figcaption>
 </figure>
 
-<code-group title="Java">
+```java
+ 
 
-!!!include(code/Java/Client.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/Client.java)!!!
 
-!!!include(code/Java/DirectorPolo.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/DirectorPolo.java)!!!
 
-!!!include(code/Java/Car.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/Car.java)!!!
 
-!!!include(code/Java/CarBuilder.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/CarBuilder.java)!!!
 
-!!!include(code/Java/CarBasicBuilder.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/CarBasicBuilder.java)!!!
 
-!!!include(code/Java/CarCompleteBuilder.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/CarCompleteBuilder.java)!!!
 
-!!!include(code/Java/CarIntermediaryBuilder.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/CarIntermediaryBuilder.java)!!!
 
-!!!include(code/Java/ModelType.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/ModelType.java)!!!
 
-!!!include(code/Java/Engine.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/Engine.java)!!!
 
-!!!include(code/Java/Multimedia.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/Multimedia.java)!!!
 
-!!!include(code/Java/Transmission.java)!!!
+!!!include(src/gof/BuilderFagner/code/Java/Transmission.java)!!!
 
-
-
-</code-group>
+```
 
 ## Usos conhecidos
 
@@ -288,16 +289,16 @@ O conversor de RTF é de ET ++ [WGM88]. O seu bloco construtor de texto usa um b
 armazenado no formato RTF.
 Builder é um padrão comum em Smalltalk-80 [Par90]:
 
-● A classe Parser no subsistema compilador é um Director que aceita um objeto ProgramNodeBuilder
+- A classe Parser no subsistema compilador é um Director que aceita um objeto ProgramNodeBuilder
 como um argumento. Um objeto Parser notifica
 seu objeto ProgramNodeBuilder cada vez que
 reconhece uma construção
 sintática. Quando o analisador (parser) termina, pede ao construtor a
 árvore de derivação (parse tree) que construiu, retornando-a para o cliente.
 
-● O ClassBuilder é um builder que Classes usam para criar subclasses por elas mesmas. Neste caso, Class é tanto Director como Producto. 
+- O ClassBuilder é um builder que Classes usam para criar subclasses por elas mesmas. Neste caso, Class é tanto Director como Producto. 
 
-● O ByteCodeStream é um construtor que cria um método compilado como um vetor de bytes (byte array). ByteCodeStream é um uso não-padronizado do padrão Builder porque o objeto complexo que ele constrói é codificado como um vetor de bytes e não como um objeto SmaUtalk normal. Mas a interface de ByteCodeStream é típica de um construtor (builder,) e seria fácil substituir ByteCodeStream por uma classe diferente que representasse programas como um objeto composto.
+- O ByteCodeStream é um construtor que cria um método compilado como um vetor de bytes (byte array). ByteCodeStream é um uso não-padronizado do padrão Builder porque o objeto complexo que ele constrói é codificado como um vetor de bytes e não como um objeto SmaUtalk normal. Mas a interface de ByteCodeStream é típica de um construtor (builder,) e seria fácil substituir ByteCodeStream por uma classe diferente que representasse programas como um objeto composto.
 
 O framework Service Configurator do Adaptive Communications Environment usa um builder para construir componentes de serviços de rede que são ''linkeditados"
 a um servidor em tempo de execução [5S94]. Os componentes são descritos com uma linguagem de configuração que é analisada por um analisador LALR(l). As ações semânticas do analisador executam operações sobre o construtor que acrescenta informações ao componente de serviço. Neste caso, o analisador é o Director.
@@ -310,4 +311,4 @@ Um Composite (160) é o que freqüentemente o builder constrói.
 
 ## Referências
 
-!!!include(../../ref.md)!!!
+!!!include(src/ref.md)!!!

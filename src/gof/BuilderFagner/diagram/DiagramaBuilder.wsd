@@ -1,3 +1,5 @@
+@startuml
+
 skinparam style strictuml
 hide empty members
 title Builder Car
@@ -63,11 +65,4 @@ CarC -up-|> CarBu
 CarB -up-|> CarBu
 CarI -up-|> CarBu
 
-
-
-
-
-
-
-
-
+@enduml

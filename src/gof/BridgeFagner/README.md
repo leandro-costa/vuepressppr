@@ -161,7 +161,7 @@ bodies compartilhados têm a seguinte forma geral:
 
 <code-block >
 
-!!!include(code/C++/Code1.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code1.cpp)!!!
  
 </code-block>
 
@@ -176,7 +176,7 @@ A classe Window define a abstração de janela para aplicações de clientes:
 
 <code-block >
 
-!!!include(code/C++/Code2.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code2.cpp)!!!
  
 </code-block>
 
@@ -185,7 +185,7 @@ declara uma interface para o sistema de janelas subjacente.
 
 <code-block >
 
-!!!include(code/C++/Code3.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code3.cpp)!!!
     
  
 </code-block>
@@ -198,7 +198,7 @@ a instância de View por ela armazenada:
 
 <code-block >
 
-!!!include(code/C++/Code4.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code4.cpp)!!!
   
 </code-block>
 
@@ -207,7 +207,7 @@ IconWindow armazena o nome de um mapa de bits para o ícone que ela exibe...
 
 <code-block >
 
-!!!include(code/C++/Code5.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code5.cpp)!!!
     
  
 </code-block>
@@ -217,7 +217,7 @@ IconWindow armazena o nome de um mapa de bits para o ícone que ela exibe...
 
 <code-block >
 
-!!!include(code/C++/Code6.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code6.cpp)!!!
     
  
 </code-block>
@@ -232,7 +232,7 @@ de chamar a operação de WindowImp que desenha o retângulo na janela:
 
 <code-block >
 
-!!!include(code/C++/Code7.cpp)!!!
+!!!include(src/gof/BridgeFagner/code/C++/Code7.cpp)!!!
     
  
 </code-block>
@@ -243,7 +243,7 @@ A subclasse XWindowImp suporta o sistema XWindow:
 
 <code-block >
 
-!!!include(code/C++/Code8.cpp)!!!    
+!!!include(src/gof/BridgeFagner/code/C++/Code8.cpp)!!!    
  
 </code-block>
 
@@ -251,7 +251,7 @@ Para o PresentationManager (PM), nós definimos uma classe PMWindowImp:
 
 <code-block >
 
-!!!include(code/C++/Code9.cpp)!!!    
+!!!include(src/gof/BridgeFagner/code/C++/Code9.cpp)!!!    
  
 </code-block>
 
@@ -261,7 +261,7 @@ janelas primitivo. Por exemplo, DeviceRect é implementada para X como segue:
 
 <code-block >
 
-!!!include(code/C++/Code10.cpp)!!!    
+!!!include(src/gof/BridgeFagner/code/C++/Code10.cpp)!!!    
  
 </code-block>
 
@@ -270,7 +270,7 @@ A implementação para o PM pode se assemelhar ao seguinte:
 
 <code-block >
 
-!!!include(code/C++/Code11.cpp)!!!    
+!!!include(src/gof/BridgeFagner/code/C++/Code11.cpp)!!!    
  
 </code-block>
 
@@ -280,7 +280,7 @@ exemplo, assumiremos que Window tem essa responsabilidade. A sua operação GetW
 
 <code-block >
 
-!!!include(code/C++/Code12.cpp)!!!    
+!!!include(src/gof/BridgeFagner/code/C++/Code12.cpp)!!!    
  
 </code-block>
 
@@ -299,21 +299,21 @@ O método WindowSystemFactory::Instance () retorna uma fábrica abstrata que man
 <code-group title="Java">
 
 
-!!!include(code/Java/Client.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/Client.java)!!!
 
-!!!include(code/Java/Report.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/Report.java)!!!
 
-!!!include(code/Java/BasicReport.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/BasicReport.java)!!!
 
-!!!include(code/Java/CompleteReport.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/CompleteReport.java)!!!
 
-!!!include(code/Java/File.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/File.java)!!!
 
-!!!include(code/Java/PDFFile.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/PDFFile.java)!!!
 
-!!!include(code/Java/CSVFile.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/CSVFile.java)!!!
 
-!!!include(code/Java/Product.java)!!!
+!!!include(src/gof/BridgeFagner/code/Java/Product.java)!!!
 
 </code-group>
 
@@ -370,4 +370,4 @@ abstrações e implementações possam variar independentemente.
 
 ## Referências
 
-!!!include(../../ref.md)!!!
+!!!include(src/ref.md)!!!
