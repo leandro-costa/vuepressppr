@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prototype (GOF) 🔨 | Padrões de Projetos</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css">
+    <link rel="icon" href="/vuepressppr/logo.png">
+    <link rel="manifest" href="/vuepressppr/manifest.json">
+    <link rel="apple-touch-icon" href="/vuepressppr/icon-192x192.png">
+    <link rel="mask-icon" href="/vuepressppr/icon-192x192.png" color="#3eaf7c">
+    <meta name="description" content="Material para as aulas da disciplina de Padrões de Projetos">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style"><link rel="preload" href="/vuepressppr/assets/js/app.c089e0e7.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/2.63c38da0.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/29.f12628d0.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script"><link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js"><link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js"><link rel="prefetch" href="/vuepressppr/assets/js/12.fb774cab.js"><link rel="prefetch" href="/vuepressppr/assets/js/13.97058f82.js"><link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js"><link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js"><link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js"><link rel="prefetch" href="/vuepressppr/assets/js/17.f3abe831.js"><link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js"><link rel="prefetch" href="/vuepressppr/assets/js/19.c99e69be.js"><link rel="prefetch" href="/vuepressppr/assets/js/20.d06df924.js"><link rel="prefetch" href="/vuepressppr/assets/js/21.84ee0397.js"><link rel="prefetch" href="/vuepressppr/assets/js/22.516a37df.js"><link rel="prefetch" href="/vuepressppr/assets/js/23.74f1c03e.js"><link rel="prefetch" href="/vuepressppr/assets/js/24.45aab871.js"><link rel="prefetch" href="/vuepressppr/assets/js/25.b79a6340.js"><link rel="prefetch" href="/vuepressppr/assets/js/26.793e594c.js"><link rel="prefetch" href="/vuepressppr/assets/js/27.d7af70d4.js"><link rel="prefetch" href="/vuepressppr/assets/js/28.9bdac829.js"><link rel="prefetch" href="/vuepressppr/assets/js/30.908e2c50.js"><link rel="prefetch" href="/vuepressppr/assets/js/31.f4ebc6d7.js"><link rel="prefetch" href="/vuepressppr/assets/js/32.1ad291b4.js"><link rel="prefetch" href="/vuepressppr/assets/js/33.a15606af.js"><link rel="prefetch" href="/vuepressppr/assets/js/34.ccff6b5b.js"><link rel="prefetch" href="/vuepressppr/assets/js/35.a8474c54.js"><link rel="prefetch" href="/vuepressppr/assets/js/36.8332203f.js"><link rel="prefetch" href="/vuepressppr/assets/js/37.c69b180a.js"><link rel="prefetch" href="/vuepressppr/assets/js/38.cc034efa.js"><link rel="prefetch" href="/vuepressppr/assets/js/4.552a1731.js"><link rel="prefetch" href="/vuepressppr/assets/js/5.2b7133b0.js"><link rel="prefetch" href="/vuepressppr/assets/js/6.28e79f91.js"><link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js"><link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js"><link rel="prefetch" href="/vuepressppr/assets/js/9.a4cc5b73.js">
+    <link rel="stylesheet" href="/vuepressppr/assets/css/0.styles.47a93a5c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressppr/" class="home-link router-link-active"><!----> <span class="site-name">Padrões de Projetos</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Prototype (GOF) 🔨</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#intencao" class="sidebar-link">Intenção</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#motivacao" class="sidebar-link">Motivação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#aplicabilidade" class="sidebar-link">Aplicabilidade</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#estrutura" class="sidebar-link">Estrutura</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#participantes" class="sidebar-link">Participantes</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#colaboracoes" class="sidebar-link">Colaborações</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#consequencias" class="sidebar-link">Consequências</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#implementacao" class="sidebar-link">Implementação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#estrutura-do-codigo" class="sidebar-link">Estrutura do Código</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#exemplo-de-codigo" class="sidebar-link">Exemplo de código</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#exemplo-de-codigo-livro" class="sidebar-link">Exemplo de código Livro</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#usos-conhecidos" class="sidebar-link">Usos conhecidos</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#padrao-relacionados" class="sidebar-link">Padrão relacionados</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/PrototypeRichard/Prototype.html#referencias" class="sidebar-link">Referências</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="prototype-gof-🔨"><a href="#prototype-gof-🔨" class="header-anchor">#</a> Prototype (GOF) 🔨</h1> <p>[^GAMMA]</p> <h2 id="intencao"><a href="#intencao" class="header-anchor">#</a> Intenção</h2> <p>Especificar os tipos de objetos a serem criados usando uma instância-protótipo e criar novos objetos pela cópia desse protótipo.</p> <h2 id="motivacao"><a href="#motivacao" class="header-anchor">#</a> Motivação</h2> <p>Você poderia construir um editor para partituras musicais customizando um framework geral para editores gráficos, acrescentando novos objetos que representam notas, pausas e pentagramas. O editor do framework pode ter uma paleta de ferramentas para acrescentar esses objetos de música à partitura. A paleta também incluiria ferramentas para selecionar, mover e manipular objetos de música de outra forma. O usuário clicaria na ferramenta de uma semínima para adicionar semínimas à partitura. Ou poderia usar a ferramenta de movimentação para mover uma nota para cima ou para baixo nas linhas de pauta, desta forma alterando seu registro sonoro.</p> <p>Vamos considerar que o framework forneça uma classe abstrata Graphic para componentes gráficos, como notas e pentagramas. Além disso, fornece uma classe abstrata Tool para definir ferramentas como aquelas da paleta. O framework também predefine uma subclasse GraphicTool para ferramentas que criam instâncias de objetos gráficos e os adicionam ao documento.</p> <p>Mas GraphicTool apresenta um problema para o projetista do framework. As classes para notas e pentagramas são específicas da nossa aplicação, mas a classe GraphicTool pertence ao framework. GraphicTool não sabe como criar instâncias das nossas classes musicais para acrescentá-las à partitura. Poderíamos introduzir sub classes de GraphicTool para cada tipo de objeto musical, mas isso produziria muitas subclasses diferentes somente no tipo de objeto musical que elas instanciam. Sabemos que a composição de objetos é uma alternativa flexível para o uso de subclasses. A questão, porém, é, como pode um framework usá-la para parametrizar instâncias de GraphicTool pela Classe de Graphic que se espera que elas criem?</p> <p>A solução é fazer Graph criar um novo Graphic copiando ou &quot;clonando&quot; uma instância de uma subclasse de Graphic. Chamamos esta instância de protótipo (prototype). A GraphicTool é parametrizada pelo protótipo que ela deveria clonar e acrescentar ao documento. Se todas as subclasses de Graphic suportam uma operação Clone, então GraphicTool pode clonar qualquer tipo de Graphic.</p> <p>Assim, em nosso editor musical, cada ferramenta para criar um objeto musical é uma instância de GraphicTool que é iniciada com um protótipo diferente. Cada instância de GraphicTool produzirá um objeto musical clonando o seu protótipo e acrescentando o clone à partitura.</p> <p><img src="img/motivacao.jpg" alt=""></p> <p>Podemos usar o padrão Prototype para reduzir o número de classes ainda mais. Temos classes separadas para breves e semibreves, mas isto é provavelmente desnecessário. Ao invés disso, poderiam ser instâncias da mesma classe iniciada com diferentes bitmaps e durações. Uma ferramenta para criação de notas do tipo breve torna-se somente uma GraphicTool cujo protótipo é uma MusicalNote iniciada como uma breve. Isso pode reduzir o número de classes no sistema dramaticamente. Isso também torna mais fácil acrescentar um novo tipo de nota ao editor musical.</p> <h2 id="aplicabilidade"><a href="#aplicabilidade" class="header-anchor">#</a> Aplicabilidade</h2> <p>Use o padrão Prototype quando um sistema tiver que ser independente de como os seus produtos são criados, compostos e representados; e</p> <p>• quando as classes a instanciar forem especificadas em tempo de execução, por exemplo, por carga dinâmica; ou</p> <p>• para evitar a construção de uma hierarquia de classes de fábricas paralela à hierarquia de classes de produto; ou</p> <p>• quando as instâncias de uma classe puderem ter uma dentre poucas combinações diferentes de estados. Pode ser mais conveniente instalar um número correspondente de protótipos e cloná-los, ao invés de instanciar a classe manualmente, cada vez com um estado apropriado.</p> <h2 id="estrutura"><a href="#estrutura" class="header-anchor">#</a> Estrutura</h2> <p><img src="img/Estrutura.jpg" alt=""></p> <h2 id="participantes"><a href="#participantes" class="header-anchor">#</a> Participantes</h2> <p>• Prototype (Graphic)</p> <div class="language- extra-class"><pre><code>– declara uma interface para clonar a si próprio.
+</code></pre></div><p>• ConcretePrototype (Staff, Whole Nota, Half Note)</p> <div class="language- extra-class"><pre><code>– implementa uma operação para clonar a si próprio.
+</code></pre></div><p>• Client (GraphicTool)</p> <div class="language- extra-class"><pre><code>– cria um novo objeto solicitando a um protótipo que clone a si próprio.
+</code></pre></div><h2 id="colaboracoes"><a href="#colaboracoes" class="header-anchor">#</a> Colaborações</h2> <p>• Um cliente solicita a um protótipo que este clone a si próprio.</p> <h2 id="consequencias"><a href="#consequencias" class="header-anchor">#</a> Consequências</h2> <p>Prototype tem muitas das mesmas consequências que Abstract Factory (95) e Builder
+(104) têm: ele oculta as classes de produtos concretas do cliente, desta forma
+reduzindo o número de nomes que os clientes necessitam saber. Além disso, esses
+padrões permitem a um cliente trabalhar com classes específicas de uma aplicação sem
+necessidade de modificação.</p> <p>Os benefícios adicionais do padrão Prototype estão relacionados abaixo.</p> <ol><li><p>Acrescenta e remove produtos em tempo de execução. Prototype permite incorporar uma nova classe concreta de produto a um sistema, simplesmente registrando uma instância protótipo com o cliente. Isso é um pouco mais flexível do que outros padrões de criação, porque o cliente pode instalar e remover protótipos em tempo de execução.</p></li> <li><p>Especifica novos objetos pela variação de valores. Sistemas altamente dinâmicos permitem definir novos comportamentos através da composição de objetos
+– por exemplo, pela especificação de valores para as variáveis de um objeto
+– e não pela definição de novas classes.
+Você efetivamente define novos tipos de objetos pela instanciação das classes
+existentes e registrando as instâncias como protótipos dos objetos-clientes.
+Um cliente pode exibir um novo comportamento através da delegação de
+responsabilidades para o protótipo.
+Esse tipo de projeto permite aos usuários definir novas “classes” sem ter que
+programar. De fato, clonar um protótipo é semelhante a instanciar uma classe.
+O padrão Prototype pode reduzir grandemente o número de classes que um
+sistema necessita. No nosso editor musical, uma classe GraphicTool pode criar
+uma variedade ilimitada de objetos musicais.</p></li> <li><p>Especifica novos objetos pela variação da estrutura. Muitas aplicações constroem
+objetos com partes e subpartes. Por exemplo, editores para o projeto de
+circuitos que constroem circuitos a partir de sub circuitos.1 Por questões de
+conveniência, tais aplicações frequentemente permitem instanciar estruturas complexas, definidas pelo usuário, para, por exemplo, usar um sub circuito
+específico repetidas vezes.
+O padrão Prototype também suporta isso. Simplesmente adicionamos esse
+sub circuito como um protótipo à paleta dos elementos de circuitos disponíveis. Contanto que o objeto-circuito composto implemente um clone por
+replicação (deep copy), circuitos com diferentes estruturas podem ser protótipos.</p></li> <li><p>Reduz o número de subclasses. O Factory Method (112) frequentemente produz
+uma hierarquia de classes Creator paralela à hierarquia de classes do
+produto. O padrão Prototype permite clonar um protótipo em vez de pedir a um
+método fábrica para construir um novo objeto. Daí não necessitar-se de
+nenhuma hierarquia de classes Creator. Esse benefício se aplica primariamente a linguagens como C++, que não tratam as classes como objetos de primeira
+classe. As linguagens que assim o fazem, como Smalltalk e Objective C, obtêm
+menos benefícios, uma vez que sempre se usa um objeto-classe como um
+criador. Objetos-classe já funcionam como protótipos nessas linguagens.</p></li> <li><p>Configura dinamicamente uma aplicação com classes. Alguns ambientes de tempo
+de execução permitem carregar classes dinamicamente numa aplicação. O
+padrão Prototype é a chave para a exploração de tais possibilidades numa
+linguagem como C++.
+Uma aplicação que quer criar instâncias de uma classe dinamicamente
+carregada não será capaz de referenciar o seu constructor estaticamente. Em
+vez disso, o ambiente de tempo de execução cria uma instância de cada classe
+automaticamente, quando carregada, e registra a instância junto a um
+gerenciador de protótipo (ver a seção Implementação). Então, a aplicação
+pode solicitar ao gerenciador de protótipos instâncias de classes recém carregadas, classes essas que originalmente não estavam “linkadas” ao
+programa. O framework de aplicações da ET++ [WGM88] tem um sistema de
+tempo de execução que usa este esquema.</p></li></ol> <p>O principal ponto fraco do padrão Prototype é que cada subclasse de Prototype
+deve implementar a operação Clone, o que pode ser difícil. Por exemplo, acrescentar
+Clone é difícil quando as classes consideradas já existem. A implementação de Clone
+pode ser complicada quando uma estrutura interna dessas classes inclui objetos que
+não suportam operação de cópia ou têm referências circulares.</p> <h2 id="implementacao"><a href="#implementacao" class="header-anchor">#</a> Implementação</h2> <p>Prototype é particularmente útil com linguagens estáticas como C++, na qual as classes não são objetos, e pouca ou nenhuma informação sobre tipos está disponível em tempo de execução. Ele é menos importante em linguagens como Smalltalk ou Objective C, que
+fornecem o equivalente a um protótipo (ou seja, um objeto-classe) para criação de
+instâncias de cada classe. Este padrão está incorporado em linguagens baseadas em
+protótipos como a Self [US87], na qual toda a criação de objetos se dá pela clonagem de
+um protótipo.</p> <p>Ao implementar protótipos levam-se em consideração os seguintes aspectos:</p> <ol><li><p>Usar um gerenciador de protótipos. Quando o número de protótipos num sistema
+não é fixo (ou seja, eles podem ser criados e destruídos dinamicamente), é
+importante manter um sistema de registro dos protótipos disponíveis. Os
+clientes não vão gerenciar os protótipos, mas farão sua armazenagem e
+recuperação pelo sistema de registro. Um cliente solicitará um protótipo ao
+sistema de registro antes de cloná-lo. Nós chamamos esse sistema de registro
+de gerenciador de protótipos.
+Um gerenciador de protótipos é uma memória associativa que retorna o
+protótipo correspondente a uma chave fornecida. Ele tem operações para
+registrar um protótipo com uma chave e para removê-lo do registro. Os
+clientes podem mudar ou mesmo pesquisar o registro em tempo de execução. Isso permite aos clientes estenderem e fazerem um inventário do sistema
+sem necessidade de escrever linhas de código.</p></li> <li><p>Implementar a operação Clone. A parte mais difícil do padrão Prototype é a
+implementação correta da operação Clone. Ela é particularmente difícil
+quando as estruturas de objetos contêm referências circulares.
+A maioria das linguagens fornece algum suporte para clonagem de objetos. Por
+exemplo, Smalltalk fornece uma implementação de copy que é herdada por
+todas as subclasses de Object. C++ fornece um constructor copy. Mas estes
+recursos não resolvem o problema shallow copy versus deep copy (cópia por
+referência versus cópia por replicação) [GR83]. Ou seja, clonar objetos significa
+clonar suas variáveis de instância, ou o clone e o original simplesmente
+compartilham as variáveis?
+Uma shallow copy é simples e, na maior parte das vezes, suficiente, e é o que o
+Smalltalk fornece por omissão. O constructor de cópias por omissão em C++
+faz uma cópia membro a membro, o que significa que os apontadores serão
+compartilhados entre a cópia e o original. Porém, clonar protótipos com
+estruturas complexas normalmente exige uma cópia por replicação (deep copy),
+porque o clone e o original devem ser independentes. Portanto, você deve
+garantir que os componentes do clone são clones dos componentes do protótipo. A clonagem força a decidir o que, se for o caso, será compartilhado.
+Se os objetos no sistema fornecem operações de Salvar e Carregar, então você
+pode usá-las para fornecer uma implementação por omissão de Clone
+simplesmente salvando o objeto e carregando-o de volta imediatamente. A
+operação Salvar salva o objeto num buffer de memória, e a operação Carregar
+cria uma cópia por reconstrução do objeto a partir do buffer.</p></li> <li><p>Iniciar clones. Enquanto alguns clientes ficam perfeitamente contentes com o
+clone tal como ele é, outros desejarão iniciar alguns ou todos os seus estados
+internos com valores de sua escolha.
+Você geralmente não pode passar esses valores para operação Clone porque
+o seu número variará entre as classes de protótipo. Alguns protótipos podem
+necessitar de múltiplos parâmetros de inicialização; outros não necessitarão de nenhum. Passar parâmetros para a operação Clone impede uma interface
+uniforme de clonagem.
+Pode ser que suas classes-protótipo já definam operações para (re)estabelecer
+estados-chave. Caso isso aconteça, os clientes podem usar essas operações
+imediatamente após a clonagem. Se isso não acontecer, então você pode ter que
+introduzir uma operação Initialize(ver a seção de Exemplo de Código) que
+recebe parâmetros de inicialização como argumentos e estabelece o estado
+interno do clone de acordo. Cuidado com as operações clone que usam
+replicação (deep copying) – as cópias podem ter que ser deletadas (ou explicitamente, ou dentro de Initialize) antes de você reinicializá-la</p></li></ol> <h2 id="estrutura-do-codigo"><a href="#estrutura-do-codigo" class="header-anchor">#</a> Estrutura do Código</h2> <figure><div class="language-plantuml line-numbers-mode"><pre class="language-text"><code>
+@startuml
+     
+     abstract class Shape{
+        +int x
+        +int y
+        +String color
+
+        {abstract} Shape clone()
+    }
+
+    class Circle extends Shape{
+        +int radius
+
+        +Shape clone()
+    } 
+
+    class Rectangle extends Shape{
+        +int width
+        +int height
+
+        +Shape clone()
+    }
+
+    
+
+    @enduml
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><figcaption>Estrutura do Código Prototype.</figcaption></figure> <h2 id="exemplo-de-codigo"><a href="#exemplo-de-codigo" class="header-anchor">#</a> Exemplo de código</h2> <p>shapes: Lista de formas</p> <p>shapes/Shape.java: Interface comum de forma</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Objects</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> y<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> color<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Shape</span><span class="token punctuation">(</span><span class="token class-name">Shape</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> target<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> target<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> target<span class="token punctuation">.</span>color<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token class-name">Shape</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> object2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>object2 <span class="token keyword">instanceof</span> <span class="token class-name">Shape</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token class-name">Shape</span> shape2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Shape</span><span class="token punctuation">)</span> object2<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> shape2<span class="token punctuation">.</span>x <span class="token operator">==</span> x <span class="token operator">&amp;&amp;</span> shape2<span class="token punctuation">.</span>y <span class="token operator">==</span> y <span class="token operator">&amp;&amp;</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>shape2<span class="token punctuation">.</span>color<span class="token punctuation">,</span> color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>shapes/Circle.java: Form simples</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Circle</span> <span class="token keyword">extends</span> <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> radius<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token class-name">Circle</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>radius <span class="token operator">=</span> target<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Shape</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> object2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>object2 <span class="token keyword">instanceof</span> <span class="token class-name">Circle</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>object2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token class-name">Circle</span> shape2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Circle</span><span class="token punctuation">)</span> object2<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> shape2<span class="token punctuation">.</span>radius <span class="token operator">==</span> radius<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>shapes/Rectangle.java: Outra forma</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Rectangle</span> <span class="token keyword">extends</span> <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> width<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> height<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Rectangle</span><span class="token punctuation">(</span><span class="token class-name">Rectangle</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> target<span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">=</span> target<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Shape</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Rectangle</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> object2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>object2 <span class="token keyword">instanceof</span> <span class="token class-name">Rectangle</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>object2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token class-name">Rectangle</span> shape2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Rectangle</span><span class="token punctuation">)</span> object2<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> shape2<span class="token punctuation">.</span>width <span class="token operator">==</span> width <span class="token operator">&amp;&amp;</span> shape2<span class="token punctuation">.</span>height <span class="token operator">==</span> height<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p>Demo.java: Exemplo de clonagem</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token namespace">refactoring_guru<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>example<span class="token punctuation">.</span>shapes<span class="token punctuation">.</span></span><span class="token class-name">Circle</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">refactoring_guru<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>example<span class="token punctuation">.</span>shapes<span class="token punctuation">.</span></span><span class="token class-name">Rectangle</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">refactoring_guru<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>example<span class="token punctuation">.</span>shapes<span class="token punctuation">.</span></span><span class="token class-name">Shape</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Shape</span><span class="token punctuation">&gt;</span></span> shapes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Shape</span><span class="token punctuation">&gt;</span></span> shapesCopy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Circle</span> circle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        circle<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        circle<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+        circle<span class="token punctuation">.</span>radius <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        circle<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">&quot;red&quot;</span><span class="token punctuation">;</span>
+        shapes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>circle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Circle</span> anotherCircle <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Circle</span><span class="token punctuation">)</span> circle<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        shapes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>anotherCircle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Rectangle</span> rectangle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rectangle<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        rectangle<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+        rectangle<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">&quot;blue&quot;</span><span class="token punctuation">;</span>
+        shapes<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>rectangle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">cloneAndCompare</span><span class="token punctuation">(</span>shapes<span class="token punctuation">,</span> shapesCopy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">cloneAndCompare</span><span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Shape</span><span class="token punctuation">&gt;</span></span> shapes<span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Shape</span><span class="token punctuation">&gt;</span></span> shapesCopy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Shape</span> shape <span class="token operator">:</span> shapes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            shapesCopy<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>shape<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> shapes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>shapes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> shapesCopy<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">&quot;: Shapes are different objects (yay!)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>shapes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>shapesCopy<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">&quot;: And they are identical (yay!)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">&quot;: But they are not identical (booo!)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">&quot;: Shape objects are the same (booo!)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div><p>OutputDemo.txt: Resultados da execução</p> <div class="language-JAVA line-numbers-mode"><pre class="language-java"><code><span class="token number">0</span><span class="token operator">:</span> <span class="token class-name">Shapes</span> are different objects <span class="token punctuation">(</span>yay<span class="token operator">!</span><span class="token punctuation">)</span>
+<span class="token number">0</span><span class="token operator">:</span> <span class="token class-name">And</span> they are identical <span class="token punctuation">(</span>yay<span class="token operator">!</span><span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token operator">:</span> <span class="token class-name">Shapes</span> are different objects <span class="token punctuation">(</span>yay<span class="token operator">!</span><span class="token punctuation">)</span>
+<span class="token number">1</span><span class="token operator">:</span> <span class="token class-name">And</span> they are identical <span class="token punctuation">(</span>yay<span class="token operator">!</span><span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token operator">:</span> <span class="token class-name">Shapes</span> are different objects <span class="token punctuation">(</span>yay<span class="token operator">!</span><span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token operator">:</span> <span class="token class-name">And</span> they are identical <span class="token punctuation">(</span>yay<span class="token operator">!</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="exemplo-de-codigo-livro"><a href="#exemplo-de-codigo-livro" class="header-anchor">#</a> Exemplo de código Livro</h2> <p>Definiremos uma subclasse MazePrototypeFactory da classe MazeFactory (página
+100). MazePrototypeFactory será iniciada com protótipos dos objetos que criará, de
+maneira que não tenhamos que criar subclasses somente para mudar as classes de
+paredes ou salas que ela cria.</p> <p>A MazePrototypeFactory aumenta a interface de Maze Factory com um constructor que aceita os protótipos como argumentos:</p> <p><img src="img/Ex_cod_1.jpg" alt=""></p> <p>As funções-membro para a criação de paredes, salas e portas são semelhantes:
+cada uma clona um protótipo e então o inicia. Aqui estão as definições de MakeWall e MakeDoor:</p> <p><img src="img/Ex_cod_2.jpg" alt=""></p> <p>Podemos usar MazePrototypeFactory para criar um labirinto-protótipo (ou um
+labirinto por omissão) simplesmente iniciando-o com protótipos dos componentes
+básicos de labirinto:</p> <p><img src="img/Ex_cod_3.jpg" alt=""></p> <p>Para mudar o tipo de labirinto, iniciamos MazePrototypeFactory com um
+conjunto diferente de protótipos. A seguinte chamada cria um labirinto com uma
+BombedDoor e um RoomWithABomb:</p> <p><img src="img/Ex_cod_4.jpg" alt=""></p> <p>Um objeto que pode ser usado como um protótipo, tal como uma instância de
+Wall, deve suportar a operação Clone. Ele também deve ter um constructor de cópias
+para fazer a clonagem. Também pode necessitar de uma operação separada para a
+reinicialização do estado interno. Acrescentaremos a operação Initialize à Door
+para permitir aos clientes inicializarem as salas do clone.
+Compare a seguinte definição de Door com da página 93</p> <p><img src="img/Ex_cod_5.jpg" alt=""></p> <p><img src="img/Ex_cod_6.jpg" alt=""></p> <p>A subclasse BombedWall deve redefinir Clone e implementar um constructor de
+cópias correspondente.</p> <p><img src="img/Ex_cod_7.jpg" alt=""></p> <p>Embora BombedWall::Clone retorne um Wall*, sua implementação retorna
+um ponteiro para uma nova instância de uma subclasse, qual seja, um BombedWall*.
+Definimos Clone desta maneira na classe-base para nos assegurarmos de que os
+clientes que clonam o protótipo não tenham que conhecer suas subclasses concretas.
+Clientes nunca deveriam precisar fazer um downcast do valor de retorno de Clone
+para o tipo desejado.
+Em Smalltalk, você pode reutilizar o método-padrão copy herdado de Object
+para clonar qualquer MapSite. Você pode usar MazeFactory para produzir os
+protótipos de que necessita; por exemplo, pode criar uma sala fornecendo o nome
+#room.
+A MazeFactory (fábrica de labirintos) tem um dicionário que mapeia nomes aos
+protótipos. Seu método make: se parece com o seguinte:</p> <p><img src="img/Ex_cod_8.jpg" alt=""></p> <p>Tendo métodos apropriados para inicia a MazeFactory com protótipos, você
+poderia criar um labirinto simples com o seguinte código:</p> <p><img src="img/Ex_cod_9.jpg" alt=""></p> <p>onde a definição do método de classe on: para CreateMaze seria</p> <p><img src="img/Ex_cod_10.jpg" alt=""></p> <h2 id="usos-conhecidos"><a href="#usos-conhecidos" class="header-anchor">#</a> Usos conhecidos</h2> <p>Talvez o primeiro exemplo do padrão Prototype se encontre no sistema Sketchpad de Ivan Sutherland [Sut63]. A primeira aplicação amplamente conhecida do padrão numa linguagem orientada a objeto foi em ThingLab, na qual os usuários poderiam formar um objeto composto e então promovê-lo a um protótipo pela sua instalação numa
+biblioteca de objetos reutilizáveis [Bor81]. Goldberg e Robson mencionam protótipos como um padrão [GR83], mas Coplien [Cop92] fornece uma descrição muito mais completa. Ele descreve idiomas relacionados ao padrão prototype para C++ e dá muitos exemplos e variações.</p> <p>O Etgdb é um depurador (debugger) de front-end, baseado em ET++, que fornece
+uma interface de apontar e clicar para diferentes depuradores orientados a linhas.
+Cada depurador tem uma subclasse DebuggerAdaptor correspondente. Por exemplo, GdbAdaptor adapta o etgdb à sintaxe dos comandos do gdb de GNU, enquanto que SunDbxAdaptor adapta o etgdb ao depurador da Sun. O Etgdb não tem um conjunto de classes DebuggerAdaptor codificadas rigidamente nele próprio. Em vez disso, lê o nome do adaptor a ser usado de uma variável fornecida pelo ambiente,
+procura um protótipo com o nome especificado em uma tabela global e, então, clona o protótipo. Novos depuradores podem ser acrescentados ao etgdb ligando-o ao DebuggerAdaptor que funciona para um depurador novo.</p> <p>A “biblioteca de técnicas de interações”, no ModeComposer, armazena protótipos de objetos que suportam várias técnicas de interação [Sha90]. Qualquer técnica
+de interação criada pelo Mode Composer pode ser usada como um protótipo
+colocando-a nesta biblioteca. O padrão Prototype permite ao Mode Composer suportar um conjunto ilimitado de técnicas de interação.</p> <p>O exemplo do editor musical discutido anteriormente se baseia no framework
+para desenhos do Unidraw [VL90].</p> <h2 id="padrao-relacionados"><a href="#padrao-relacionados" class="header-anchor">#</a> Padrão relacionados</h2> <p>Prototype e Abstract Factory (95) são padrões que competem entre si em várias situações, como discutimos no final deste capítulo. Porém, eles também podem ser usados em conjunto. Um Abstract Factory pode armazenar um conjunto de protótipos a partir dos quais podem ser clonados e retornados objetos-produto.</p> <p>Projetos que utilizam intensamente os padrões Composite (160) e Decorator (170)
+também podem se beneficiar do uso do Prototype.</p> <h2 id="referencias"><a href="#referencias" class="header-anchor">#</a> Referências</h2> <p>PROTOTYPE: Criação de Objetos. In: GAMMA, ERICH; HELM, RICHARD; JOHNSON, RALPH; VLISSIDES, JOHN. Padrões de Projeto: Soluções reutilizáveis de software orientado a objetos. [S. l.: s. n.], 2000.</p> <p>REFACTORING.GURU. Prototype em Java. [S. l.], 3 abr. 2022. Disponível em: https://refactoring.guru/pt-br/design-patterns/prototype/java/example. Acesso em: 7 abr. 2022.</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/gof/PrototypeRichard/Prototype.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/29/2022, 12:29:43 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressppr/03_GOF.html" class="prev">
+        GOF 🔨
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/vuepressppr/assets/js/app.c089e0e7.js" defer></script><script src="/vuepressppr/assets/js/2.63c38da0.js" defer></script><script src="/vuepressppr/assets/js/29.f12628d0.js" defer></script><script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
+  </body>
+</html>

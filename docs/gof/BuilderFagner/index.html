@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{Builder} (GOF) | Padrões de Projetos</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.css">
+    <link rel="icon" href="/vuepressppr/logo.png">
+    <link rel="manifest" href="/vuepressppr/manifest.json">
+    <link rel="apple-touch-icon" href="/vuepressppr/icon-192x192.png">
+    <link rel="mask-icon" href="/vuepressppr/icon-192x192.png" color="#3eaf7c">
+    <meta name="description" content="Material para as aulas da disciplina de Padrões de Projetos">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icon-192x192.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/vuepressppr/assets/css/0.styles.47a93a5c.css" as="style"><link rel="preload" href="/vuepressppr/assets/js/app.c089e0e7.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/2.63c38da0.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/25.b79a6340.js" as="script"><link rel="preload" href="/vuepressppr/assets/js/3.5bc5870a.js" as="script"><link rel="prefetch" href="/vuepressppr/assets/js/10.2686d00a.js"><link rel="prefetch" href="/vuepressppr/assets/js/11.fd30b52b.js"><link rel="prefetch" href="/vuepressppr/assets/js/12.fb774cab.js"><link rel="prefetch" href="/vuepressppr/assets/js/13.97058f82.js"><link rel="prefetch" href="/vuepressppr/assets/js/14.77172f79.js"><link rel="prefetch" href="/vuepressppr/assets/js/15.c64e7f5a.js"><link rel="prefetch" href="/vuepressppr/assets/js/16.3be1f0e5.js"><link rel="prefetch" href="/vuepressppr/assets/js/17.f3abe831.js"><link rel="prefetch" href="/vuepressppr/assets/js/18.aa42b649.js"><link rel="prefetch" href="/vuepressppr/assets/js/19.c99e69be.js"><link rel="prefetch" href="/vuepressppr/assets/js/20.d06df924.js"><link rel="prefetch" href="/vuepressppr/assets/js/21.84ee0397.js"><link rel="prefetch" href="/vuepressppr/assets/js/22.516a37df.js"><link rel="prefetch" href="/vuepressppr/assets/js/23.74f1c03e.js"><link rel="prefetch" href="/vuepressppr/assets/js/24.45aab871.js"><link rel="prefetch" href="/vuepressppr/assets/js/26.793e594c.js"><link rel="prefetch" href="/vuepressppr/assets/js/27.d7af70d4.js"><link rel="prefetch" href="/vuepressppr/assets/js/28.9bdac829.js"><link rel="prefetch" href="/vuepressppr/assets/js/29.f12628d0.js"><link rel="prefetch" href="/vuepressppr/assets/js/30.908e2c50.js"><link rel="prefetch" href="/vuepressppr/assets/js/31.f4ebc6d7.js"><link rel="prefetch" href="/vuepressppr/assets/js/32.1ad291b4.js"><link rel="prefetch" href="/vuepressppr/assets/js/33.a15606af.js"><link rel="prefetch" href="/vuepressppr/assets/js/34.ccff6b5b.js"><link rel="prefetch" href="/vuepressppr/assets/js/35.a8474c54.js"><link rel="prefetch" href="/vuepressppr/assets/js/36.8332203f.js"><link rel="prefetch" href="/vuepressppr/assets/js/37.c69b180a.js"><link rel="prefetch" href="/vuepressppr/assets/js/38.cc034efa.js"><link rel="prefetch" href="/vuepressppr/assets/js/4.552a1731.js"><link rel="prefetch" href="/vuepressppr/assets/js/5.2b7133b0.js"><link rel="prefetch" href="/vuepressppr/assets/js/6.28e79f91.js"><link rel="prefetch" href="/vuepressppr/assets/js/7.a41c72a8.js"><link rel="prefetch" href="/vuepressppr/assets/js/8.c3a503dd.js"><link rel="prefetch" href="/vuepressppr/assets/js/9.a4cc5b73.js">
+    <link rel="stylesheet" href="/vuepressppr/assets/css/0.styles.47a93a5c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepressppr/" class="home-link router-link-active"><!----> <span class="site-name">Padrões de Projetos</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/leandro-costa/vuepressppr" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>{Builder} (GOF)</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepressppr/gof/BuilderFagner/#intencao" class="sidebar-link">Intenção</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#motivacao" class="sidebar-link">Motivação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#aplicabilidade" class="sidebar-link">Aplicabilidade</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#estrutura" class="sidebar-link">Estrutura</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#participantes" class="sidebar-link">Participantes</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#colaboracoes" class="sidebar-link">Colaborações</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#consequencias" class="sidebar-link">Consequências</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#implementacao" class="sidebar-link">Implementação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#exemplo-de-codigo" class="sidebar-link">Exemplo de código</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepressppr/gof/BuilderFagner/#exemplo-gof" class="sidebar-link">Exemplo GOF</a></li><li class="sidebar-sub-header"><a href="/vuepressppr/gof/BuilderFagner/#exemplo-2" class="sidebar-link">Exemplo 2</a></li></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#usos-conhecidos" class="sidebar-link">Usos conhecidos</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#padroes-relacionados" class="sidebar-link">Padrões relacionados</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuepressppr/gof/BuilderFagner/#referencias" class="sidebar-link">Referências</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="builder-gof"><a href="#builder-gof" class="header-anchor">#</a> {Builder} (GOF)</h1> <h2 id="intencao"><a href="#intencao" class="header-anchor">#</a> Intenção</h2> <p>Separar a construção de um objeto complexo da sua representação de modo que o mesmo processo de construção possa criar diferentes representações.</p> <h2 id="motivacao"><a href="#motivacao" class="header-anchor">#</a> Motivação</h2> <p>Um leitor de um documento em RTP (Rich Text Format) deveria ser capaz de converter RTP em muitos formatos de texto. O leitor poderia converter documentos RTP em texto ASCII comum ou widget de texto, que possa ser editado interativamente.
+O problema, contudo, é que o número de conversões possíveis é aberto.
+Por isso, deve ser fácil acrescentar uma nova conversão sem modificar o leitor.
+Uma solução é configurar a classe RTFReader com um objeto TextConverter que converte RTF para uma outra representação de textos. A medida que o RTFReader analisa o documento RTF, ele usa o objeto TextConverter para efetuar a conversão. Sempre que o RTPReader reconhece um símbolo RTP (texto simples, ou uma palavra
+de controle do RTP), ele emite uma solicitação para o TextConverter para converter esse símbolo. Os objetos TextConverter são responsáveis tanto por efetuar a conversão dos dados como pela representação do símbolo num formato particular.
+As subclasses de TextConverter se especializam em diferentes conversões e formatos. Por exemplo, um ASCIIConverter ignora solicitações para converter qualquer coisa, exceto texto simples. Por outro lado, um TeXConverter implementará operações para todas as solicitações visando produzir uma representação TEX que
+capture toda a informação estilística do texto. Um TextWidgetConverter produzirá um objeto para uma interface de usuário complexa que permite ao usuário ver e editar o texto.</p> <figure><p><img src="img/builder.gif" alt=""></p></figure> <p>Cada tipo de classe conversora implementa o mecanismo para criação e montagem de um objeto complexo, colocando-o atrás de uma interface abstrata. O conversor é separado do leitor, que é responsável pela análise de um documento RTF.</p> <p>O padrão Builder captura todos estes relacionamentos. Cada classe conversora é chamada um builder no padrão, e o leitor é chamado de director. Aplicado a este exemplo, o Builder separa o algoritmo para interpretar um formato de texto (isto é, o analisador de documentos RTF) de como um formato convertido é  criado e representado. Isso nos permite reutilizar o algoritmo de análise (parsing) do RTFReader para criar diferentes representações de texto a partir de documentos RTF - simplesmente configure o RTFReader com diferentes subclasses de TextConverter.</p> <h2 id="aplicabilidade"><a href="#aplicabilidade" class="header-anchor">#</a> Aplicabilidade</h2> <p>Use o padrão Builder quando:</p> <ul><li><p>o algoritmo para criação de um objeto complexo deve ser independente das partes que compõem o objeto e de como elas são montadas.</p></li> <li><p>o processo de construção deve permitir diferentes representações para o objeto que é construído.</p></li></ul> <h2 id="estrutura"><a href="#estrutura" class="header-anchor">#</a> Estrutura</h2> <figure><p><img src="img/builderStruct.gif" alt=""></p></figure> <h2 id="participantes"><a href="#participantes" class="header-anchor">#</a> Participantes</h2> <p>• Builder(TextConverter)</p> <ul><li>especifica uma interface abstrata para criação de partes de um objeto produto.</li></ul> <p>• ConcreteBuilder (ASCUConverter, TeXConverter, TextWidgetConverter)</p> <ul><li>constrói e monta partes do produto pela implementação da interface de Builder;</li> <li>define e mantém a representação que cria;</li> <li>fornece uma interface para recuperação do produto (por exemplo, GetASCIIText, GetTextWidget).</li></ul> <p>• Director (RTFReader)</p> <ul><li>constrói um objeto usando a interface de Builder.</li></ul> <p>• Product (ASCIIText, TeXText, TextWidget).</p> <ul><li>representa o objeto complexo em construção. ConcreteBuilder constrói a representação interna do produto e
+define o processo pelo qual ele é montado;</li> <li>inclui classes que definem as partes constituintes, inclusive as interfaces para a montagem das partes no
+resultado final.</li></ul> <h2 id="colaboracoes"><a href="#colaboracoes" class="header-anchor">#</a> Colaborações</h2> <ul><li><p>O cliente cria o objeto Director e o configura com o objeto Builder desejado.</p></li> <li><p>Director notifica o construtor sempre que uma parte do produto deve ser construída.</p></li> <li><p>Builder trata solicitações do diretor e acrescenta partes ao produto.</p></li> <li><p>O cliente recupera o produto do construtor.</p></li></ul> <p>O seguinte diagrama de interação ilustra como Builder e Director cooperam com um cliente:</p> <figure><p><img src="img/builderSequencial.gif" alt=""></p></figure> <h2 id="consequencias"><a href="#consequencias" class="header-anchor">#</a> Consequências</h2> <p>A seguir são apresentadas as conseqüências-chave da utilização do padrão Builder:</p> <p>1º Permite variar a representação interna de um produto. O objeto Builder fornece ao diretor uma interface abstrata para a construção do produto. A interface permite ao construtor ocultar a representação e a estrutura interna do produto. Ela também oculta como o produto é montado. Já que o produto é construído através de uma interface abstrata, tudo o que você tem que fazer para mudar sua representação interna é definir um novo tipo de construtor.</p> <p>2º Isola o código para construção e representação. O padrão Builder melhora a modularidade pelo encapsulamento da forma como um objeto complexo é construído e representado. Os clientes nada necessitam saber sobre as classes que definem a estrutura interna do produto; tais classes não aparecem na interface de Builder. Cada ConcreteBuilder contém todo o código para criar e montar um tipo de produto específico. O código é escrito somente uma vez; então, diferentes Directors podem reutilizá-lo para construir variantes de Product com o mesmo conjunto de partes. No exemplo anterior do RTF, nós poderíamos definir o leitor para um formato diferente do RTF, digamos um SGMLReader, e usado os mesmos TextConverters para
+gerar representações ASCIIText, TeXText, e TexWidget de documentos SGML.</p> <p>3º Oferece um controle mais fino sobre o processo de construção. Ao contrário de padrões de criação que constroem produtos de uma só vez, o Builder constrói o produto passo a passo sob o controle do diretor.
+Somente quando o produto está terminado o diretor o recupera do construtor. Daí a interface de Builder refletir o processo de construção do produto mais explicitamente do que outros padrões de criação. Isso dá um controle mais fino sobre o processo de construção e, conseqüentemente, da estrutura interna do produto
+resultante.</p> <h2 id="implementacao"><a href="#implementacao" class="header-anchor">#</a> Implementação</h2> <p>Existe uma classe abstrata Builder que define uma operação para cada componente que um diretor lhe pedir para criar. As operações não fazem nada por omissão. Uma classe ConcreteBuilder redefine as operações para os componentes que ela está interessada em criar.
+Aqui apresentamos outros tópicos de implementação a serem considerados:</p> <ol><li><p>Interface de montagem e construção. Os Builders constroem os seus produtos de uma forma gradual. Portanto, a interface da classe Builder deve ser geral o bastante para permitir a construção de produtos para todos os tipos de construtores concretos.
+Um tópico-chave de projeto diz respeito ao modelo para o processo de construção e montagem. Um modelo onde os resultados das solicitações de construção são simplesmente acrescentados ao produto é normalmente suficiente. No exemplo do RTF, o construtor converte e acrescenta o próximo símbolo ao texto que converteu até aqui. Mas às vezes você pode necessitar acesso a partes do produto construídas anteriormente. No exemplo do labirinto que nós apresentamos no código de exemplo, a interface MazeBuilder permite acrescentar uma porta entre salas existentes.Estruturas de árvores, tais como árvores de derivação, que são construídas de baixo para cima (bottom-up), são um outro exemplo. Nesse caso, o construtor retornaria nós-filhos para o diretor, que então os passaria de volta ao construtor para construir os nós-pais.</p></li> <li><p>Por que não classes abstratas para produtos? Nos casos comuns, os produtos produzidos pelos construtores concretos diferem tão grandemente na sua representação que há pouco a ganhar ao dar a diferentes produtos uma classe-pai comum. No exemplo do RTF, os objetos ASCIIText e TextWidget têm pouca probabilidade de ter uma interface comum, e tampouco necessitam de uma. Uma vez que o cliente em geral configura o diretor com o construtor concreto apropriado, o cliente está em posição de saber quais subclasses concretas de Builder estão em uso e pode tratar os seus produtos de acordo.</p></li> <li><p>Métodos vazios como a omissão em Builder. Em C++, os métodos de construção são intencionalmente não-declarados como funções-membro. Em vez disso, eles são definidos como métodos vazios, permitindo aos clientes redefinirem somente as operações em que estão interessados.</p></li></ol> <h2 id="exemplo-de-codigo"><a href="#exemplo-de-codigo" class="header-anchor">#</a> Exemplo de código</h2> <h3 id="exemplo-gof"><a href="#exemplo-gof" class="header-anchor">#</a> Exemplo GOF</h3> <p>Definiremos uma variante da função-membro (C++) CreateMaze (página 94) que
+aceita como argumento um construtor (builder) da classe MazeBuilder.
+A classe MazeBuilder define a seguinte interface para a construção de labirintos:</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>   class MazeBuilder <span class="token punctuation">{</span>
+    public<span class="token operator">:</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token keyword">int</span> room<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildDoor</span><span class="token punctuation">(</span><span class="token keyword">int</span> roomFrom<span class="token punctuation">,</span> <span class="token keyword">int</span> roomTo<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+    
+        virtual Maze<span class="token operator">*</span> <span class="token function">GetMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    protected<span class="token operator">:</span>
+        <span class="token function">MazeBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Essa interface pode criar três coisas: (1) o labirinto, (2) salas, cada uma com um
+número de sala, e (3) portas entre salas numeradas. A operação GetMaze retorna o
+labirinto para o cliente. As subclasses de MazeBuilder redefinirão essa operação para retornar o labirinto que construíram.</p> <p>Todas as operações de construção de labirinto de MazeBuilder, por omissão,
+nada fazem. Elas não são declaradas virtuais puras para permitir às classes derivadas redefinir somente aqueles métodos nos quais estiverem interessadas.</p> <p>Dada a interface MazeBuilder, podemos criar a função membro CreateMaze,
+de forma a aceitar este construtor (builder) como um parâmetro.</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    Maze<span class="token operator">*</span> MazeGame<span class="token operator">::</span><span class="token function">CreateMaze</span> <span class="token punctuation">(</span>MazeBuilder<span class="token operator">&amp;</span> builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        builder<span class="token punctuation">.</span><span class="token function">BuildMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        builder<span class="token punctuation">.</span><span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">BuildDoor</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token keyword">return</span> builder<span class="token punctuation">.</span><span class="token function">GetMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Compare esta versão de CreateMaze com a original. Observe como o builder
+oculta a representação interna do labirinto – isto é, as classes que definem salas, portas e paredes – e como estas partes são montadas para completar o labirinto final. Alguém poderia supor que existem classes para representar salas e portas, mas não há sinal de uma classe para paredes. Isto torna mais fácil mudar a forma pela qual um labirinto é representado, uma vez que nenhum dos clientes de MazeBuilder tem que ser modificado.</p> <p>Como os outros padrões de criação, o padrão Builder encapsula como os objetos
+são criados, neste caso através da interface definida por MazeBuilder. Isso significa que podemos reutilizar MazeBuilder para construir diferentes tipos de labirintos. A operação CreateComplexMaze nos dá um exemplo:</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    Maze<span class="token operator">*</span> MazeGame<span class="token operator">::</span><span class="token function">CreateComplexMaze</span> <span class="token punctuation">(</span>MazeBuilder<span class="token operator">&amp;</span> builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        builder<span class="token punctuation">.</span><span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// ...</span>
+        builder<span class="token punctuation">.</span><span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token keyword">return</span> builder<span class="token punctuation">.</span><span class="token function">GetMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>Note que MazeBuilder, ele próprio, não cria labirintos; sua finalidade principal
+é somente definir uma interface para criar labirintos. Ele define implementações
+vazias primariamente por conveniência. Subclasses de MazeBuilder fazem o trabalho
+real.</p> <p>A subclasse StandardMazeBuilder é uma implementação que constrói labirintos
+simples. Ela mantém o controle do labirinto que está construindo através da
+variável _currentMaze.</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    class StandardMazeBuilder <span class="token operator">:</span> public MazeBuilder <span class="token punctuation">{</span>
+    public<span class="token operator">:</span>
+        <span class="token function">StandardMazeBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        virtual <span class="token keyword">void</span> <span class="token function">BuildMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildDoor</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        virtual Maze<span class="token operator">*</span> <span class="token function">GetMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    private<span class="token operator">:</span>
+        Direction <span class="token function">CommonWall</span><span class="token punctuation">(</span>Room<span class="token operator">*</span><span class="token punctuation">,</span> Room<span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Maze<span class="token operator">*</span> _currentMaze<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>A CommonWall é uma operação utilitária que determina a direção da parede
+comum entre duas salas.</p> <p>O constructor (C++) StandardMazeBuilder simplesmente inicia _currentMaze.</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    StandardMazeBuilder<span class="token operator">::</span><span class="token function">StandardMazeBuilder</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        _currentMaze <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>A operação BuildMaze instancia um Maze (labirinto) que outras operações
+montarão e que, em algum momento, retornarão para o cliente (com GetMaze).</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    <span class="token keyword">void</span> StandardMazeBuilder<span class="token operator">::</span><span class="token function">BuildMaze</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        _currentMaze <span class="token operator">=</span> new Maze<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    Maze<span class="token operator">*</span> StandardMazeBuilder<span class="token operator">::</span><span class="token function">GetMaze</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> _currentMaze<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>A operação BuildRoom cria uma sala e constrói as paredes em volta dela:</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>    <span class="token keyword">void</span> StandardMazeBuilder<span class="token operator">::</span><span class="token function">BuildRoom</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>_currentMaze<span class="token operator">-&gt;</span><span class="token function">RoomNo</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            Room<span class="token operator">*</span> room <span class="token operator">=</span> new <span class="token function">Room</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            _currentMaze<span class="token operator">-&gt;</span><span class="token function">AddRoom</span><span class="token punctuation">(</span>room<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+            room<span class="token operator">-&gt;</span><span class="token function">SetSide</span><span class="token punctuation">(</span>North<span class="token punctuation">,</span> new Wall<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            room<span class="token operator">-&gt;</span><span class="token function">SetSide</span><span class="token punctuation">(</span>South<span class="token punctuation">,</span> new Wall<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            room<span class="token operator">-&gt;</span><span class="token function">SetSide</span><span class="token punctuation">(</span>East<span class="token punctuation">,</span> new Wall<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            room<span class="token operator">-&gt;</span><span class="token function">SetSide</span><span class="token punctuation">(</span>West<span class="token punctuation">,</span> new Wall<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>Para construir uma porta entre duas salas, StandardMazeBuilder procura
+ambas as salas no labirinto e encontra a parede adjacente:</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>    <span class="token keyword">void</span> StandardMazeBuilder<span class="token operator">::</span><span class="token function">BuildDoor</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n1<span class="token punctuation">,</span> <span class="token keyword">int</span> n2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Room<span class="token operator">*</span> r1 <span class="token operator">=</span> _currentMaze<span class="token operator">-&gt;</span><span class="token function">RoomNo</span><span class="token punctuation">(</span>n1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Room<span class="token operator">*</span> r2 <span class="token operator">=</span> _currentMaze<span class="token operator">-&gt;</span><span class="token function">RoomNo</span><span class="token punctuation">(</span>n2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Door<span class="token operator">*</span> d <span class="token operator">=</span> new <span class="token function">Door</span><span class="token punctuation">(</span>r1<span class="token punctuation">,</span> r2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        r1<span class="token operator">-&gt;</span><span class="token function">SetSide</span><span class="token punctuation">(</span><span class="token function">CommonWall</span><span class="token punctuation">(</span>r1<span class="token punctuation">,</span>r2<span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        r2<span class="token operator">-&gt;</span><span class="token function">SetSide</span><span class="token punctuation">(</span><span class="token function">CommonWall</span><span class="token punctuation">(</span>r2<span class="token punctuation">,</span>r1<span class="token punctuation">)</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>Os clientes agora podem usar CreateMaze em conjunto com StandardMaze-
+Builder para criar um labirinto:</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+ Maze<span class="token operator">*</span> maze<span class="token punctuation">;</span>
+    MazeGame game<span class="token punctuation">;</span>
+    StandardMazeBuilder builder<span class="token punctuation">;</span>
+    
+    game<span class="token punctuation">.</span><span class="token function">CreateMaze</span><span class="token punctuation">(</span>builder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    maze <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">GetMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>Poderíamos ter posto todas as operações de StandardMazeBuilder em Maze e
+deixado cada Maze construir a si próprio. Porém, ao tornar Maze menor é mais fácil
+compreendê-lo e modificá-lo, e StandardMazeBuilder é fácil de separar de Maze.
+Ainda mais importante, separar os dois permite ter uma variedade de MazeBuilders,
+cada um usando diferentes classes para salas, paredes e portas.</p> <p>Um MazeBuilder mais exótico é CountingMazeBuilder. Esse construtor não
+cria nenhum labirinto, ele apenas conta os diferentes tipos de componentes que
+teriam sido criados.</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    class CountingMazeBuilder <span class="token operator">:</span> public MazeBuilder <span class="token punctuation">{</span>
+    public<span class="token operator">:</span>
+        <span class="token function">CountingMazeBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        virtual <span class="token keyword">void</span> <span class="token function">BuildMaze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildRoom</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        virtual <span class="token keyword">void</span> <span class="token function">BuildDoor</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        virtual <span class="token keyword">void</span> <span class="token function">AddWall</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> Direction<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+        <span class="token keyword">void</span> <span class="token function">GetCounts</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&amp;</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+    private<span class="token operator">:</span>
+        <span class="token keyword">int</span> _doors<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> _rooms<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>O construtor inicia os contadores e as operações de MazeBuilder redefinidas
+os incrementam adequadamente.</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    CountingMazeBuilder<span class="token operator">::</span><span class="token function">CountingMazeBuilder</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        _rooms <span class="token operator">=</span> _doors <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">void</span> CountingMazeBuilder<span class="token operator">::</span><span class="token function">BuildRoom</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        _rooms<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">void</span> CountingMazeBuilder<span class="token operator">::</span><span class="token function">BuildDoor</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        _doors<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">void</span> CountingMazeBuilder<span class="token operator">::</span><span class="token function">GetCounts</span> <span class="token punctuation">(</span>
+        <span class="token keyword">int</span><span class="token operator">&amp;</span> rooms<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&amp;</span> doors
+    <span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        rooms <span class="token operator">=</span> _rooms<span class="token punctuation">;</span>
+        doors <span class="token operator">=</span> _doors<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>Aqui apresentamos como um cliente pode usar um CountingMazeBuilder:</p> <div class="language-c line-numbers-mode"><pre class="language-c"><code>
+    <span class="token keyword">int</span> rooms<span class="token punctuation">,</span> doors<span class="token punctuation">;</span>
+    MazeGame game<span class="token punctuation">;</span>
+    CountingMazeBuilder builder<span class="token punctuation">;</span>
+    
+    game<span class="token punctuation">.</span><span class="token function">CreateMaze</span><span class="token punctuation">(</span>builder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    builder<span class="token punctuation">.</span><span class="token function">GetCounts</span><span class="token punctuation">(</span>rooms<span class="token punctuation">,</span> doors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;The maze has &quot;</span>
+         <span class="token operator">&lt;&lt;</span> rooms <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; rooms and &quot;</span>
+         <span class="token operator">&lt;&lt;</span> doors <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; doors&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="exemplo-2"><a href="#exemplo-2" class="header-anchor">#</a> Exemplo 2</h3> <figure><img src="https://www.plantuml.com/plantuml/svg/pPDBJiCm48RtFiMegtQHArGL0QGiG0Xw0JSPqX5-HFPa4HNkZkEyqoB1ZatY-MV6_dxBS_0i7TTQ2U4_o5JIIGsU6uNXwoYFgJCL2AWhRa2ZFg7pWeb3oLrDga07gNH2v4fw3waYD7m10U9hqEx9OSxMlLXbsqnRFxI6ABScd5Nd7EJjBlRrZPkfS0FITtt3GUqQBg4Vu1HhdgN6xMucFDa2rR6fbkg3ASaifQEJnclodgnPxb0h9eq5oLukaL_H1pM0mXMgz9IlUMUuFUrRk5XJWWcuCHunGG-hg7UWWF4NbJady3neOU9U8p3eSIbQReDECZwImX5z8iyCeukrhbaPo2O3sR_bJwsk53AksDE9FUql_nh_PmEtBFp6n1zj2D4D3IIEoZCd-yN0G4Z7fvueVEV4meri2abT9P_xVa3YMrihsL8H1pH56Evl" alt="uml diagram"> <figcaption>Diagrama Builder - Exemplo 2.</figcaption></figure> <div class="language-java line-numbers-mode"><pre class="language-java"><code> 
+
+<span class="token keyword">import</span> <span class="token class-name">Builders<span class="token punctuation">.</span>CarBasicBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Builders<span class="token punctuation">.</span>CarBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Builders<span class="token punctuation">.</span>CarCompleteBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Builders<span class="token punctuation">.</span>CarIntermediaryBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Director<span class="token punctuation">.</span>DirectorPolo</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  
+        <span class="token class-name">CarBuilder</span> builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CarBasicBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">DirectorPolo</span> director <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DirectorPolo</span><span class="token punctuation">(</span>builder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        director<span class="token punctuation">.</span><span class="token function">constructCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      
+                
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>director<span class="token punctuation">.</span><span class="token function">getResultCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        
+        <span class="token class-name">CarBuilder</span> builder2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CarIntermediaryBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">DirectorPolo</span> director2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DirectorPolo</span><span class="token punctuation">(</span>builder2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        director2<span class="token punctuation">.</span><span class="token function">constructCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      
+                
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>director2<span class="token punctuation">.</span><span class="token function">getResultCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        <span class="token class-name">CarBuilder</span> builder3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CarCompleteBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">DirectorPolo</span> director3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DirectorPolo</span><span class="token punctuation">(</span>builder3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        director3<span class="token punctuation">.</span><span class="token function">constructCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      
+               
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>director3<span class="token punctuation">.</span><span class="token function">getResultCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Director</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token class-name">Builders<span class="token punctuation">.</span>CarBuilder</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Cars<span class="token punctuation">.</span>Car</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DirectorPolo</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">CarBuilder</span> carBuilder<span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">DirectorPolo</span><span class="token punctuation">(</span><span class="token class-name">CarBuilder</span> carBuilder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>carBuilder <span class="token operator">=</span> carBuilder<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">constructCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        carBuilder<span class="token punctuation">.</span><span class="token function">buildeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carBuilder<span class="token punctuation">.</span><span class="token function">buildeModelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carBuilder<span class="token punctuation">.</span><span class="token function">buildeEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carBuilder<span class="token punctuation">.</span><span class="token function">buildeTransmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        carBuilder<span class="token punctuation">.</span><span class="token function">buildeMultimedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token class-name">Car</span> <span class="token function">getResultCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> carBuilder<span class="token punctuation">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>
+
+
+
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Cars</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Engine</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Multimedia</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Transmission</span><span class="token punctuation">;</span>
+
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">ModelType</span> modelType<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Engine</span> engine<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Transmission</span> transmission<span class="token punctuation">;</span>    
+    <span class="token keyword">private</span> <span class="token class-name">Multimedia</span> multimedia<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ModelType</span> <span class="token function">getModelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>modelType<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setModelType</span><span class="token punctuation">(</span><span class="token class-name">ModelType</span> modelType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>modelType <span class="token operator">=</span> modelType<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setEngine</span><span class="token punctuation">(</span><span class="token class-name">Engine</span> engine<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>engine <span class="token operator">=</span> engine<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setTransmission</span><span class="token punctuation">(</span><span class="token class-name">Transmission</span> transmission<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>transmission <span class="token operator">=</span> transmission<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Multimedia</span> <span class="token function">getMultimedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>multimedia<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setMultimedia</span><span class="token punctuation">(</span><span class="token class-name">Multimedia</span> multimedia<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>multimedia <span class="token operator">=</span> multimedia<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+     <span class="token keyword">public</span> <span class="token class-name">Multimedia</span> <span class="token function">getMultimidia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> multimedia<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ModelType</span> <span class="token function">getmodelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> modelType<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Engine</span> <span class="token function">getEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> engine<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Transmission</span> <span class="token function">getTransmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> transmission<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;Tipe: &quot;</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;Model: &quot;</span> <span class="token operator">+</span> modelType <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;Engine: &quot;</span> <span class="token operator">+</span> engine<span class="token punctuation">.</span><span class="token function">getVolume</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; &quot;</span><span class="token operator">+</span> engine<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span>  <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;Transmission: &quot;</span> <span class="token operator">+</span> transmission <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;Multimedia: &quot;</span> <span class="token operator">+</span> multimedia <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Builders</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token class-name">Cars<span class="token punctuation">.</span>Car</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">CarBuilder</span> <span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Car</span> car<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CarBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeModelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeTransmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeMultimedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token class-name">Car</span> <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> car<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Builders</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">import</span> <span class="token class-name">Cars<span class="token punctuation">.</span>ModelType</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Engine</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Multimedia</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Transmission</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarBasicBuilder</span> <span class="token keyword">extends</span> <span class="token class-name">CarBuilder</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;Polo 1.0 MPI&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeModelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setModelType</span><span class="token punctuation">(</span><span class="token class-name">ModelType</span><span class="token punctuation">.</span>BASIC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+   
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setEngine</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Engine</span><span class="token punctuation">(</span><span class="token string">&quot;Aspirado&quot;</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeTransmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setTransmission</span><span class="token punctuation">(</span><span class="token class-name">Transmission</span><span class="token punctuation">.</span>MANUAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeMultimedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setMultimedia</span><span class="token punctuation">(</span><span class="token class-name">Multimedia</span><span class="token punctuation">.</span>BASIC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+  
+    
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Builders</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">import</span> <span class="token class-name">Cars<span class="token punctuation">.</span>ModelType</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Engine</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Multimedia</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Transmission</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarCompleteBuilder</span> <span class="token keyword">extends</span> <span class="token class-name">CarBuilder</span> <span class="token punctuation">{</span>
+
+    
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;Polo Highline 200 TSI AT&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeModelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setModelType</span><span class="token punctuation">(</span><span class="token class-name">ModelType</span><span class="token punctuation">.</span>COMPLETE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+   
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setEngine</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Engine</span><span class="token punctuation">(</span><span class="token string">&quot;Turbo&quot;</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeTransmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setTransmission</span><span class="token punctuation">(</span><span class="token class-name">Transmission</span><span class="token punctuation">.</span>AUTOMATIC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeMultimedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setMultimedia</span><span class="token punctuation">(</span><span class="token class-name">Multimedia</span><span class="token punctuation">.</span>COMPLETE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    
+
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Builders</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token class-name">Cars<span class="token punctuation">.</span>ModelType</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Engine</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Multimedia</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token class-name">Components<span class="token punctuation">.</span>Transmission</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CarIntermediaryBuilder</span> <span class="token keyword">extends</span> <span class="token class-name">CarBuilder</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;Polo 1.6 MSI AT&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeModelType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setModelType</span><span class="token punctuation">(</span><span class="token class-name">ModelType</span><span class="token punctuation">.</span>COMPLETE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+   
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setEngine</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Engine</span><span class="token punctuation">(</span><span class="token string">&quot;Aspirado&quot;</span><span class="token punctuation">,</span> <span class="token number">1.6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeTransmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setTransmission</span><span class="token punctuation">(</span><span class="token class-name">Transmission</span><span class="token punctuation">.</span>AUTOMATIC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildeMultimedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        car<span class="token punctuation">.</span><span class="token function">setMultimedia</span><span class="token punctuation">(</span><span class="token class-name">Multimedia</span><span class="token punctuation">.</span>COMPLETE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Cars</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">ModelType</span> <span class="token punctuation">{</span>
+    
+    BASIC<span class="token punctuation">,</span> INTERMEDIARY<span class="token punctuation">,</span> COMPLETE
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Components</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Engine</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> type<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">double</span> volume<span class="token punctuation">;</span>
+   
+
+    <span class="token keyword">public</span> <span class="token class-name">Engine</span><span class="token punctuation">(</span><span class="token class-name">String</span> type<span class="token punctuation">,</span> <span class="token keyword">double</span> volume<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>volume <span class="token operator">=</span> volume<span class="token punctuation">;</span>
+       
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getVolume</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> volume<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> type<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Components</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Multimedia</span> <span class="token punctuation">{</span>
+    BASIC<span class="token punctuation">,</span> COMPLETE
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">package</span> <span class="token class-name">Components</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Transmission</span> <span class="token punctuation">{</span>
+    MANUAL<span class="token punctuation">,</span> AUTOMATIC
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br><span class="line-number">318</span><br><span class="line-number">319</span><br><span class="line-number">320</span><br><span class="line-number">321</span><br><span class="line-number">322</span><br><span class="line-number">323</span><br><span class="line-number">324</span><br><span class="line-number">325</span><br><span class="line-number">326</span><br><span class="line-number">327</span><br><span class="line-number">328</span><br><span class="line-number">329</span><br><span class="line-number">330</span><br><span class="line-number">331</span><br><span class="line-number">332</span><br></div></div><h2 id="usos-conhecidos"><a href="#usos-conhecidos" class="header-anchor">#</a> Usos conhecidos</h2> <p>O conversor de RTF é de ET ++ [WGM88]. O seu bloco construtor de texto usa um builder para processar texto
+armazenado no formato RTF.
+Builder é um padrão comum em Smalltalk-80 [Par90]:</p> <ul><li><p>A classe Parser no subsistema compilador é um Director que aceita um objeto ProgramNodeBuilder
+como um argumento. Um objeto Parser notifica
+seu objeto ProgramNodeBuilder cada vez que
+reconhece uma construção
+sintática. Quando o analisador (parser) termina, pede ao construtor a
+árvore de derivação (parse tree) que construiu, retornando-a para o cliente.</p></li> <li><p>O ClassBuilder é um builder que Classes usam para criar subclasses por elas mesmas. Neste caso, Class é tanto Director como Producto.</p></li> <li><p>O ByteCodeStream é um construtor que cria um método compilado como um vetor de bytes (byte array). ByteCodeStream é um uso não-padronizado do padrão Builder porque o objeto complexo que ele constrói é codificado como um vetor de bytes e não como um objeto SmaUtalk normal. Mas a interface de ByteCodeStream é típica de um construtor (builder,) e seria fácil substituir ByteCodeStream por uma classe diferente que representasse programas como um objeto composto.</p></li></ul> <p>O framework Service Configurator do Adaptive Communications Environment usa um builder para construir componentes de serviços de rede que são ''linkeditados&quot;
+a um servidor em tempo de execução [5S94]. Os componentes são descritos com uma linguagem de configuração que é analisada por um analisador LALR(l). As ações semânticas do analisador executam operações sobre o construtor que acrescenta informações ao componente de serviço. Neste caso, o analisador é o Director.</p> <h2 id="padroes-relacionados"><a href="#padroes-relacionados" class="header-anchor">#</a> Padrões relacionados</h2> <p>Abstract Factory (95) é semelhante a Builder no sentido de que também pode construir objetos complexos. A diferença principal é que o padrão Builder focaliza a construção de um objeto complexo passo a passo. A ênfase do Abstract Factory é sobre famílias de objetos-produto (simples ou complexos). O Builder retorna o produto como um passo final, mas no caso do padrão Abstract Factory o produto é retornado imediatamente.</p> <p>Um Composite (160) é o que freqüentemente o builder constrói.</p> <h2 id="referencias"><a href="#referencias" class="header-anchor">#</a> Referências</h2></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/leandro-costa/vuepressppr/edit/master/src/gof/BuilderFagner/README.md" target="_blank" rel="noopener noreferrer">Edit!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/29/2022, 12:29:43 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepressppr/03_GOF.html" class="prev">
+        GOF 🔨
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/vuepressppr/assets/js/app.c089e0e7.js" defer></script><script src="/vuepressppr/assets/js/2.63c38da0.js" defer></script><script src="/vuepressppr/assets/js/25.b79a6340.js" defer></script><script src="/vuepressppr/assets/js/3.5bc5870a.js" defer></script>
+  </body>
+</html>
