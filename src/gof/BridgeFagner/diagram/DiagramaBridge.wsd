@@ -1,0 +1,53 @@
+skinparam style strictuml
+hide empty members
+title Bridge Report File
+
+abstract Report <<abstract>> {
+  File file
+  generateReport()
+  generateFile()  
+}
+
+abstract File <<abstract>>{  
+  generateFile()
+}
+
+
+class "BasicReport" as B
+class B {
+  generateReport()
+  generateFile()
+}
+
+
+
+class "CompleteReport" as C
+class C {
+  generateReport()
+  generateFile()
+   
+}
+
+class "PDFFile" as PDF
+class PDF {
+  generateFile()
+   
+}
+
+class "CSVFile" as CSV
+class CSV {
+  generateFile()
+   
+}
+
+File --o Report
+
+B -up-|> Report
+C -up-|> Report
+
+CSV -up-|> File
+PDF -up-|> File
+
+
+
+
