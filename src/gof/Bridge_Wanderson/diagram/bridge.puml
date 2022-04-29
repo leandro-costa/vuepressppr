@@ -2,26 +2,26 @@
 
 class Executa{
 }
+package Bridge <<Rectangle>> {
+    interface Dispositivo{
+        +isligado()
+        +ligado()
+        +desligado()
+        +getVolume()
+        +setVolume(int percent)
+        +getChannel()
+        +setChannel(int channel)
+        +printStatus()
+    }
 
-interface Dispositivo{
-    +isligado()
-    +ligado()
-    +desligado()
-    +getVolume()
-    +setVolume(int percent)
-    +getChannel()
-    +setChannel(int channel)
-    +printStatus()
+    interface Controle{
+        +power()
+        +volumeDown()
+        +volumeUp()
+        +channelDown()
+        +channelUp()
+    }
 }
-
-interface Controle{
-    +power()
-    +volumeDown()
-    +volumeUp()
-    +channelDown()
-    +channelUp()
-}
-
 class Tv implements Dispositivo{
     -on
     -volume
@@ -52,7 +52,8 @@ class ControleAvancado extends ControleBasico{
     +channelUp()
 }
 Executa . Controle
-Controle o--> Dispositivo : contém
+Controle o-right-> Dispositivo : contém
+
 
 note right of ControleAvancado::mudo 
 dispositivo.setVolume(0) 
